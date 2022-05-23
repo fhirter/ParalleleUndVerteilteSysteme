@@ -1,0 +1,25 @@
+@startuml
+start
+#palegreen:Letzte nachrichtenposition laden;
+#palegreen:Maximaler Füllstand laden;
+
+if(maximaler Füllstand > letzte nachrichtenposition)
+  #palegreen:Inkrementieren;
+  #palegreen:Nachricht aus dem Speicher laden;
+  #palegreen:Nachricht in den Speicher der Message Queue speichern;
+endif
+
+
+#red: context switch;
+
+#aqua:Letzte nachrichtenposition laden;
+#aqua:Maximaler Füllstand laden;
+if(maximaler Füllstand > letzte nachrichtenposition)
+  #aqua:Inkrementieren;
+  #aqua:Nachricht aus dem Speicher laden;
+  #aqua:Nachricht in den Speicher der Message Queue speichern;
+endif
+
+
+end
+@enduml
