@@ -1,0 +1,23 @@
+@startuml
+title Linienfolger mit Kollisionkontrolle
+
+participant "Motorcontroller" as motor << Prio 2 >>
+participant "Distanzsensor" as distanz << Prio 3 >>
+participant "Farbsensor" as farb << Prio 1 >>
+
+[-> distanz ++: start
+ 
+distanz --> motor --++: yield
+motor --> farb --++: yield
+|||
+|||
+farb --> distanz --++: preemption
+distanz --> farb --++: yield
+
+|||
+|||
+farb -> motor --++: rot
+
+"motor" --> "distanz" --++: preemption
+"distanz" -> motor --++: obstacle
+@enduml
