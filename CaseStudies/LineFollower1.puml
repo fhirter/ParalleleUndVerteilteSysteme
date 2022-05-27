@@ -5,19 +5,31 @@ participant "Motorcontroller" as motor << Prio 2 >>
 participant "Distanzsensor" as distanz << Prio 3 >>
 participant "Farbsensor" as farb << Prio 1 >>
 
-[-> distanz ++: start
+[-> distanz ++ #DarkSalmon: start
  
-distanz --> motor --++: yield
-motor --> farb --++: yield
-|||
-|||
-farb --> distanz --++: preemption
-distanz --> farb --++: yield
+distanz --> motor --++ #DodgerBlue: vTaskDelay 
+motor --> farb --++ #aqua: vTaskDelay
+note right
+  Farbsensor wird nur ausgeführt
+  wenn die anderen Task die CPU abgeben
+end note
+
 
 |||
 |||
-farb -> motor --++: rot
+farb --> distanz --++ #DarkSalmon: preemption
+distanz --> farb --++ #aqua: vTaskDelay
 
-"motor" --> "distanz" --++: preemption
-"distanz" -> motor --++: obstacle
+|||
+|||
+
+farb -> motor --++ #DodgerBlue: rot
+note left
+  Motor wartet bis eine Nachricht
+  von den Sensoren kommt
+end note
+
+
+"motor" --> "distanz" --++ #DarkSalmon: preemption
+"distanz" -> motor --++ #DodgerBlue: obstacle
 @enduml
