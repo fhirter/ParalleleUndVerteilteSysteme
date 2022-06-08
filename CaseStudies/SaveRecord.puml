@@ -1,0 +1,10 @@
+@startuml
+start
+:Find Record;
+if(Record found)
+  :Update Record;
+else
+  :Create Record;
+endif
+stop
+@enduml
