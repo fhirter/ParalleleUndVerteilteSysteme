@@ -33,6 +33,11 @@
 > «A distributed system is a collection of independent computers that appears to its users as a single coherent system.»
 
 ![img.png](DistributedSystem.png)
+VanSteen, 2017, S. 26
+
+P: Prozessor,
+Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
+
 
 ---
 
@@ -72,12 +77,11 @@
 
 ![img.png](LoadBalancing.png)
 
-### Verteilte Systeme
-![DistributedSystem.png](DistributedSystem.png)
-VanSteen, 2017, S. 26
+### Cloud Computing
+> The entire history of software engineering is that of the rise in levels of abstraction.
 
-P: Prozessor,
-Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
+-- Grady Booch
+
 
 ### Pizza as a Service
 
