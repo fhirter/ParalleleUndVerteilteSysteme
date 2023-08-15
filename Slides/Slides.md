@@ -27,7 +27,6 @@
 - Eine zentrale Aufgabe von Betriebsystemen ist es, die Prozesse auf die CPUs zu verteilen.
 - Dies wird «Scheduling» genannt.
 
-
 ### Verteilte Systeme
 
 > «A distributed system is a collection of independent computers that appears to its users as a single coherent system.»
@@ -39,8 +38,7 @@ P: Prozessor,
 Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
 
----
-
+## Resource Sharing
 - Ressourcen verfügbar machen: Drucker, Computing, Storage, Daten, Netzwerk
 - Teure Ressourcen können besser ausgelastet werden und müssen nicht mehrfach angeschafft werden
 - Zusammenarbeit
@@ -77,7 +75,22 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
 ![img.png](LoadBalancing.png)
 
-### Cloud Computing
+## Decentralized vs Distributed
+
+### Decentralized
+- [Matrix](https://element.io/features/decentralised-matrix-network)
+- [Mastodon](https://joinmastodon.org/)
+- [Nextcloud](https://nextcloud.com/de/)
+- ...
+
+### Distributed
+![when-the-cloud-leaves-the-datacenter-530836-1.jpg](when-the-cloud-leaves-the-datacenter-530836-1.jpg)
+- [CockroachDB](https://www.cockroachlabs.com/product/)
+- [Neon](https://neon.tech/)
+- [Ably](https://ably.com/)
+- ...
+
+## Cloud Computing
 > The entire history of software engineering is that of the rise in levels of abstraction.
 
 -- Grady Booch
@@ -98,3 +111,6 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 ### Fallstudie
 
 ![img.png](CaseStudyDashboard.png)
+
+
+
