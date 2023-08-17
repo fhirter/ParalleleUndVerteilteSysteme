@@ -2,7 +2,7 @@
 
 ## Vorbereitung
 Wähle eine der folgenden Technologien:
-- CockroachDB
+- CockroachDB (Datenbank)
 - Matrix (Kommunikationsprotokoll)
 - Mastodon
 - Ably
@@ -17,7 +17,8 @@ Werden bestehende Systeme vernetzt oder ein bestehendes System verteilt?
 (vgl van Steen 2023 Kapitel 1.1)
 
 ### Design Goals
-Untersuche die Technologie auf folgende Eigenschaften:
+Untersuche die Features der gewählten Technologie und vergleiche diese mit den folgenden Design Goals von verteilten Systemen:
+
 Transparenz:
 - Zugriff
 - Standort
@@ -47,5 +48,6 @@ Scalability
 (vgl van Steen 2023 Kapitel 1.2)
 
 ## Quellen
+
 van Steen 2023
 : M. van Steen and A.S. Tanenbaum, Distributed Systems, 4th ed., distributed-systems.net, 2023.
