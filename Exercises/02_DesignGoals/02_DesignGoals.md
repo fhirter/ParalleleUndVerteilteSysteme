@@ -44,6 +44,9 @@ Scalability
 - Grössenskalierbarkeit
 - Geografische Skalierbarkeit
 - Administrative Skalierbarkeit
+- Verstecken von Netzwerklatenzen
+- Partitionierung und Verteilung
+- Replikation
 
 (vgl van Steen 2023 Kapitel 1.2)
 
