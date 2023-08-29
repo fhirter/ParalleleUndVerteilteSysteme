@@ -3,10 +3,11 @@
 ## Aufgabenstellung
 In Zweiergruppen erarbeiten die Studierenden einen Aufsatz und eine Präsentation zu einem von mehreren gegebenen Themen.
 Ziel ist es, ein verteiltes System zu analysieren, Vor- und Nachteile zu evaluieren und die im Unterricht behandelten Themen anzuwenden.
-Die Studierenden können ein Thema aus dem [beiliegenden Dokument](Distributed%20Systems%20-%20controversial%20topics.pdf), in Absprache mit den anderen Gruppen, frei wählen.
 
 ## Aufsatz
-Der Aufsatz behandelt eine Frage zu einem Thema im Bereich «Verteilte Systeme». Folgende Teile sollten vorkommen.
+Der Aufsatz behandelt eine Frage zu einem Thema im Bereich «Verteilte Systeme». 
+Die Studierenden können ein Thema aus dem [beiliegenden Dokument](Distributed%20Systems%20-%20controversial%20topics.pdf), in Absprache mit den anderen Gruppen, frei wählen.
+Folgende Teile sollten vorkommen.
 
 ### Klare und detaillierte Beschreibung des Problems.
 «Simply posing the question is often not enough. 
@@ -22,11 +23,11 @@ Providing background information, which often consists of exploring a variety of
 ## Fragestellungen und Präsentationen
 Das erarbeitete Thema wird der Klasse präsentiert. 
 Nach der Präsentation stellt sich die präsentierende Gruppe Fragen vom Dozenten und von den anderen Studierenden. 
-Die Fragen müssen vorbereitet sein und sowohl Fragen wie auch Antworten werden bewertet.
+Die Fragen müssen vorbereitet sein und sowohl Fragen als auch Antworten werden bewertet.
 
 ## Zeitplan
-- KW 35, Mittwoch Abend: Aufsatz fertiggestellt und dem Dozenten und der anderen Gruppe zugestellt.
-- KW 37, Mittwoch Abend: Jede Gruppe hat das Material einer anderen Gruppe studiert und pro Person zwei Fragen vorbereitet
+- KW 35, Mittwochabend: Aufsatz fertiggestellt und dem Dozenten und der anderen Gruppe zugestellt.
+- KW 37, Mittwochabend: Jede Gruppe hat das Material einer anderen Gruppe studiert und pro Person zwei Fragen vorbereitet
 - KW 37, Donnerstag: Präsentationen und Fragen der anderen Gruppe beantworten 
 
 ## Bewertung
