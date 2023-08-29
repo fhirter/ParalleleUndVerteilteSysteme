@@ -3,6 +3,7 @@
 ## Aufgabenstellung
 In Zweiergruppen erarbeiten die Studierenden einen Aufsatz und eine Präsentation zu einem von mehreren gegebenen Themen.
 Ziel ist es, ein verteiltes System zu analysieren, Vor- und Nachteile zu evaluieren und die im Unterricht behandelten Themen anzuwenden.
+Die Studierenden können ein Thema aus dem [beiliegenden Dokument](Distributed%20Systems%20-%20controversial%20topics.pdf), in Absprache mit den anderen Gruppen, frei wählen.
 
 ## Aufsatz
 Der Aufsatz behandelt eine Frage zu einem Thema im Bereich «Verteilte Systeme». Folgende Teile sollten vorkommen.
