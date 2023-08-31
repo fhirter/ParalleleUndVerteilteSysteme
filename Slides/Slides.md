@@ -1,4 +1,4 @@
-<!-- headingDivider: 3 -->
+<!-- headingDivider: 4 -->
 # Parallele und verteilte Systeme
 ## Einführung
 ### «Parallele Systeme»
