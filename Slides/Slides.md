@@ -73,7 +73,6 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 - ...
 
 **Distributed**
-![when-the-cloud-leaves-the-datacenter-530836-1.jpg](when-the-cloud-leaves-the-datacenter-530836-1.jpg)
 - [CockroachDB](https://www.cockroachlabs.com/product/)
 - [Neon](https://neon.tech/)
 - [Ably](https://ably.com/)
@@ -83,6 +82,8 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 > The entire history of software engineering is that of the rise in levels of abstraction.
 
 -- Grady Booch
+
+![when-the-cloud-leaves-the-datacenter-530836-1.jpg](when-the-cloud-leaves-the-datacenter-530836-1.jpg)
 
 
 ### Pizza as a Service
