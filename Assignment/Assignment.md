@@ -39,16 +39,16 @@ Die Fragen müssen vorbereitet sein und sowohl Fragen als auch Antworten werden 
 Abgaben jeweils bis Sonntag-Abend als PDF per E-Mail an den Dozenten.
 
 ## Bewertung
-Aufsatz und Präsentation gemäss folgendem Bewertungsraster (Gruppenbewertung): 
-- Beschreibung des Problems: 10 Punkte
-- Hintergrundinformationen und Recherche: 40 Punkte
-- Situationsanalyse und Empfehlung: 20 Punkte
+Aufsatz und Präsentation gemäss folgendem Bewertungsraster: 
+- Beschreibung des Problems (Gruppenbewertung): 10 Punkte
+- Hintergrundinformationen und Recherche (Gruppenbewertung): 40 Punkte
+- Situationsanalyse und Empfehlung (Gruppenbewertung): 20 Punkte
 - Individuelle Fragen (Einzelbewertung): 10 Punkte
 - Individuelle Antworten (Einzelbewertung): 10 Punkte 
 
 Umfang: ca 2500 Wörter.
 
-Note: Gesamtpunkte/90*5+1
+Note: Gesamtpunkte/90*5+1, gerundet auf 0.1.
 
 ## Themen
 
