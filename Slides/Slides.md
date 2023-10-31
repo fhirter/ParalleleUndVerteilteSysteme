@@ -83,9 +83,6 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
 -- Grady Booch
 
-![when-the-cloud-leaves-the-datacenter-530836-1.jpg](when-the-cloud-leaves-the-datacenter-530836-1.jpg)
-
-
 ### Pizza as a Service
 
 ![img.png](PizzaAsAService.png)
@@ -102,3 +99,6 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
 ![img.png](CaseStudyDashboard.png)
 
+---
+
+![when-the-cloud-leaves-the-datacenter-530836-1.jpg](when-the-cloud-leaves-the-datacenter-530836-1.jpg)
