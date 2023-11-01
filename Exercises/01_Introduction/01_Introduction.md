@@ -10,7 +10,7 @@ Lies folgenden Artikel aufmerksam durch:
 ### Fragen und Aufgaben
 - Auf welche Herausforderungen und Einschränkungen sind die Techniker:innen bei der Microservices-Architektur gestossen?
 - Was sind die Vor- und Nachteile der beiden diskutierten Architekturen
-- Untersuche, welche Teile des Systems ein dezentrales System darstellen und welche ein verteiltes System.
+- Untersuche in beiden Architekturen, welche Teile des Systems ein dezentrales System darstellen und welche ein verteiltes System.
 
 ### Hintergrundinformationen
 ### Serverless
