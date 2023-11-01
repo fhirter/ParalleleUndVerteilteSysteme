@@ -83,21 +83,21 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
 -- Grady Booch
 
-### Pizza as a Service
+---
 
-![img.png](PizzaAsAService.png)
+![w:1000px](PizzaAsAService.png)
 
 ### Abstractions
-![img.png](Abstractions.png)
+![w:1000px](Abstractions.png)
 (VanSteen, 2017, S. 30)
 
 ### XaaS
-![img.png](XaaS.png)
+![w:1000px](XaaS.png)
 
 
 ### Fallstudie
 
-![img.png](CaseStudyDashboard.png)
+![w:1000px](CaseStudyDashboard.png)
 
 ---
 
