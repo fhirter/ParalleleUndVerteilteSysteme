@@ -289,10 +289,14 @@ Jede Perspektive wird in einem separaten Kapitel betrachtet.
 
 ## 1.2 Entwurfsziele
 
-Nur weil es möglich ist, verteilte Systeme zu bauen, bedeutet das nicht zwangsläufig, dass es eine gute Idee ist. In
-diesem Abschnitt diskutieren wir vier wichtige Ziele, die erfüllt werden sollten, um den Aufbau eines verteilten Systems
-zu rechtfertigen. Ein verteiltes System sollte Ressourcen leicht zugänglich machen; es sollte die Tatsache verbergen,
-dass Ressourcen über ein Netzwerk verteilt sind; es sollte offen sein; und es sollte skalierbar sein.
+Nur weil es möglich ist, verteilte Systeme zu bauen, bedeutet das nicht zwangsläufig, dass es eine gute Idee ist.
+In diesem Abschnitt diskutieren wir vier wichtige Ziele, die erfüllt werden sollten, um den Aufbau eines verteilten
+Systems
+zu rechtfertigen.
+Ein verteiltes System sollte Ressourcen leicht zugänglich machen;
+es sollte die Tatsache verbergen, dass Ressourcen über ein Netzwerk verteilt sind;
+es sollte offen sein;
+und es sollte skalierbar sein.
 
 ### 1.2.1 Ressourcenfreigabe
 
@@ -304,19 +308,24 @@ beispielsweise billiger, eine einzelne hochwertige zuverlässige Speichereinrich
 Benutzer separat Speicher zu kaufen und zu warten. Das Verbinden von Benutzern und Ressourcen erleichtert auch die
 Zusammenarbeit und den Informationsaustausch, wie der Erfolg des Internets mit seinen einfachen Protokollen zum
 Austausch von Dateien, Mail, Dokumenten, Audio und Video zeigt. Die Konnektivität des Internets hat es geografisch weit
-verstreuten Personengruppen ermöglicht, durch alle Arten von Groupware zusammenzuarbeiten, das heißt Software für
+verstreuten Personengruppen ermöglicht, durch alle Arten von Groupware zusammenzuarbeiten, das heisst Software für
 kollaboratives Bearbeiten, Videokonferenzen und so weiter, wie es beispielsweise von multinationalen
-Softwareentwicklungsunternehmen illustriert wird, die einen Großteil ihrer Codeproduktion nach Asien ausgelagert haben,
+Softwareentwicklungsunternehmen illustriert wird, die einen Grossteil ihrer Codeproduktion nach Asien ausgelagert haben,
 aber auch durch die Vielzahl von Zusammenarbeitstools, die durch die COVID-19-Pandemie (leichter) verfügbar wurden.
+
 Die Ressourcenfreigabe in verteilten Systemen wird auch durch den Erfolg von File-Sharing-Peer-to-Peer-Netzwerken wie
 BitTorrent illustriert. Diese verteilten Systeme ermöglichen es Benutzern, Dateien einfach über das Internet zu teilen.
 Peer-to-Peer-Netzwerke werden oft mit der Verteilung von Medien Dateien wie Audio und Video in Verbindung gebracht. In
 anderen Fällen wird die Technologie zum Verteilen großer Datenmengen verwendet, wie im Fall von Software-Updates,
-Backup-Diensten und Datenabgleich über mehrere Server. Die nahtlose Integration von Ressourcenfreigabeeinrichtungen in
-einer vernetzten Umgebung ist ebenfalls heute üblich. Eine Benutzergruppe kann einfach Dateien in einen speziellen
-gemeinsamen Ordner legen, der von einem Drittanbieter irgendwo im Internet gepflegt wird. Mit spezieller Software ist
-der gemeinsam genutzte Ordner kaum von anderen Ordnern auf dem Computer eines Benutzers zu unterscheiden. Tatsächlich
-ersetzen diese Dienste die Verwendung eines gemeinsamen Verzeichnisses in einem lokalen verteilten Dateisystem und
+Backup-Diensten und Datenabgleich über mehrere Server.
+
+Die nahtlose Integration von Ressourcenfreigabeeinrichtungen in einer vernetzten Umgebung ist ebenfalls heute üblich.
+Eine Benutzergruppe kann einfach Dateien in einen speziellen gemeinsamen Ordner legen, der von einem Drittanbieter
+irgendwo im Internet gepflegt wird.
+Mit spezieller Software ist der gemeinsam genutzte Ordner kaum von anderen Ordnern auf dem Computer eines Benutzers zu
+unterscheiden.
+Tatsächlich ersetzen diese Dienste die Verwendung eines gemeinsamen Verzeichnisses in einem lokalen verteilten
+Dateisystem und
 machen Daten unabhängig von der Organisation, der sie angehören, und unabhängig von ihrem Aufenthaltsort verfügbar. Der
 Dienst wird für verschiedene Betriebssysteme angeboten. Wo genau Daten gespeichert werden, ist für den Endbenutzer
 völlig verborgen.
@@ -326,7 +335,7 @@ völlig verborgen.
 Ein wichtiges Ziel eines verteilten Systems ist es, die Tatsache zu verbergen, dass seine Prozesse und Ressourcen
 physisch über mehrere Computer verteilt sind, möglicherweise über große Entfernungen hinweg. Mit anderen Worten, es
 versucht, die Verteilung von Prozessen und Ressourcen für Endbenutzer und Anwendungen transparent, das heißt unsichtbar,
-zu machen. Wie wir in Kapitel 2 ausführlicher diskutieren werden, wird die Verteilungstransparenz durch das sogenannte
+zu machen. Wie wir in Kapitel 2 ausführlicher diskutieren werden, wird die Verteilungstransparenz durch die sogenannte
 Middleware realisiert, skizziert in Abbildung 1.2 (siehe Gazis und Katsiri [2022] für eine erste Einführung). Im
 Wesentlichen sehen Anwendungen überall die gleiche Schnittstelle, während hinter dieser Schnittstelle, wo und wie
 Prozesse und Ressourcen sind und wie sie zugegriffen werden, transparent gehalten wird. Es gibt verschiedene Arten von
@@ -362,14 +371,14 @@ Zuverlässigkeit oder Performance zu erhöhen, für Benutzer und Anwendungen uns
 **Parallelitätstransparenz** besagt, dass die gleichzeitige Ausführung von Prozessen oder die gleichzeitige Nutzung von
 Ressourcen für Benutzer und Anwendungen unsichtbar sein sollte.
 
-Zuletzt, aber sicherlich nicht am wenigsten wichtig, ist es von Bedeutung, dass ein verteiltes System eine *
-*Fehlertransparenz** bietet. Dies bedeutet, dass ein Benutzer oder eine Anwendung nicht bemerkt, wenn ein Teil des
+Zuletzt, aber sicherlich nicht am wenigsten wichtig, ist es von Bedeutung, dass ein verteiltes System eine
+**Fehlertransparenz** bietet. Dies bedeutet, dass ein Benutzer oder eine Anwendung nicht bemerkt, wenn ein Teil des
 Systems nicht ordnungsgemäß funktioniert, und dass das System anschließend (und automatisch) von diesem Fehler erholt.
 Fehler zu maskieren ist eines der schwierigsten Probleme in verteilten Systemen und ist sogar unmöglich, wenn bestimmte
 scheinbar realistische Annahmen getroffen werden, wie wir in Kapitel 8 besprechen werden. Die Hauptproblematik beim
-Maskieren und transparenten Wiederherstellen von Fehlern liegt in der Unfähigkeit, zwischen einem toten Prozess und
+Maskieren und transparenten Wiederherstellen von Fehlern liegt in der Unfähigkeit, zwischen einem "toten" Prozess und
 einem schmerzhaft langsam reagierenden zu unterscheiden. Zum Beispiel wird ein Browser beim Kontaktieren eines
-beschäftigten Web-Servers schließlich eine Zeitüberschreitung melden und berichten, dass die Webseite nicht verfügbar
+beschäftigten Web-Servers schliesslich eine Zeitüberschreitung melden und berichten, dass die Webseite nicht verfügbar
 ist. Zu diesem Zeitpunkt kann der Benutzer nicht feststellen, ob der Server tatsächlich ausgefallen ist oder das
 Netzwerk stark überlastet ist.
 
@@ -386,10 +395,10 @@ verbindet, nicht erwartet werden, dass es die Tatsache verbirgt, dass Mutter Nat
 einem Prozess zum anderen in weniger als ungefähr 35 Millisekunden zu senden. Die Praxis zeigt, dass dies mit einem
 Computernetzwerk tatsächlich mehrere hundert Millisekunden dauert. Die Signalübertragung wird nicht nur durch die
 Lichtgeschwindigkeit begrenzt, sondern auch durch begrenzte Verarbeitungskapazitäten und Verzögerungen in den
-Zwischenschaltern.
+Zwischenstationen.
 
 Es gibt auch einen Trade-off zwischen einem hohen Grad an Transparenz und der Leistung eines Systems. Zum Beispiel
-versuchen viele Internetanwendungen wiederholt, einen Server zu kontaktieren, bevor sie schließlich aufgeben. Das
+versuchen viele Internetanwendungen wiederholt, einen Server zu kontaktieren, bevor sie schliesslich aufgeben. Das
 Versuchen, einen vorübergehenden Serverausfall zu maskieren, bevor ein anderer versucht wird, kann das gesamte System
 verlangsamen. In einem solchen Fall wäre es vielleicht besser gewesen, früher aufzugeben oder zumindest dem Benutzer zu
 erlauben, die Kontaktversuche abzubrechen.
@@ -400,11 +409,12 @@ allen Kopien propagiert werden, bevor eine andere Operation erlaubt wird. Ein ei
 dauern, etwas, das den Benutzern nicht verborgen werden kann.
 
 Schließlich gibt es Situationen, in denen es überhaupt nicht offensichtlich ist, dass das Verbergen der Verteilung eine
-gute Idee ist. Da sich verteilte Systeme auf Geräte ausweiten, die Menschen herumtragen, und wo der sehr Begriff der
-Standort- und Kontextbewusstsein immer wichtiger wird, ist es vielleicht am besten, die Verteilung tatsächlich
-offenzulegen, anstatt zu versuchen, sie zu verbergen. Ein offensichtliches Beispiel ist die Nutzung von
-standortbasierten Diensten, die oft auf Mobiltelefonen zu finden sind, wie z. B. das Finden eines nächstgelegenen
-Geschäfts oder nahen Freunden.
+gute Idee ist.
+Da sich verteilte Systeme auf Geräte ausweiten, die Menschen herumtragen, und das Standort- und Kontextbewusstsein immer
+wichtiger wird, ist es vielleicht am besten, die Verteilung offenzulegen, anstatt zu versuchen, sie zu verbergen.
+Ein offensichtliches Beispiel ist die Nutzung von standortbasierten Diensten, die oft auf Mobiltelefonen zu finden sind,
+wie z. B. das Finden eines nächstgelegenen Geschäfts oder nahen Freunden.
+Hier ist es explizit erwünscht, dass die Standorte ersichtlich sind und nicht verborgen werden.
 
 Es gibt auch andere Argumente gegen die Verteilungstransparenz. Da wir erkennen, dass vollständige
 Verteilungstransparenz einfach unmöglich ist, sollten wir uns fragen, ob es überhaupt klug ist, so zu tun, als könnten
@@ -414,8 +424,8 @@ wird sein, dass die Benutzer das (manchmal unerwartete) Verhalten eines verteilt
 somit viel besser darauf vorbereitet sind, mit diesem Verhalten umzugehen.
 
 Der Schluss ist, dass das Anstreben von Verteilungstransparenz beim Entwerfen und Implementieren von verteilten Systemen
-ein schönes Ziel sein kann, aber dass es zusammen mit anderen Fragen wie Leistung und Verständlichkeit betrachtet werden
-sollte. Der Preis für das Erreichen vollständiger Transparenz könnte überraschend hoch sein.
+ein gutes Ziel sein kann, aber dass es zusammen mit anderen Fragen wie Leistung und Verständlichkeit betrachtet werden
+sollte. Der Aufwand für das Erreichen vollständiger Transparenz könnte überraschend hoch sein.
 
 ### 1.2.3 Offenheit
 
@@ -444,7 +454,7 @@ sodass es notwendig ist, implementierungsspezifische Details hinzuzufügen. Eben
 nicht vorschreiben, wie eine Implementierung aussehen sollte; sie sollten neutral sein.
 
 Wie Blair und Stefani [1998] feststellten, sind Vollständigkeit und Neutralität wichtig für Interoperabilität und
-Portabilität. Interoperabilität charakterisiert das Maß, in dem zwei Implementierungen von Systemen oder Komponenten
+Portabilität. Interoperabilität charakterisiert das Mass, in dem zwei Implementierungen von Systemen oder Komponenten
 unterschiedlicher Hersteller koexistieren und lediglich auf die Dienste des anderen vertrauen können, wie sie durch
 einen gemeinsamen Standard spezifiziert werden. Portabilität beschreibt, inwieweit eine für ein verteiltes System A
 entwickelte Anwendung ohne Änderung auf einem anderen verteilten System B ausgeführt werden kann, das die gleichen
@@ -456,7 +466,7 @@ neue Komponenten hinzuzufügen oder vorhandene zu ersetzen, ohne die verbleibend
 anderen Worten, ein offenes verteiltes System sollte auch erweiterbar sein. Zum Beispiel sollte es in einem
 erweiterbaren System relativ einfach sein, Teile hinzuzufügen, die auf einem anderen Betriebssystem laufen, oder sogar
 ein gesamtes Dateisystem zu ersetzen. Relativ einfache Beispiele für Erweiterbarkeit sind Plug-ins für Webbrowser, aber
-auch solche für Websites, wie die für WordPress verwendet werden.
+auch solche für Websites, wie sie für WordPress verwendet werden.
 
 #### Trennung von Richtlinie und Mechanismus
 
@@ -489,7 +499,7 @@ beispielsweise idealerweise Einrichtungen nur zum Speichern von Dokumenten berei
 gleichzeitig den Benutzern ermöglichen, zu entscheiden, welche Dokumente wie lange gespeichert werden (d.h. eine
 Richtlinie). In der Praxis kann dies durch die Bereitstellung eines reichen Satzes von Parametern umgesetzt werden, die
 der Benutzer (dynamisch) einstellen kann. Wenn man diesen Schritt weiter geht, könnte ein Browser sogar Einrichtungen
-anbieten, um Richtlinien einzustecken, die ein Benutzer als separate Komponente implementiert hat.
+anbieten, um Richtlinien hinzuzufügen, die ein Benutzer als separate Komponente implementiert hat.
 
 ### 1.2.4 Zuverlässigkeit
 
@@ -501,7 +511,7 @@ Moment). Obwohl auch Einzelcomputer-Systeme unter Ausfällen leiden können, die
 eine potenziell große Sammlung von vernetzten Computersystemen die Dinge erheblich. Tatsächlich sollte man davon
 ausgehen, dass zu jedem Zeitpunkt immer partielle Ausfälle auftreten. Ein wichtiges Ziel von verteilten Systemen besteht
 darin, diese Ausfälle zu verbergen, sowie die Wiederherstellung von diesen Ausfällen zu verbergen. Diese Verschleierung
-ist das Wesen der Fehlertoleranz, die entsprechend als Fehlertoleranz bezeichnet wird.
+wird als Fehlertoleranz bezeichnet.
 
 #### Grundkonzepte
 
@@ -515,8 +525,7 @@ folgenden [Kopetz und Verissimo, 1993]:
 
 **Verfügbarkeit** wird definiert als die Eigenschaft, dass ein System sofort einsatzbereit ist.
 Allgemein bezieht es sich auf die Wahrscheinlichkeit, dass das System zu einem bestimmten Zeitpunkt korrekt arbeitet und
-bereit ist, seine
-Funktionen im Auftrag seiner Benutzer auszuführen.
+bereit ist, seine Funktionen im Auftrag seiner Benutzer auszuführen.
 Ein hochverfügbares System ist also eines, das zu einem bestimmten Zeitpunkt höchstwahrscheinlich funktioniert.
 
 **Zuverlässigkeit** bezieht sich auf die Eigenschaft, dass ein System kontinuierlich ohne Ausfall laufen kann.
@@ -547,7 +556,7 @@ Traditionell wurde Fehlertoleranz mit den folgenden drei Metriken in Verbindung 
 
 * Mittlere Zeit bis zum Ausfall (MTTF): Die durchschnittliche Zeit, bis eine Komponente ausfällt.
 * Mittlere Reparaturzeit (MTTR): Die durchschnittlich benötigte Zeit, um eine Komponente zu reparieren.
-* Mittlere Zeit zwischen Ausfällen (MTBF): Einfach MTTF + MTTR. 
+* Mittlere Zeit zwischen Ausfällen (MTBF): Einfach MTTF + MTTR.
 
 Diese Metriken machen nur dann Sinn, wenn wir ein genaues Verständnis dafür haben, was ein Ausfall eigentlich ist.
 Wie wir in Kapitel 8 sehen werden, ist es möglicherweise nicht so offensichtlich, das Auftreten eines Ausfalls zu
@@ -562,6 +571,7 @@ Systemzustands, der zu einem Ausfall führen kann. Beim Übertragen von Paketen 
 einige Pakete beschädigt sind, wenn sie beim Empfänger ankommen. Beschädigt in diesem Kontext bedeutet, dass der
 Empfänger einen Bitwert möglicherweise falsch erkennt (z. B. das Lesen einer 1 anstelle einer 0) oder sogar nicht
 erkennen kann, dass etwas angekommen ist.
+
 Die Ursache eines Fehlers wird als Störung bezeichnet. Es ist klar, dass es wichtig ist, herauszufinden, was einen
 Fehler verursacht hat. Eine falsche oder schlechte Übertragungsstrecke kann beispielsweise leicht dazu führen, dass
 Pakete beschädigt werden. In diesem Fall ist es relativ einfach, die Störung zu beseitigen. Übertragungsfehler können
@@ -575,7 +585,7 @@ Der Bau zuverlässiger Systeme hängt eng mit der Kontrolle von Fehlern zusammen
 kann man zwischen Verhinderung, Tolerierung, Entfernung und Vorhersage von Fehlern unterscheiden. Für unsere Zwecke ist
 das wichtigste Thema die Fehlertoleranz, was bedeutet, dass ein System seine Dienste auch bei Vorhandensein von Fehlern
 erbringen kann. Beispielsweise ist es durch die Anwendung von fehlerkorrigierenden Codes zur Übertragung von Paketen
-möglich, in gewissem Maße relativ schlechte Übertragungsleitungen zu tolerieren und die Wahrscheinlichkeit zu
+möglich, in gewissem Masse relativ schlechte Übertragungsleitungen zu tolerieren und die Wahrscheinlichkeit zu
 verringern, dass ein Fehler (ein beschädigtes Paket) zu einem Ausfall führt.
 Störungen werden allgemein als vorübergehend, intermittierend oder dauerhaft klassifiziert. Vorübergehende Fehler treten
 einmal auf und verschwinden dann. Wenn die Operation wiederholt wird, verschwindet der Fehler. Ein Vogel, der durch den
@@ -619,13 +629,15 @@ verschlüsseln und zu entschlüsseln. Der einfachste Weg, einen Sicherheitsschl�
 als eine Funktion zu sehen, die auf bestimmte Daten "data" operiert. Wir verwenden die Notation K(data), um
 auszudrücken, dass der Schlüssel K auf die Daten operiert.
 Es gibt zwei Möglichkeiten, Daten zu verschlüsseln und zu entschlüsseln. In einem symmetrischen Kryptosystem erfolgt die
-Verschlüsselung und Entschlüsselung mit einem einzigen Schlüssel. Mit EK(data) wird die Verschlüsselung von Daten mit
+Verschlüsselung und Entschlüsselung mit einem einzigen Schlüssel. Mit E_K(data) wird die Verschlüsselung von Daten mit
 dem Schlüssel EK bezeichnet, und entsprechend DK(data) für die Entschlüsselung mit dem Schlüssel DK. In einem
 symmetrischen Kryptosystem wird derselbe Schlüssel sowohl für die Verschlüsselung als auch für die Entschlüsselung
 verwendet, d.h.,
 wenn data = DK(EK(data)) dann ist DK = EK.
 Beachten Sie, dass bei einem symmetrischen Kryptosystem der Schlüssel von allen Parteien, die berechtigt sind, Daten zu
-verschlüsseln oder zu entschlüsseln, geheim gehalten werden muss. Bei einem asymmetrischen Kryptosystem sind die für
+verschlüsseln oder zu entschlüsseln, geheim gehalten werden muss.
+
+Bei einem asymmetrischen Kryptosystem sind die für
 Verschlüsselung und Entschlüsselung verwendeten Schlüssel unterschiedlich. Insbesondere gibt es einen öffentlichen
 Schlüssel PK, den jeder verwenden kann, und einen geheimen Schlüssel SK, der, wie der Name schon sagt, geheim gehalten
 werden soll. Asymmetrische Kryptosysteme werden auch als Public-Key-Systeme bezeichnet. Verschlüsselung und
@@ -634,6 +646,7 @@ wenn Alice Daten verschlüsseln möchte, die nur von Bob entschlüsselt werden k
 Schlüssel, PKB, verwenden, was zu den verschlüsselten Daten PKB(data) führt. Nur der Inhaber des zugehörigen geheimen
 Schlüssels kann diese Informationen entschlüsseln, d.h. Bob, der die Operation SKB(PKB(data)) anwendet, die data
 zurückgibt.
+
 Ein zweiter, weit verbreiteter Anwendungsfall ist das Realisieren von digitalen Signaturen. Angenommen, Alice stellt
 einige Daten zur Verfügung, bei denen es wichtig ist, dass eine Partei, aber lassen Sie uns annehmen, es ist Bob, sicher
 wissen muss, dass sie von Alice stammen. In diesem Fall kann Alice die Daten mit ihrem geheimen Schlüssel SKA
@@ -670,7 +683,7 @@ zwischen der gewünschten Sicherheit und den damit verbundenen Kosten zu finden.
 
 Für viele von uns ist die weltweite Vernetzung durch das Internet genauso alltäglich wie die Möglichkeit, ein Paket an
 jeden Ort der Welt zu senden. Früher waren wir es gewohnt, relativ leistungsstarke Desktop-Computer für Büroanwendungen
-und Speicherung zu haben. Heutzutage werden solche Anwendungen und Dienste jedoch in das versetzt, was als "die Cloud"
+und Speicherung zu haben. Heutzutage werden solche Anwendungen und Dienste jedoch in das verschoben, was als "die Cloud"
 bezeichnet wird. Dies führt zu einem Anstieg von viel kleineren vernetzten Geräten wie Tablet-Computern oder sogar
 reinen Cloud-Laptops wie Googles Chromebook. Vor diesem Hintergrund ist die Skalierbarkeit zu einem der wichtigsten
 Designziele für Entwickler verteilter Systeme geworden.
@@ -679,12 +692,15 @@ Designziele für Entwickler verteilter Systeme geworden.
 
 Die Skalierbarkeit eines Systems kann entlang von mindestens drei verschiedenen Dimensionen gemessen werden (
 siehe [Neuman, 1994]):
-Größenskalierbarkeit: Ein System kann bezüglich seiner Größe skalierbar sein, was bedeutet, dass wir dem System
-problemlos weitere Benutzer und Ressourcen hinzufügen können, ohne dass ein spürbarer Leistungsverlust auftritt.
-Geografische Skalierbarkeit: Ein geografisch skalierbares System ist eines, bei dem Benutzer und Ressourcen weit
-voneinander entfernt liegen können, aber Kommunikationsverzögerungen kaum bemerkt werden.
-Administrative Skalierbarkeit: Ein administrativ skalierbares System ist eines, das auch dann noch leicht verwaltet
-werden kann, wenn es viele unabhängige Verwaltungsorganisationen umfasst.
+
+* **Größenskalierbarkeit:** Ein System kann bezüglich seiner Größe skalierbar sein,
+  was bedeutet, dass wir dem System problemlos weitere Benutzer und Ressourcen hinzufügen können, ohne dass ein
+  spürbarer Leistungsverlust auftritt.
+* **Geografische Skalierbarkeit:** Ein geografisch skalierbares System ist eines, bei dem Benutzer und Ressourcen weit
+  voneinander entfernt liegen können, aber Kommunikationsverzögerungen kaum bemerkt werden.
+* **Administrative Skalierbarkeit:** Ein administrativ skalierbares System ist eines, das auch dann noch leicht
+  verwaltet
+  werden kann, wenn es viele unabhängige Verwaltungsorganisationen umfasst.
 
 Lassen Sie uns einen genaueren Blick auf jede dieser drei Skalierbarkeitsdimensionen werfen.
 
@@ -701,11 +717,12 @@ Dienst auf einer einzelnen Maschine implementiert ist. Es gibt im Wesentlichen d
 - Die Rechenkapazität, begrenzt durch die CPUs
 - Die Speicherkapazität, einschließlich der I/O-Übertragungsrate
 - Das Netzwerk zwischen dem Benutzer und dem zentralisierten Dienst
-  Betrachten wir zunächst die Rechenkapazität. Stellen Sie sich einen Dienst vor, der optimale Routen unter
-  Berücksichtigung von Echtzeit-Verkehrsinformationen berechnet. Es ist nicht schwer vorstellbar, dass dies
-  hauptsächlich ein rechenintensiver Dienst sein könnte, der mehrere (zehn) Sekunden benötigt, um eine Anfrage
-  abzuschließen. Wenn nur eine einzige Maschine verfügbar ist, wird selbst ein modernes Hochleistungssystem schließlich
-  auf Probleme stoßen, wenn die Anzahl der Anfragen über einen bestimmten Punkt hinaus ansteigt.
+
+Betrachten wir zunächst die Rechenkapazität. Stellen Sie sich einen Dienst vor, der optimale Routen unter
+Berücksichtigung von Echtzeit-Verkehrsinformationen berechnet. Es ist nicht schwer vorstellbar, dass dies
+hauptsächlich ein rechenintensiver Dienst sein könnte, der mehrere (zehn) Sekunden benötigt, um eine Anfrage
+abzuschließen. Wenn nur eine einzige Maschine verfügbar ist, wird selbst ein modernes Hochleistungssystem schließlich
+auf Probleme stoßen, wenn die Anzahl der Anfragen über einen bestimmten Punkt hinaus ansteigt.
 
 Ebenso werden wir, aber aus anderen Gründen, auf Probleme stoßen, wenn wir einen hauptsächlich I/O-gebundenen Dienst
 haben. Ein typisches Beispiel ist eine schlecht gestaltete zentralisierte Suchmaschine. Das Problem mit inhaltsbasierten
