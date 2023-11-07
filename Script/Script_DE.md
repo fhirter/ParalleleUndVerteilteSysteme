@@ -753,44 +753,38 @@ Millisekunden dauert, das ist drei Größenordnungen langsamer. Das Erstellen vo
 Kommunikation in Wide-Area-Systemen erfordert viel Vorsicht (aber es ist nicht unmöglich). Wir werden auch darauf später
 eingehen.
 
-**Administrative Skalierbarkeit**: Um das Konzept der administrativen Skalierbarkeit zu veranschaulichen, betrachten wir
-ein extremes Beispiel. Stellen Sie sich eine universelle Dateisystem-Software vor, die alle Menschen auf der Erde
-verwenden. Ein solches System wäre nicht nur groß und geografisch weit verbreitet, sondern es müsste auch unter vielen
-unabhängigen Verwaltungsorganisationen funktionieren. Das bedeutet, dass die technischen Aspekte der Skalierung -
-größentechnisch und geografisch - eine sekundäre Rolle spielen könnten, verglichen mit den Herausforderungen, die sich
-aus administrativen Skalierbarkeitsproblemen ergeben könnten. Konzeptionell sehen wir oft, dass Organisationen, die
-Dienste in einem verteilten System bereitstellen, einen administrativen Rahmen schaffen, innerhalb dessen sie ihre
-Dienste betreiben. Dies kann so einfach sein wie die Festlegung der Zeiten, zu denen der Dienst verfügbar ist, oder so
-kompliziert wie eine vollständige Verwaltungsrichtlinie, die festlegt, welche Benutzer welche Rechte haben, wie diese
-Rechte gewährt oder zurückgenommen werden können, und so weiter. Für das oben genannte Dateisystem könnten wir uns
-leicht vorstellen, dass es möglicherweise eine politische Herausforderung ist, eine universelle Satzung zu entwickeln,
-die von allen beteiligten Organisationen akzeptiert wird. Ein noch schwerwiegenderes Problem könnte jedoch sein, dass
-die Satzung geändert werden muss und dies auf eine Art und Weise, die von allen Organisationen akzeptiert wird.
+**Administrative Skalierbarkeit:** Schließlich ist eine schwierige und oft offene Frage, wie man ein verteiltes System
+über
+mehrere, unabhängige administrative Domänen hinweg skalieren kann. Ein Hauptproblem, das gelöst werden muss, ist das der
+konfligierenden Richtlinien bezüglich Ressourcennutzung (und Bezahlung), Verwaltung und Sicherheit. Zur
+Veranschaulichung haben Wissenschaftler viele Jahre nach Lösungen gesucht, um ihre (oft teure) Ausrüstung in dem, was
+als Rechen-Grid bekannt ist, zu teilen. In diesen Grids wird ein globales dezentralisiertes System als Föderation
+lokaler verteilter Systeme aufgebaut, wodurch ein Programm, das auf einem Computer bei einer Organisation A läuft,
+direkt auf Ressourcen bei der Organisation B zugreifen kann.
 
-Lösungen für Skalierbarkeitsprobleme: Wie bereits erwähnt, gibt es viele Lösungen, um Skalierbarkeitsprobleme zu
-bewältigen. Einige davon sind:
-
-- Aufteilung von Diensten über mehrere Server (d.h. Replikation)
-- Caching und Datenreplikation
-- Verwendung von Content-Delivery-Netzwerken
-- Datenpartitionierung
-- Anwenden von asynchroner Kommunikation
-- Nutzung von Peer-to-Peer-Netzwerken
-
-Jede dieser Lösungen hat ihre eigenen Vor- und Nachteile und wird je nach den spezifischen Anforderungen des Systems und
-den Skalierungsproblemen, die gelöst werden müssen, ausgewählt. Es ist wichtig zu beachten, dass Skalierbarkeit kein
-isoliertes Designziel ist. Sie muss in Einklang gebracht werden mit anderen Designzielen wie Verfügbarkeit,
-Zuverlässigkeit, Sicherheit und Leistung. Es ist oft ein Balanceakt zwischen diesen verschiedenen Zielen, und die
-Herausforderungen der Skalierbarkeit können oft nur in Kombination mit anderen Zielen erfolgreich bewältigt werden.
-
-Zusammenfassung: Skalierbarkeit ist eine der Hauptanforderungen für moderne verteilte Systeme. Sie bezieht sich auf die
-Fähigkeit eines Systems, mit wachsendem Bedarf zu wachsen, ohne dass die Leistung erheblich beeinträchtigt wird. Es gibt
-drei Hauptdimensionen der Skalierbarkeit: Größen-, geografische und administrative Skalierbarkeit. Jede dieser
-Dimensionen stellt ihre eigenen Herausforderungen dar und erfordert unterschiedliche Ansätze und Techniken zur
-Bewältigung. Bei der Bewältigung von Skalierungsproblemen müssen oft Kompromisse zwischen anderen Designzielen gemacht
-werden, was das Entwerfen verteilter Systeme zu einer komplexen und oft herausfordernden Aufgabe macht. Es ist wichtig,
-einen systematischen Ansatz zur Bewältigung von Skalierbarkeitsproblemen zu wählen, der sowohl die technischen als auch
-die organisatorischen Aspekte berücksichtigt.
+Viele Komponenten eines verteilten Systems, die innerhalb einer einzigen Domäne liegen, können oft von Benutzern, die
+innerhalb derselben Domäne operieren, als vertrauenswürdig angesehen werden. In solchen Fällen haben die
+Systemadministratoren möglicherweise Anwendungen getestet und zertifiziert und besondere Maßnahmen ergriffen, um
+sicherzustellen, dass solche Komponenten nicht manipuliert werden können. Im Wesentlichen vertrauen die Benutzer ihren
+Systemadministratoren. Dieses Vertrauen erweitert sich jedoch nicht natürlich über die Grenzen von Domänen hinweg.
+Wenn sich ein verteiltes System auf eine andere Domäne ausdehnt, müssen zwei Arten von Sicherheitsmaßnahmen ergriffen
+werden. Erstens muss sich das verteilte System gegen bösartige Angriffe aus der neuen Domäne schützen. Zum Beispiel
+haben Benutzer aus der neuen Domäne möglicherweise nur Lesezugriff auf das Dateisystem in seiner ursprünglichen Domäne.
+Ebenso dürfen Einrichtungen wie teure Bildsatzsysteme oder Hochleistungscomputer nicht für nicht autorisierte Benutzer
+verfügbar gemacht werden. Zweitens muss sich die neue Domäne gegen bösartige Angriffe aus dem verteilten System
+schützen. Ein typisches Beispiel ist das Herunterladen von Programmen, wie im Fall des föderierten Lernens.
+Grundsätzlich weiß die neue Domäne nicht, was sie von solch fremdem Code erwarten kann. Das Problem, wie wir in Kapitel
+9 sehen werden, besteht darin, diese Beschränkungen durchzusetzen.
+Als Gegenbeispiel für verteilte Systeme, die mehrere administrative Domänen umspannen und anscheinend keine Probleme mit
+der administrativen Skalierbarkeit haben, betrachten Sie moderne File-Sharing-Peer-to-Peer-Netzwerke. In diesen Fällen
+installieren Endbenutzer einfach ein Programm, das verteilte Such- und Downloadfunktionen implementiert, und können
+innerhalb von Minuten mit dem Herunterladen von Dateien beginnen. Andere Beispiele sind Peer-to-Peer-Anwendungen für
+Internettelefonie wie ältere Skype-Systeme [Baset und Schulzrinne, 2006] und (wieder ältere) Peer-unterstützte
+Audio-Streaming-Anwendungen wie Spotify [Kreitz und Niemelä, 2010]. Eine modernere Anwendung (die ihre Skalierbarkeit
+noch beweisen muss) sind Blockchains. Was diese dezentralisierten Systeme gemeinsam haben, ist, dass Endbenutzer, und
+nicht administrative Entitäten, zusammenarbeiten, um das System am Laufen zu halten. Im besten Fall können zugrunde
+liegende administrative Organisationen wie Internetdienstanbieter (ISPs) den Netzwerkverkehr überwachen, den diese
+Peer-to-Peer-Systeme verursachen.
 
 #### Skalierungstechniken
 
