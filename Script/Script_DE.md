@@ -792,21 +792,22 @@ Nachdem wir einige Skalierbarkeitsprobleme besprochen haben, stellt sich uns die
 gelöst werden können. In den meisten Fällen treten Skalierbarkeitsprobleme in verteilten Systemen als Leistungsprobleme
 auf, die durch die begrenzte Kapazität von Servern und Netzwerken verursacht werden. Eine einfache Erhöhung ihrer
 Kapazität (z.B. durch Erhöhen des Speichers, Aufrüsten der CPUs oder Ersetzen von Netzwerkmodulen) ist oft eine Lösung,
-die als "Hochskalieren" bezeichnet wird. Wenn es um das "Ausskalieren" geht, also um die Erweiterung des verteilten
-Systems durch im Grunde mehr Maschinen, gibt es im Grunde nur drei Techniken, die wir anwenden können:
+die als "vertikale Skalierung" bezeichnet wird. Bei der sogenannten "horizontalen Skalierung", also um die Erweiterung
+des verteilten
+Systems durch mehr Maschinen, gibt es im Grunde nur drei Techniken, die wir anwenden können:
 Kommunikationslatenzen verbergen, Arbeit verteilen und Replikation (siehe auch Neuman [1994]).
 
 #### Kommunikationslatenzen verbergen
 
 Das Verbergen von Kommunikationslatenzen ist im Fall der geografischen Skalierbarkeit anwendbar. Die Grundidee ist
-einfach: Versuchen Sie, so wenig wie möglich auf Antworten auf Fernserviceanfragen zu warten. Wenn ein Service auf einer
-Remote-Maschine angefordert wurde, besteht eine Alternative zum Warten auf eine Antwort vom Server darin, andere
+einfach: Versuchen Sie, so wenig wie möglich auf Antworten auf Anfragen zu warten. Wenn ein Service auf einer
+enfernten Maschine angefordert wurde, besteht eine Alternative zum Warten auf eine Antwort vom Server darin, andere
 nützliche Arbeiten auf der Anfordererseite durchzuführen. Im Wesentlichen bedeutet dies, die anfordernde Anwendung so zu
 konstruieren, dass sie nur asynchrone Kommunikation verwendet. Wenn eine Antwort eintrifft, wird die Anwendung
 unterbrochen und ein spezieller Handler aufgerufen, um die zuvor ausgestellte Anfrage abzuschließen. Asynchrone
 Kommunikation kann oft in Batch-Verarbeitungssystemen und parallelen Anwendungen verwendet werden, bei denen unabhängige
 Aufgaben zur Ausführung geplant werden können, während eine andere Aufgabe auf die Fertigstellung der Kommunikation
-wartet. Alternativ kann ein neuer Steuerungs-Thread gestartet werden, um die Anfrage auszuführen. Obwohl er beim Warten
+wartet. Alternativ kann ein neuer Thread gestartet werden, um die Anfrage auszuführen. Obwohl er beim Warten
 auf die Antwort blockiert wird, können andere Threads im Prozess weiterlaufen.
 
 Es gibt jedoch viele Anwendungen, die asynchrone Kommunikation nicht effektiv nutzen können. Zum Beispiel haben
@@ -851,22 +852,49 @@ statische Webdokumente.
 
 #### Replikation
 
-In Anbetracht dessen, dass Skalierbarkeitsprobleme oft in Form von Leistungseinbußen auftreten, ist es im Allgemeinen
-so, dass das Ausskalieren von verteilten Systemen oft bedeutet, mehr von denselben Ressourcen verfügbar zu machen.
-Replikation, d.h. das Erstellen von Kopien, ist eine weit verbreitete Methode, um dies zu erreichen. Wenn Ressourcen
-repliziert sind, bedeutet dies im Allgemeinen, dass mehr Benutzer sie gleichzeitig nutzen können. Aber Replikation kann
-auch dazu verwendet werden, um die Zuverlässigkeit zu verbessern: Wenn eine Kopie ausfällt, können andere Kopien die
-Arbeit übernehmen. Es ist offensichtlich, dass die Kopien eines bestimmten Dienstes, seien es Datenbanken, Dateien oder
-Webseiten, immer auf dem neuesten Stand sein müssen. Daher besteht die größte Herausforderung der Replikation darin,
-dafür zu sorgen, dass alle Kopien konsistent sind.
+In Anbetracht der Tatsache, dass Skalierbarkeitsprobleme oft in Form von Leistungsabfall auftreten, ist es im
+Allgemeinen eine gute Idee, Komponenten oder Ressourcen usw. in einem verteilten System zu replizieren.
+Replikation erhöht nicht nur die Verfügbarkeit, sondern hilft auch, die Last zwischen den Komponenten auszugleichen, was
+zu einer besseren Leistung führt. Darüber hinaus kann in geografisch weit verteilten Systemen eine in der Nähe
+befindliche Kopie viele der zuvor erwähnten Kommunikationslatenzprobleme verbergen.
 
-#### Fazit
+Caching ist eine spezielle Form der Replikation, obwohl die Unterscheidung zwischen den beiden oft schwer zu treffen
+oder sogar künstlich ist. Wie im Falle der Replikation führt Caching dazu, dass eine Kopie einer Ressource erstellt
+wird, im Allgemeinen in der Nähe des Kunden, der auf diese Ressource zugreift. Im Gegensatz zur Replikation ist Caching
+jedoch eine Entscheidung, die vom Kunden einer Ressource und nicht vom Besitzer einer Ressource getroffen wird.
 
-Das Skalieren verteilter Systeme ist keine leichte Aufgabe, und es gibt viele Herausforderungen, die überwunden werden
-müssen. Durch die Anwendung der Techniken des Verbergens von Kommunikationslatenzen, der Partitionierung und Verteilung
-von Ressourcen sowie der Replikation kann jedoch eine effiziente Skalierbarkeit erreicht werden. Es ist wichtig, diese
-Techniken im Kontext der spezifischen Anforderungen und Herausforderungen eines verteilten Systems sorgfältig zu
-überdenken und anzupassen.
+Es gibt jedoch einen ernsthaften Nachteil beim Caching und bei der Replikation, der die Skalierbarkeit negativ
+beeinflussen kann. Da wir nun mehrere Kopien einer Ressource haben, macht das Ändern einer Kopie diese anders als die
+anderen. Folglich führen Caching und Replikation zu Konsistenzproblemen.
+
+Inwieweit Inkonsistenzen toleriert werden können, hängt von der Nutzung einer Ressource ab. Zum Beispiel finden es viele
+Webnutzer akzeptabel, dass ihr Browser ein zwischengespeichertes Dokument zurückgibt, dessen Gültigkeit in den letzten
+Minuten nicht überprüft wurde. Es gibt jedoch auch viele Fälle, in denen starke Konsistenzgarantien erfüllt werden
+müssen, wie im Fall von elektronischen Börsen und Auktionen. Das Problem mit starker Konsistenz ist, dass eine
+Aktualisierung sofort zu allen anderen Kopien weitergeleitet werden muss. Außerdem ist es oft auch erforderlich, dass
+Updates gleichzeitig erfolgen, wenn zwei Aktualisierungen gleichzeitig stattfinden, was ein globales Ordnungsproblem
+einführt. Um die Dinge noch schlimmer zu machen, kann die Kombination von Konsistenz mit wünschenswerten Eigenschaften
+wie Verfügbarkeit einfach unmöglich sein, wie wir in Kapitel 8 diskutieren.
+
+Replikation erfordert daher oft einen globalen Synchronisationsmechanismus. Leider sind solche Mechanismen extrem schwer
+oder sogar unmöglich in einer skalierbaren Weise zu implementieren, schon allein weil Netzwerklatenzen eine natürliche
+untere Grenze haben. Folglich kann die Skalierung durch Replikation andere, inhärent nicht skalierbare Lösungen
+einführen. Wir kehren in Kapitel 7 ausführlich zu Replikation und Konsistenz zurück.
+
+#### Diskussion
+
+Beim Betrachten dieser Skalierungstechniken könnte man argumentieren, dass die Größenskalierbarkeit aus technischer
+Sicht das geringste Problem darstellt. Oft kann die Erhöhung der Kapazität einer Maschine Abhilfe schaffen, obwohl
+möglicherweise hohe monetäre Kosten anfallen. Geografische Skalierbarkeit ist ein weitaus schwierigeres Problem, da
+Netzwerklatenzen natürlich von unten begrenzt sind. Infolgedessen könnten wir gezwungen sein, Daten an Orte zu kopieren,
+die den Kunden nahe liegen, was zu Problemen bei der Aufrechterhaltung konsistenter Kopien führt. Die Praxis zeigt, dass
+die Kombination von Verteilungs-, Replikations- und Caching-Techniken mit verschiedenen Formen der Konsistenz im
+Allgemeinen zu akzeptablen Lösungen führt. Schließlich scheint die administrative Skalierbarkeit das schwierigste zu
+lösende Problem zu sein, teilweise weil wir uns mit nichttechnischen Fragen auseinandersetzen müssen, wie der Politik
+von Organisationen und der menschlichen Zusammenarbeit. Die Einführung und nun weit verbreitete Nutzung von
+Peer-to-Peer-Technologie hat erfolgreich demonstriert, was erreicht werden kann, wenn Endbenutzer die Kontrolle
+übernehmen [Lua et al., 2005; Oram, 2001]. Allerdings sind Peer-to-Peer-Netzwerke offensichtlich nicht die universelle
+Lösung für alle Probleme der administrativen Skalierbarkeit.
 
 ## 1.4 Fallstricke
 
