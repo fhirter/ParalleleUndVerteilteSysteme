@@ -2,22 +2,15 @@
 
 ## Vorbereitung
 Wähle eine der folgenden Technologien:
-- CockroachDB (Datenbank)
-- Matrix (Kommunikationsprotokoll)
-- Mastodon
-- Ably
-- Neon (Datenbank)
+- [CockroachDB](https://www.cockroachlabs.com/): Datenbank
+- [Ably](https://ably.com/): Pub-Sub Messaging
+- [Zitadel](https://zitadel.com/): Identity Provider
 
 ## Fragen
 Beantworte folgende Fragen und erarbeite ein Handout.
 
-### Distributed vs Decentralized
-Was ist der Grund für die Verteilung auf verschiedene Systeme? 
-Werden bestehende Systeme vernetzt oder ein bestehendes System verteilt?
-(vgl van Steen 2023 Kapitel 1.1)
-
-### Design Goals
-Untersuche die Features der gewählten Technologie und vergleiche diese mit den folgenden Design Goals von verteilten Systemen:
+### Design-Ziele
+Untersuche die Features der gewählten Technologie und vergleiche diese mit den folgenden Design-Zielen von verteilten Systemen:
 
 Transparenz:
 - Zugriff
