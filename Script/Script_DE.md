@@ -512,33 +512,46 @@ folgenden [Kopetz und Verissimo, 1993]:
 * Betriebssicherheit
 * Sicherheit
 * Wartungsfreundlichkeit
-  Verfügbarkeit wird definiert als die Eigenschaft, dass ein System sofort einsatzbereit ist. Allgemein bezieht es sich
-  auf die Wahrscheinlichkeit, dass das System zu einem bestimmten Zeitpunkt korrekt arbeitet und bereit ist, seine
-  Funktionen im Auftrag seiner Benutzer auszuführen. Ein hochverfügbares System ist also eines, das zu einem bestimmten
-  Zeitpunkt höchstwahrscheinlich funktioniert.
-  Zuverlässigkeit bezieht sich auf die Eigenschaft, dass ein System kontinuierlich ohne Ausfall laufen kann. Im
-  Gegensatz zur Verfügbarkeit wird Zuverlässigkeit in Bezug auf ein Zeitintervall anstatt eines Augenblicks definiert.
-  Ein hochzuverlässiges System ist eines, das wahrscheinlich über einen relativ langen Zeitraum hinweg ohne
-  Unterbrechung weiterarbeiten wird. Dies ist ein subtiler, aber wichtiger Unterschied im Vergleich zur Verfügbarkeit.
-  Wenn ein System durchschnittlich für eine scheinbar zufällige Millisekunde jede Stunde ausfällt, hat es eine
-  Verfügbarkeit von mehr als 99,9999 Prozent, ist aber dennoch unzuverlässig. Ebenso hat ein System, das nie abstürzt,
-  aber zwei bestimmte Wochen jeden August heruntergefahren wird, eine hohe Zuverlässigkeit, aber nur 96 Prozent
-  Verfügbarkeit. Die beiden sind nicht dasselbe.
-  Sicherheit bezieht sich auf die Situation, dass bei einem vorübergehenden Versagen des Systems kein katastrophales
-  Ereignis eintritt. Viele Prozesssteuerungssysteme, wie sie beispielsweise zur Steuerung von Kernkraftwerken oder zum
-  Senden von Personen ins All verwendet werden, müssen ein hohes Maß an Sicherheit bieten. Wenn solche Steuerungssysteme
-  nur für einen sehr kurzen Moment versagen, könnten die Folgen verheerend sein. Viele Beispiele aus der Vergangenheit (
-  und wahrscheinlich viele weitere, die noch kommen werden) zeigen, wie schwer es ist, sichere Systeme zu bauen.
-  Wartbarkeit bezieht sich darauf, wie leicht ein ausgefallenes System repariert werden kann. Ein leicht wartbares
-  System kann auch eine hohe Verfügbarkeit aufweisen, insbesondere wenn Ausfälle automatisch erkannt und behoben werden
-  können. Das automatische Wiederherstellen von Ausfällen ist jedoch leichter gesagt als getan.
-  Traditionell wurde Fehlertoleranz mit den folgenden drei Metriken in Verbindung gebracht:
+
+**Verfügbarkeit** wird definiert als die Eigenschaft, dass ein System sofort einsatzbereit ist.
+Allgemein bezieht es sich auf die Wahrscheinlichkeit, dass das System zu einem bestimmten Zeitpunkt korrekt arbeitet und
+bereit ist, seine
+Funktionen im Auftrag seiner Benutzer auszuführen.
+Ein hochverfügbares System ist also eines, das zu einem bestimmten Zeitpunkt höchstwahrscheinlich funktioniert.
+
+**Zuverlässigkeit** bezieht sich auf die Eigenschaft, dass ein System kontinuierlich ohne Ausfall laufen kann.
+Im Gegensatz zur Verfügbarkeit wird Zuverlässigkeit in Bezug auf ein Zeitintervall anstatt eines Augenblicks definiert.
+Ein hochzuverlässiges System ist eines, das wahrscheinlich über einen relativ langen Zeitraum hinweg ohne
+Unterbrechung weiterarbeiten wird.
+Dies ist ein subtiler, aber wichtiger Unterschied im Vergleich zur Verfügbarkeit.
+Wenn ein System durchschnittlich für eine scheinbar zufällige Millisekunde jede Stunde ausfällt, hat es eine
+Verfügbarkeit von mehr als 99,9999 Prozent, ist aber dennoch unzuverlässig.
+Ebenso hat ein System, das nie abstürzt, aber zwei bestimmte Wochen jeden August heruntergefahren wird, eine hohe
+Zuverlässigkeit, aber nur 96 Prozent Verfügbarkeit.
+Die beiden sind nicht dasselbe.
+
+**Sicherheit** bezieht sich auf die Situation, dass bei einem vorübergehenden Versagen des Systems kein katastrophales
+Ereignis eintritt.
+Viele Prozesssteuerungssysteme, wie sie beispielsweise zur Steuerung von Kernkraftwerken oder zum
+Senden von Personen ins All verwendet werden, müssen ein hohes Maß an Sicherheit bieten.
+Wenn solche Steuerungssysteme nur für einen sehr kurzen Moment versagen, könnten die Folgen verheerend sein.
+Viele Beispiele aus der Vergangenheit (und wahrscheinlich viele weitere, die noch kommen werden) zeigen, wie schwer es
+ist, sichere Systeme zu bauen.
+
+**Wartbarkeit** bezieht sich darauf, wie leicht ein ausgefallenes System repariert werden kann. Ein leicht wartbares
+System kann auch eine hohe Verfügbarkeit aufweisen, insbesondere wenn Ausfälle automatisch erkannt und behoben werden
+können.
+Das automatische Wiederherstellen von Ausfällen ist jedoch leichter gesagt als getan.
+
+Traditionell wurde Fehlertoleranz mit den folgenden drei Metriken in Verbindung gebracht:
+
 * Mittlere Zeit bis zum Ausfall (MTTF): Die durchschnittliche Zeit, bis eine Komponente ausfällt.
 * Mittlere Reparaturzeit (MTTR): Die durchschnittlich benötigte Zeit, um eine Komponente zu reparieren.
-* Mittlere Zeit zwischen Ausfällen (MTBF): Einfach MTTF + MTTR.
-  Diese Metriken machen nur dann Sinn, wenn wir ein genaues Verständnis dafür haben, was ein Ausfall eigentlich ist. Wie
-  wir in Kapitel 8 sehen werden, ist es möglicherweise nicht so offensichtlich, das Auftreten eines Ausfalls zu
-  identifizieren.
+* Mittlere Zeit zwischen Ausfällen (MTBF): Einfach MTTF + MTTR. 
+
+Diese Metriken machen nur dann Sinn, wenn wir ein genaues Verständnis dafür haben, was ein Ausfall eigentlich ist.
+Wie wir in Kapitel 8 sehen werden, ist es möglicherweise nicht so offensichtlich, das Auftreten eines Ausfalls zu
+identifizieren.
 
 #### Fehler, Störungen, Ausfälle
 
