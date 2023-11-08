@@ -28,9 +28,12 @@ Die Infrastruktur, auf der die Container ausgeführt werden, lässt sich wählen
 
 So kann die Applikation mit minimalem Verwaltungsaufwand (Serverless) deployed werden, oder auch On-Premise ausgeführt werden, wenn dies z.B. aus Datenschutzgründen nötig ist.
 Der ECS Service wird mit einer Task-Definition konfiguriert, welche beschreibt, welche Containerinstanzen für die Applikation ausgeführt werden sollen.
-Wenn die Applikation im Container nicht mehr reagiert, wird automatisch eine neue Instanz gestartet.
+Wenn die Applikation im Container nicht mehr reagiert, wird automatisch eine neue Instanz gestartet.[^4]
 
-Die Kosten sind abhängig von der gewählten Infrastruktur.
+Die Kosten sind abhängig von der gewählten Infrastruktur.[^5]
 Bei EC2 fallen neben der EC2 Instanz keine zusätzlichen Kosten an. 
 Bei Fargate werden CPU- und Arbeitsspeicherminuten verrechnet.
 Bei On-Premise wird die gemietete Hardware verrechnet.
+
+[^4]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
+[^5]: https://aws.amazon.com/de/ecs/pricing/
