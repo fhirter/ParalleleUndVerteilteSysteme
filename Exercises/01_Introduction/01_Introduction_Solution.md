@@ -19,4 +19,18 @@ Es gibt viele verschiedene Instanztypen, z.B. für hohen Speicherbedarf oder hoh
 [^3]: https://en.wikipedia.org/wiki/Amazon_Elastic_Compute_Cloud
  
 ### ECS
-Managed container orchestration service.
+Amazon Elastic Container Service (Amazon ECS) ist ein vollständig durch AWS verwalteter Container Service.
+Mit ECS können containerisierte Applikationen deployed werden.
+Die Infrastruktur, auf der die Container ausgeführt werden, lässt sich wählen:
+- Amazon EC2
+- AWS Fargate (Serverless)
+- On-Premise
+
+So kann die Applikation mit minimalem Verwaltungsaufwand (Serverless) deployed werden, oder auch On-Premise ausgeführt werden, wenn dies z.B. aus Datenschutzgründen nötig ist.
+Der ECS Service wird mit einer Task-Definition konfiguriert, welche beschreibt, welche Containerinstanzen für die Applikation ausgeführt werden sollen.
+Wenn die Applikation im Container nicht mehr reagiert, wird automatisch eine neue Instanz gestartet.
+
+Die Kosten sind abhängig von der gewählten Infrastruktur.
+Bei EC2 fallen neben der EC2 Instanz keine zusätzlichen Kosten an. 
+Bei Fargate werden CPU- und Arbeitsspeicherminuten verrechnet.
+Bei On-Premise wird die gemietete Hardware verrechnet.
