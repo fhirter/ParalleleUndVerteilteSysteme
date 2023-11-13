@@ -7,39 +7,29 @@ Wähle eine der folgenden Technologien:
 - [Zitadel](https://zitadel.com/): Identity Provider
 
 ## Fragen
-Beantworte folgende Fragen und erarbeite ein Handout.
+Beschreibe kurz den Nutzen der Applikation und die wichtisten Features.
+
+Beantworte anschliessend folgende Fragen.
+
+Es ist wichtiger, dass die Aufgaben gründlich gemacht werden, als dass alle Aufgaben erledigt werden.
+
+Die Antworten sollen in einem kurzen Bericht festgehalten werden.
+Dieser Bericht ist am Schluss per E-Mail an den Dozenten einzureichen.
+Er wird nicht bewertet, es werden jedoch folgende formellen Anforderungen gestellt:
+- Dateiformat: [Markdown](https://www.markdownguide.org/) oder daraus [generiertes PDF](https://pandoc.org/).
+- Diagramme: [PlantUML](https://plantuml.com/de/), [Mermaid](https://mermaid.js.org/) o.ä.
 
 ### Design-Ziele
-Untersuche die Features der gewählten Technologie und vergleiche diese mit den folgenden Design-Zielen von verteilten Systemen:
-
-Transparenz:
-- Zugriff
-- Standort
-- Replikation
-- Änderung des Standorts
-- Gleichzeitiger Zugriff von verschiedenen Usern
-- Fehler
-
-Offenheit:
-- Interoperabilität mit anderen Systemen
-- Erweiterbarkeit
-
-Zuverlässigkeit
-- Verfügbarkeit (Availability, Reliability)
-- Sicherheit im Fehlerfall
-- Wartbarkeit
-
-Sicherheit 
-- Vertraulichkeit und Integrität
-- Autorisierung und Authentifizierung
-
-Scalability
-- Grössenskalierbarkeit
-- Geografische Skalierbarkeit
-- Administrative Skalierbarkeit
-- Verstecken von Netzwerklatenzen
-- Partitionierung und Verteilung
-- Replikation
+Untersuche die Features der gewählten Technologie und vergleiche diese mit den folgenden Design-Zielen von verteilten Systemen.
+- Welches sind die wichtigsten Features?
+- Für welche von diesen Features werden verteilte Systeme eingesetzt?
+- Wie wird dies umgesetzt?
+- Welche der folgenden Eigenschaften sind **Transparent**, welche nicht? 
+(Zugriff, Standort, Replikation, Änderung des Standorts, gleichzeitiger Zugriff von verschiedenen Usern, Fehler)
+- Ist das System **offen**?
+- Wie **zuverlässig** ist das System?
+- Wie wird die **Sicherheit** gewährleistet?
+- In welchem Rahmen kann das System **skalieren**? Wie wird dies umgesetzt?
 
 (vgl van Steen 2023 Kapitel 1.2)
 
