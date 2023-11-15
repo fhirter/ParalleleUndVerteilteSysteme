@@ -31,8 +31,6 @@ Untersuche die Features der gewählten Technologie und vergleiche diese mit den 
 - Wie wird die **Sicherheit** gewährleistet?
 - In welchem Rahmen kann das System **skalieren**? Wie wird dies umgesetzt?
 
-(vgl van Steen 2023 Kapitel 1.2)
-
 ## Quellen
 
 van Steen 2023
