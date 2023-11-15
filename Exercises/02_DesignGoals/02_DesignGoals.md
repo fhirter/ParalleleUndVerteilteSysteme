@@ -20,7 +20,7 @@ Er wird nicht bewertet, es werden jedoch folgende formellen Anforderungen gestel
 - Diagramme: [PlantUML](https://plantuml.com/de/), [Mermaid](https://mermaid.js.org/) o.ä.
 
 ### Design-Ziele
-Untersuche die Features der gewählten Technologie und vergleiche diese mit den folgenden Design-Zielen von verteilten Systemen.
+Untersuche die Features der gewählten Technologie und vergleiche diese mit den Design-Zielen von verteilten Systemen (siehe Van Steen Kapitel 1.2).
 - Welches sind die wichtigsten Features?
 - Für welche von diesen Features werden verteilte Systeme eingesetzt?
 - Wie wird dies umgesetzt?
