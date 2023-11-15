@@ -7,7 +7,7 @@ Wähle eine der folgenden Technologien:
 - [Zitadel](https://zitadel.com/): Identity Provider
 
 ## Fragen
-Beschreibe kurz den Nutzen der Applikation und die wichtisten Features.
+Beschreibe kurz den Nutzen der Applikation und die wichtigsten Features.
 
 Beantworte anschliessend folgende Fragen.
 
