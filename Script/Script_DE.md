@@ -972,3 +972,314 @@ zugrundeliegende Netzwerk treffen, die grundlegend falsch sind. Später, wenn di
 es schwierig sein, unerwünschtes Verhalten zu maskieren. Ein typisches Beispiel ist die Annahme, dass Netzwerk-Latenz
 nicht signifikant ist. Andere Fallstricke sind die Annahme, dass das Netzwerk zuverlässig, statisch, sicher und homogen
 ist.
+
+# 2 Architectures
+
+Verteilte Systeme sind oft komplexe Softwarestücke, deren Komponenten per Definition auf mehrere Maschinen verteilt
+sind. Um ihre Komplexität zu beherrschen, ist es entscheidend, dass diese Systeme ordnungsgemäß organisiert werden. Es
+gibt verschiedene Ansichten darüber, wie die Organisation eines verteilten Systems betrachtet werden kann, aber eine
+offensichtliche ist die Unterscheidung zwischen der logischen Organisation der Sammlung von Softwarekomponenten
+einerseits und der tatsächlichen physischen Realisierung andererseits.
+Die Organisation verteilter Systeme dreht sich meist um die Softwarekomponenten, die das System bilden. Diese
+Softwarearchitekturen sagen uns, wie die verschiedenen Softwarekomponenten organisiert sein sollten und wie sie
+interagieren sollten. In diesem Kapitel werden wir zunächst einigen häufig angewandten architektonischen Stilen zur
+Organisation von (verteilten) Computersystemen Beachtung schenken.
+Ein wichtiges Ziel verteilter Systeme ist es, Anwendungen von zugrunde liegenden Plattformen zu trennen, indem sie eine
+sogenannte Middleware-Schicht bereitstellen. Die Annahme einer solchen Schicht ist eine wichtige architektonische
+Entscheidung, und ihr Hauptzweck ist es, Verteilungstransparenz zu bieten. Allerdings müssen Kompromisse eingegangen
+werden, um Transparenz zu erreichen, was zu verschiedenen Techniken geführt hat, um die Middleware an die Bedürfnisse
+der Anwendungen anzupassen, die sie nutzen. Wir diskutieren einige der häufiger angewandten Techniken, da sie die
+Organisation der Middleware selbst beeinflussen.
+Die tatsächliche Realisierung eines verteilten Systems erfordert, dass wir Softwarekomponenten auf echten Maschinen
+instanziieren und platzieren. Dabei können viele Entscheidungen getroffen werden. Die endgültige Instanzierung einer
+Softwarearchitektur wird auch als Systemarchitektur bezeichnet. In diesem Kapitel werden wir uns traditionellen
+zentralisierten Architekturen zuwenden, in denen ein einziger Server die meisten Softwarekomponenten (und somit
+Funktionalitäten) implementiert, während entfernte Clients diesen Server mit einfachen Kommunikationsmitteln zugreifen
+können. Zusätzlich betrachten wir dezentrale Peer-to-Peer-Architekturen, in denen alle Knoten mehr oder weniger
+gleichberechtigte Rollen spielen. Viele reale verteilte Systeme sind oft in einer hybriden Art und Weise organisiert,
+indem sie Elemente aus zentralisierten und dezentralisierten Architekturen kombinieren. Wir diskutieren mehrere
+Beispiele, die die Komplexität vieler realer verteilter Systeme veranschaulichen.
+
+## 2.1 Architekturstile
+
+Wir beginnen unsere Diskussion über Architekturen, indem wir zunächst die logische Organisation eines verteilten Systems
+in Softwarekomponenten betrachten, auch als seine Softwarearchitektur
+bezeichnet [Bass et al., 2021; Richards und Ford, 2020]. Die Forschung zu Softwarearchitekturen hat sich erheblich
+weiterentwickelt, und es wird mittlerweile allgemein akzeptiert, dass das Entwerfen oder Übernehmen einer Architektur
+entscheidend für die erfolgreiche Entwicklung großer Softwaresysteme ist.
+
+Für unsere Diskussion ist der Begriff des Architekturstils wichtig. Ein solcher Stil wird in Bezug auf Komponenten
+formuliert, die Art und Weise, wie Komponenten miteinander verbunden sind, die zwischen Komponenten ausgetauschten Daten
+und schließlich, wie diese Elemente gemeinsam zu einem System konfiguriert werden. Eine Komponente ist eine modulare
+Einheit mit wohldefinierten erforderlichen und bereitgestellten Schnittstellen, die innerhalb ihrer Umgebung
+austauschbar ist [OMG, 2004]. Dass eine Komponente ersetzt werden kann, insbesondere während ein System weiter betrieben
+wird, ist wichtig. Denn oft ist es keine Option, ein System für Wartungsarbeiten herunterzufahren. Im besten Fall können
+nur Teile davon vorübergehend außer Betrieb gesetzt werden. Das Ersetzen einer Komponente ist nur möglich, wenn ihre
+Schnittstellen unberührt bleiben. In der Praxis sehen wir, dass das Ersetzen oder Aktualisieren einer Komponente
+bedeutet, dass ein Teil eines Systems (wie ein Server) ein reguläres Update durchführt und auf die aktualisierten
+Komponenten umschaltet, sobald deren Installation abgeschlossen ist. Besondere Maßnahmen können erforderlich sein, wenn
+ein Teil des verteilten Systems neu gestartet werden muss, damit die Aktualisierungen wirksam werden. Solche Maßnahmen
+können das Vorhandensein replizierter Standbys umfassen, die die Funktion übernehmen, während der teilweise Neustart
+stattfindet.
+
+Ein etwas schwieriger zu erfassendes Konzept ist das eines Konnektors, der allgemein als ein Mechanismus beschrieben
+wird, der Kommunikation, Koordination oder Kooperation zwischen Komponenten vermittelt [Bass et al., 2021]. Ein
+Konnektor kann beispielsweise durch Einrichtungen für (ferngesteuerte) Prozeduraufrufe, Nachrichtenübermittlung oder
+Datenstreaming gebildet werden. Mit anderen Worten, ein Konnektor ermöglicht den Fluss von Steuerung und Daten zwischen
+Komponenten.
+
+Mit Komponenten und Konnektoren können wir zu verschiedenen Konfigurationen gelangen, die wiederum in Architekturstile
+klassifiziert wurden. Mehrere Stile wurden mittlerweile identifiziert, von denen die wichtigsten für verteilte Systeme
+sind:
+
+- Schichtenarchitekturen
+- Serviceorientierte-Architekturen
+- Publish-Subscribe-Architekturen
+
+Im Folgenden diskutieren wir jeden dieser Stile separat. Wir merken im Voraus an, dass in den meisten realen verteilten
+Systemen viele Stile kombiniert werden. Insbesondere das Verfolgen eines Ansatzes, bei dem ein System in mehrere (
+logische) Schichten unterteilt wird, ist ein so universelles Prinzip, dass es im Allgemeinen mit den meisten anderen
+Architekturstilen kombiniert wird.
+
+### 2.1.1 Schichtenarchitekturen
+
+Die grundlegende Idee des geschichteten Stils ist einfach: Komponenten werden in einer geschichteten Weise organisiert,
+wobei eine Komponente auf Schicht Lj einen Abwärtsruf (downcall) zu einer Komponente auf einer niedrigeren Ebene Li (mit
+i < j) tätigen kann und in der Regel eine Antwort erwartet. Nur in Ausnahmefällen wird ein Aufwärtsruf (upcall) zu einer
+höheren Ebene gemacht. Die drei häufigen Fälle sind in Abbildung 2.1 dargestellt.
+
+Abbildung 2.1(a) zeigt eine Standardorganisation, bei der nur Abwärtsrufe zur nächsten niedrigeren Schicht gemacht
+werden. Diese Organisation wird häufig bei Netzwerkkommunikation eingesetzt.
+
+In vielen Situationen stoßen wir auch auf die in Abbildung 2.1(b) gezeigte Organisation. Betrachten Sie zum Beispiel
+eine Anwendung A, die eine Bibliothek LOS verwendet, um eine Schnittstelle zum Betriebssystem herzustellen. Gleichzeitig
+nutzt die Anwendung eine spezialisierte mathematische Bibliothek Lmath, die ebenfalls unter Verwendung von LOS
+implementiert wurde. In diesem Fall, bezogen auf Abbildung 2.1(b), ist A auf Schicht N − 1, Lmath auf Schicht N − 2 und
+LOS, die beiden gemeinsam ist, auf Schicht N − 3 implementiert.
+
+Schließlich wird in Abbildung 2.1(c) eine besondere Situation gezeigt. In einigen Fällen ist es praktisch, eine untere
+Schicht einen Aufwärtsruf zu ihrer nächsthöheren Schicht machen zu lassen. Ein typisches Beispiel ist, wenn ein
+Betriebssystem das Auftreten eines Ereignisses signalisiert, zu diesem Zweck ruft es eine benutzerdefinierte Operation
+auf, für die eine Anwendung zuvor eine Referenz (typischerweise als Handle bezeichnet) übergeben hatte.
+
+#### Geschichtete Kommunikationsprotokolle
+
+Eine bekannte und allgegenwärtig angewandte geschichtete Architektur ist die der Kommunikationsprotokoll-Stacks. Wir
+konzentrieren uns hier nur auf das globale Bild und vertagen eine detaillierte Diskussion auf Abschnitt 4.1.1.
+
+In Kommunikationsprotokoll-Stacks implementiert jede Schicht einen oder mehrere Kommunikationsdienste, die es
+ermöglichen, Daten von einer Quelle zu einem oder mehreren Zielen zu senden. Zu diesem Zweck bietet jede Schicht eine
+Schnittstelle an, die die aufrufbaren Funktionen spezifiziert. Grundsätzlich sollte die Schnittstelle die tatsächliche
+Implementierung eines Dienstes vollständig verbergen. Ein weiteres wichtiges Konzept im Bereich der Kommunikation ist
+das eines (Kommunikations-)Protokolls, das die Regeln beschreibt, die die Parteien befolgen werden, um Informationen
+auszutauschen. Es ist wichtig, den Unterschied zwischen einem von einer Schicht angebotenen Dienst, der Schnittstelle,
+durch die dieser Dienst verfügbar gemacht wird, und dem Protokoll, das eine Schicht implementiert, um die Kommunikation
+zu etablieren, zu verstehen. Diese Unterscheidung wird in Abbildung 2.2 gezeigt.
+
+Um diese Unterscheidung klarzumachen, betrachten Sie einen zuverlässigen, verbindungsorientierten Dienst, der von vielen
+Kommunikationssystemen bereitgestellt wird. In diesem Fall muss eine kommunizierende Partei zuerst eine Verbindung zu
+einer anderen Partei aufbauen, bevor die beiden Nachrichten senden und empfangen können. Zuverlässig bedeutet, dass
+starke Garantien gegeben werden, dass gesendete Nachrichten tatsächlich an die andere Seite geliefert werden, selbst
+wenn ein hohes Risiko besteht, dass Nachrichten verloren gehen (wie es zum Beispiel bei der Verwendung eines drahtlosen
+Mediums der Fall sein kann). Darüber hinaus stellen solche Dienste im Allgemeinen auch sicher, dass Nachrichten in
+derselben Reihenfolge geliefert werden, in der sie gesendet wurden.
+
+Diese Art von Dienst wird im Internet durch das Transmission Control Protocol (TCP) realisiert. Das Protokoll
+spezifiziert, welche Nachrichten für den Aufbau oder Abbau einer Verbindung ausgetauscht werden müssen, was getan werden
+muss, um die Reihenfolge der übertragenen Daten zu bewahren, und was beide Parteien tun müssen, um Daten zu erkennen und
+zu korrigieren, die während der Übertragung verloren gegangen sind. Der Dienst wird in Form einer relativ einfachen
+Programmierschnittstelle verfügbar gemacht, die Aufrufe zum Aufbau einer Verbindung, zum Senden und Empfangen von
+Nachrichten sowie zum erneuten Abbau der Verbindung enthält. Tatsächlich gibt es unterschiedliche Schnittstellen, die
+oft vom Betriebssystem oder der verwendeten Programmiersprache abhängen. Ebenso gibt es viele Implementierungen des
+Protokolls und seiner Schnittstellen. (Alle Einzelheiten finden Sie in [Stevens, 1994; Wright und Stevens, 1995].)
+
+#### Anwendungsschichtung
+
+Wenden wir uns nun der logischen Schichtung von Anwendungen zu. In Anbetracht der Tatsache, dass eine große Klasse
+verteilter Anwendungen darauf abzielt, Benutzern oder Anwendungen den Zugang zu Datenbanken zu ermöglichen, haben viele
+Menschen eine Unterscheidung zwischen drei logischen Ebenen befürwortet, die im Wesentlichen einem geschichteten
+Architekturstil folgen:
+
+- Die Anwendungsschnittstellenebene
+- Die Verarbeitungsebene
+- Die Datenebene
+
+In Übereinstimmung mit dieser Schichtung sehen wir, dass Anwendungen oft aus ungefähr drei verschiedenen Teilen
+konstruiert werden können: einem Teil, der die Interaktion mit einem Benutzer oder einer externen Anwendung handhabt,
+einem Teil, der auf einer Datenbank oder einem Dateisystem operiert, und einem mittleren Teil, der im Allgemeinen die
+Kernfunktionalität der Anwendung enthält. Dieser mittlere Teil ist logischerweise auf der Verarbeitungsebene platziert.
+Im Gegensatz zu Benutzeroberflächen und Datenbanken gibt es auf der Verarbeitungsebene nicht viele gemeinsame Aspekte.
+Daher werden wir mehrere Beispiele geben, um diese Ebene zu verdeutlichen.
+
+Als erstes Beispiel betrachten wir eine einfache Internet-Suchmaschine, zum Beispiel eine, die auf den Kauf von Häusern
+spezialisiert ist. Solche Suchmaschinen erscheinen als scheinbar einfache Websites, über die jemand Beschreibungen wie
+eine Stadt oder Region, eine Preisspanne, den Typ des Hauses usw. angeben kann. Das Backend besteht aus einer riesigen
+Datenbank von derzeit zum Verkauf stehenden Häusern. Die Verarbeitungsschicht tut nichts anderes, als die
+bereitgestellten Beschreibungen in eine Sammlung von Datenbankabfragen umzuwandeln, die Antworten abzurufen und diese
+Antworten nachzubearbeiten, indem sie beispielsweise die Ausgabe nach Relevanz sortiert und anschließend eine HTML-Seite
+generiert. Abbildung 2.4 zeigt diese Organisation.
+
+Als weiteres Beispiel betrachten wir die Organisation der Website dieses Buches, insbesondere die Schnittstelle, die es
+jemandem ermöglicht, eine personalisierte digitale Kopie des Buches im PDF-Format zu erhalten. In diesem Fall besteht
+die Schnittstelle aus einem WordPress-basierten Webserver, der lediglich die E-Mail-Adresse des Benutzers sammelt (und
+einige Informationen darüber, welche Version des Buches angefordert wird). Diese Informationen werden intern an eine
+Datei requests.txt angehängt. Die Datenebene ist einfach: Sie besteht lediglich aus einer Sammlung von LaTeX-Dateien und
+Abbildungen, die gemeinsam das gesamte Buch ausmachen.
+
+Das Erstellen einer personalisierten Kopie besteht darin, die E-Mail-Adresse des Benutzers in jede der Abbildungen
+einzubetten. Zu diesem Zweck wird einmal alle fünf Minuten ein separater Prozess gestartet, der die Liste der Anfragen
+durchgeht und nacheinander die E-Mail-Adresse des Anfragenden in jede Bitmap-Grafik einfügt, eine frische Kopie des
+Buches generiert, das erzeugte PDF an einem speziellen Ort speichert (zugänglich über eine einzigartige URL) und dem
+Anfragenden eine E-Mail sendet, dass die Kopie zum Download bereitsteht. Dieser Prozess wird fortgesetzt, bis alle
+Anfragen bearbeitet wurden. In diesem Beispiel sehen wir also, dass die Verarbeitungsschicht die Datenebene oder die
+Anwendungsschnittstellenebene in Bezug auf Rechenaufwand und auszuführende Aktionen überwiegt.
+
+### 2.1.2 Serviceorientierte Architekturen
+
+Obwohl der geschichtete Architekturstil beliebt ist, stellt einer seiner größten Nachteile die oft starke Abhängigkeit
+zwischen den verschiedenen Schichten dar. Gute Beispiele, bei denen diese potenziellen Abhängigkeiten sorgfältig
+berücksichtigt wurden, findet man bei der Gestaltung von Kommunikationsprotokoll-Stacks. Schlechte Beispiele umfassen
+Anwendungen, die im Wesentlichen als Zusammensetzungen bestehender Komponenten entworfen und entwickelt wurden, ohne
+viel Rücksicht auf die Stabilität von Schnittstellen oder die Komponenten selbst, ganz zu schweigen von der
+Überschneidung der Funktionalität zwischen verschiedenen Komponenten. (Ein überzeugendes Beispiel wird von
+Kucharski [2020] gegeben, der die Abhängigkeit von einer einfachen Komponente beschreibt, die eine gegebene Zeichenkette
+mit Nullen oder Leerzeichen auffüllt. Der Autor hat die Komponente aus der NPM-Bibliothek zurückgezogen, was Tausende
+von Programmen beeinträchtigte.)
+
+Solche direkten Abhängigkeiten von spezifischen Komponenten haben zu einem Architekturstil geführt, der eine lockerere
+Organisation in eine Sammlung separater, unabhängiger Einheiten widerspiegelt. Jede Einheit kapselt einen Dienst ein. Ob
+sie nun Dienste, Objekte oder Mikrodienste genannt werden, sie haben gemeinsam, dass der Dienst als separater Prozess (
+oder Thread) ausgeführt wird. Natürlich bedeutet das separate Ausführen von Einheiten nicht unbedingt eine Verringerung
+der Abhängigkeiten im Vergleich zu einem geschichteten Architekturstil.
+
+#### Objektbasierte Architekturstile
+
+Nehmen wir den objektbasierten Ansatz als Beispiel, haben wir eine logische Organisation, wie in Abbildung 2.5 gezeigt.
+Im Wesentlichen entspricht jedes Objekt dem, was wir als Komponente definiert haben, und diese Komponenten sind durch
+einen Prozeduraufrufmechanismus verbunden. Im Falle verteilter Systeme kann ein Prozeduraufruf auch über ein Netzwerk
+stattfinden, das heißt, das aufrufende Objekt muss nicht auf derselben Maschine ausgeführt werden wie das aufgerufene
+Objekt. Tatsächlich kann der genaue Ort, an dem das aufgerufene Objekt sich befindet, für den Anrufer transparent sein:
+Das aufgerufene Objekt kann ebenso gut als separater Prozess auf derselben Maschine laufen.
+
+Objektbasierte Architekturen sind attraktiv, weil sie eine natürliche Art bieten, Daten (den sogenannten Zustand eines
+Objekts) und die Operationen, die mit diesen Daten durchgeführt werden können (die als Methoden eines Objekts bezeichnet
+werden), in eine einzige Einheit einzukapseln. Die von einem Objekt angebotene Schnittstelle verbirgt
+Implementierungsdetails, was im Wesentlichen bedeutet, dass wir ein Objekt prinzipiell vollständig unabhängig von seiner
+Umgebung betrachten können. Wie bei Komponenten bedeutet dies auch, dass ein Objekt, wenn die Schnittstelle klar
+definiert und ansonsten unberührt gelassen wird, durch ein anderes mit derselben Schnittstelle ersetzt werden kann.
+
+Diese Trennung zwischen Schnittstellen und den Objekten, die diese Schnittstellen implementieren, ermöglicht es uns,
+eine Schnittstelle auf einer Maschine zu platzieren, während das Objekt selbst auf einer anderen Maschine liegt. Diese
+Organisation, die in Abbildung 2.6 dargestellt wird, wird üblicherweise als verteiltes Objekt oder gelegentlich als
+entferntes Objekt bezeichnet.
+
+Wenn sich ein Client an ein verteiltes Objekt bindet, wird eine Implementierung der Schnittstelle des Objekts, die als
+Proxy bezeichnet wird, in den Adressraum des Clients geladen. Ein Proxy ist analog zu einem sogenannten Client-Stumpf in
+RPC-Systemen. Das Einzige, was es tut, ist, Methodenaufrufe in Nachrichten zu verpacken und Antwortnachrichten
+auszupacken, um das Ergebnis des Methodenaufrufs an den Client zurückzugeben. Das eigentliche Objekt befindet sich auf
+einem Server, wo es dieselbe Schnittstelle bietet wie auf der Client-Maschine. Eingehende Aufrufanfragen werden zuerst
+an einen Server-Stumpf weitergeleitet, der sie auspackt, um Methodenaufrufe an der Schnittstelle des Objekts auf dem
+Server durchzuführen. Der Server-Stumpf ist auch dafür verantwortlich, Rückgabewerte in eine Nachricht zu verpacken und
+diese Antwortnachrichten an den Proxy auf der Client-Seite weiterzuleiten.
+
+Das serverseitige Stub wird oft als Skelett bezeichnet, da es die grundlegenden Mittel zur Verfügung stellt, um den
+serverseitigen Middleware-Zugriff auf die benutzerdefinierten Objekte zu ermöglichen. In der Praxis enthält es oft
+unvollständigen Code in Form einer sprachspezifischen Klasse, die vom Entwickler weiter spezialisiert werden muss.
+
+Ein charakteristisches, aber etwas kontraintuitives Merkmal der meisten verteilten Objekte ist, dass ihr Zustand nicht
+verteilt ist: Er befindet sich auf einer einzelnen Maschine. Nur die von dem Objekt implementierten Schnittstellen sind
+auf anderen Maschinen verfügbar. Solche Objekte werden auch als entfernte Objekte bezeichnet. In einem allgemeinen
+verteilten Objekt kann der Zustand selbst physisch über mehrere Maschinen verteilt sein, aber diese Verteilung ist
+ebenfalls vor den Clients hinter den Schnittstellen des Objekts verborgen.
+
+#### Mikroservice-Architekturstil
+
+Man könnte argumentieren, dass objektbasierte Architekturen die Grundlage für die Kapselung von Diensten in unabhängige
+Einheiten bilden. Kapselung ist hier das Schlüsselwort: Der Dienst als Ganzes wird als eine in sich geschlossene Einheit
+realisiert, obwohl er möglicherweise andere Dienste nutzen kann. Indem verschiedene Dienste klar voneinander getrennt
+werden, so dass sie unabhängig voneinander funktionieren können, ebnet man den Weg zu serviceorientierten Architekturen,
+die allgemein als SOAs abgekürzt werden.
+
+Angeregt durch objektorientierte Designs und inspiriert durch den Unix-Ansatz, bei dem viele kleine und gegenseitig
+unabhängige Programme leicht zusammengesetzt werden können, um größere Programme zu bilden, haben Softwarearchitekten an
+dem gearbeitet, was als Mikroservices bezeichnet wird. Wesentlich ist, dass jeder Mikroservice als separater (Netzwerk-)
+Prozess ausgeführt wird. Die Implementierung eines Mikroservices könnte in Form eines entfernten Objekts erfolgen, aber
+das ist keine Voraussetzung. Außerdem gibt es, obwohl man von Mikroservices spricht, keine allgemeine Übereinstimmung
+darüber, wie groß ein solcher Dienst sein sollte. Am wichtigsten ist jedoch, dass ein Mikroservice wirklich einen
+separaten, unabhängigen Dienst darstellt. Mit anderen Worten, Modularisierung ist der Schlüssel zur Gestaltung von
+Mikroservices [Wolff, 2017].
+
+Dennoch spielt die Größe eine Rolle. Indem wir bereits festgestellt haben, dass Mikroservices als separate vernetzte
+Prozesse laufen, erhalten wir auch eine Wahlmöglichkeit, wo wir einen Mikroservice platzieren. Wie wir später in diesem
+Kapitel sehen werden, haben mit dem Aufkommen von Edge- und Fog-Infrastrukturen Diskussionen über die Orchestrierung der
+Bereitstellung verteilter Anwendungen über verschiedene Schichten begonnen. Mit anderen Worten, wo platzieren wir was.
+
+#### Grobgliedrige Dienstzusammensetzung
+
+In einer serviceorientierten Architektur wird eine verteilte Anwendung oder ein System im Wesentlichen als
+Zusammensetzung vieler Dienste konstruiert. Ein Unterschied (wenn auch nicht strikt) zu Mikroservices besteht darin,
+dass nicht alle diese Dienste derselben administrativen Organisation angehören müssen. Wir sind bereits auf dieses
+Phänomen gestoßen, als wir Cloud-Computing diskutierten: Es kann durchaus sein, dass eine Organisation, die ihre
+Geschäftsanwendung betreibt, Speicherdienste eines Cloud-Anbieters nutzt. Diese Speicherdienste sind logisch vollständig
+in eine einzelne Einheit eingekapselt, deren Schnittstelle Kunden zur Verfügung gestellt wird.
+
+Natürlich ist Speicherung ein eher grundlegender Dienst, aber es kommen leicht komplexere Situationen in den Sinn.
+Betrachten Sie zum Beispiel einen Webshop, der Waren wie E-Books verkauft. Eine einfache Implementierung, die der zuvor
+diskutierten Anwendungsschichtung folgt, könnte aus einer Anwendung zur Auftragsbearbeitung bestehen, die wiederum auf
+einer lokalen Datenbank mit den E-Books operiert. Die Auftragsbearbeitung umfasst typischerweise das Auswählen von
+Artikeln, das Registrieren und Überprüfen des Lieferkanals (eventuell per E-Mail), aber auch die Sicherstellung, dass
+eine Zahlung erfolgt. Letzteres kann von einem separaten Dienst, der von einer anderen Organisation betrieben wird,
+gehandhabt werden, zu dem ein kaufender Kunde für die Zahlung umgeleitet wird, wonach die E-Book-Organisation
+benachrichtigt wird, damit sie die Transaktion abschließen kann. Dieses Beispiel zeigt auch, dass, während Mikroservices
+als relativ klein angesehen werden, ein allgemeiner Dienst als relativ groß erwartet werden kann. Tatsächlich ist es
+nicht ungewöhnlich, einen Dienst als Sammlung von Mikroservices zu implementieren.
+
+Auf diese Weise sehen wir, dass das Problem der Entwicklung eines verteilten Systems teilweise eines der
+Dienstzusammensetzung ist und sicherzustellen, dass diese Dienste harmonisch zusammenarbeiten. Tatsächlich ist dieses
+Problem völlig analog zu den Problemen der Unternehmensanwendungsintegration, die in Abschnitt 1.3.2 diskutiert wurden.
+Entscheidend ist und bleibt, dass jeder Dienst eine gut definierte (Programmier-)Schnittstelle bietet. In der Praxis
+bedeutet dies auch, dass jeder Dienst seine eigene Schnittstelle anbietet, was die Zusammensetzung von Diensten alles
+andere als trivial machen kann.
+
+#### Ressourcenbasierte Architekturen
+
+Als immer mehr Dienste über das Web verfügbar wurden und die Entwicklung verteilter Systeme durch Dienstzusammensetzung
+wichtiger wurde, begannen Forscher, die Architektur von meist webbasierten verteilten Systemen neu zu überdenken. Eines
+der Probleme bei der Dienstzusammensetzung besteht darin, dass die Verbindung verschiedener Komponenten leicht zu einem
+Integrationsalbtraum werden kann.
+
+Als Alternative kann man ein verteiltes System auch als eine riesige Sammlung von Ressourcen betrachten, die einzeln von
+Komponenten verwaltet werden. Ressourcen können von (fernen) Anwendungen hinzugefügt oder entfernt und ebenso abgerufen
+oder geändert werden. Dieser Ansatz wurde mittlerweile für das Web weitgehend übernommen und ist als Representational
+State Transfer (REST) bekannt [Fielding, 2000]. Es gibt vier Schlüsselmerkmale von sogenannten
+RESTful-Architekturen [Pautasso et al., 2008]:
+
+1. Ressourcen werden durch ein einziges Namensschema identifiziert
+2. Alle Dienste bieten dieselbe Schnittstelle, bestehend aus höchstens vier Operationen, wie in Abbildung 2.7 gezeigt
+3. Nachrichten, die an einen Dienst gesendet oder von ihm empfangen werden, sind vollständig selbstbeschreibend
+4. Nach der Ausführung einer Operation bei einem Dienst vergisst diese Komponente alles über den Anrufer
+
+Die letzte Eigenschaft wird auch als zustandslose Ausführung bezeichnet, ein Konzept, auf das wir in Kapitel 3
+zurückkommen. Um zu veranschaulichen, wie RESTful in der Praxis funktionieren kann, betrachten Sie einen
+Cloud-Speicherdienst wie Amazons Simple Storage Service (Amazon S3). Amazon S3, beschrieben in [Murty, 2008] und
+neuerdings in [Culkin und Zazon, 2022], unterstützt zwei Ressourcen: Objekte, die im Wesentlichen das Äquivalent zu
+Dateien sind, und Buckets, das Äquivalent zu Verzeichnissen. Es gibt kein Konzept, Buckets in Buckets zu platzieren. Ein
+Objekt mit dem Namen ObjectName in einem Bucket BucketName wird durch den folgenden Uniform Resource Identifier (URI)
+bezeichnet:
+
+`https://s3.amazonaws.com/BucketName/ObjectName`
+
+Um einen Bucket oder ein Objekt zu erstellen, würde eine Anwendung im Wesentlichen eine PUT-Anfrage mit der URI des
+Buckets/Objekts senden. Grundsätzlich wird bei dem Dienst das HTTP-Protokoll verwendet. Mit anderen Worten, es handelt
+sich einfach um eine weitere HTTP-Anfrage, die anschließend von S3 korrekt interpretiert wird. Wenn der Bucket oder das
+Objekt bereits existiert, wird eine HTTP-Fehlermeldung zurückgegeben.
+
+Ähnlich, um zu erfahren, welche Objekte in einem Bucket enthalten sind, würde eine Anwendung eine GET-Anfrage mit der
+URI dieses Buckets senden. S3 gibt dann eine Liste der Objektnamen zurück, wiederum als gewöhnliche HTTP-Antwort.
+
+Die RESTful-Architektur ist aufgrund ihrer Einfachheit beliebt geworden. Pautasso et al. [2008] haben RESTful-Dienste
+mit dienstspezifischen Schnittstellen verglichen und, wie zu erwarten, haben beide ihre Vor- und Nachteile. Insbesondere
+kann die Einfachheit von RESTful-Architekturen leicht Lösungen für komplexe Kommunikationsschemata verhindern. Ein
+Beispiel sind verteilte Transaktionen, die in der Regel erfordern, dass Dienste den Ausführungszustand verfolgen.
+Andererseits gibt es viele Beispiele, in denen RESTful-Architekturen perfekt zu einem einfachen Integrationsschema von
+Diensten passen, während die Vielzahl von Dienstschnittstellen die Angelegenheit komplizieren kann.
