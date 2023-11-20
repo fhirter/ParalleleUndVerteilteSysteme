@@ -11,7 +11,7 @@ Die folgenden Texte wurden mit Chat GPT-4 übersetzt und auf vom Dozenten überp
 # Einführung
 
 Das Tempo, mit dem sich Computersysteme ändern, war, ist und bleibt überwältigend.
-Von 1945, als die moderne Computerära begann, bis etwa 1985 waren Computer groß und teuer.
+Von 1945, als die moderne Computerära begann, bis etwa 1985 waren Computer gross und teuer.
 Da es keine Möglichkeit gab, sie zu verbinden, arbeiteten diese Computer unabhängig voneinander.
 
 Ab Mitte der 1980er Jahre begannen jedoch zwei technologische Fortschritte, diese Situation zu ändern.
@@ -25,7 +25,7 @@ einen Bruchteil davon.
 Die zweite Entwicklung war die Erfindung von Hochgeschwindigkeits-Computernetzwerken.
 Lokale Netzwerke oder LANs ermöglichen es, Tausende von Maschinen in einem Gebäude so zu verbinden, dass kleine
 Informationsmengen in wenigen Mikrosekunden übertragen werden können.
-Größere Datenmengen können mit Raten von Milliarden Bits pro Sekunde (bps) zwischen Maschinen übertragen werden.
+Grössere Datenmengen können mit Raten von Milliarden Bits pro Sekunde (bps) zwischen Maschinen übertragen werden.
 Wide Area Networks (WAN) ermöglichen die Verbindung von Hunderten von Millionen von Maschinen auf der ganzen Welt mit
 Geschwindigkeiten von Zehntausenden bis zu Hunderten von Millionen bps und mehr.
 
@@ -34,12 +34,12 @@ Computersystemen beobachten, wobei das Smartphone vielleicht das beeindruckendst
 Mit Sensoren, viel Speicher und einer leistungsstarken Multicore-CPU sind diese Geräte nichts weniger als vollwertige
 Computer.
 Natürlich haben sie auch Netzwerkfähigkeiten. Ebenso sind sogenannte Nanocomputer leicht verfügbar geworden.
-Diese kleinen Einplatinencomputer, oft nicht größer als eine Kreditkarte, bieten problemlos nahezu Desktop-Leistung.
+Diese kleinen Einplatinencomputer, oft nicht grösser als eine Kreditkarte, bieten problemlos nahezu Desktop-Leistung.
 Bekannte Beispiele sind Raspberry Pi und Arduino Systeme.
 
 Und die Geschichte geht weiter.
 Da die Digitalisierung unserer Gesellschaft fortschreitet, werden wir uns immer bewusster, wie viele Computer
-tatsächlich eingesetzt werden, regelmäßig in andere Systeme eingebettet, wie Autos, Flugzeuge, Gebäude, Brücken, das
+tatsächlich eingesetzt werden, regelmässig in andere Systeme eingebettet, wie Autos, Flugzeuge, Gebäude, Brücken, das
 Stromnetz usw.
 Dieses Bewusstsein wird leider verstärkt, wenn sich solche Systeme plötzlich als hackbar herausstellen. Zum Beispiel
 wurde 2021 eine Treibstoffpipeline in den USA durch einen Ransomware-Angriff effektiv stillgelegt.
@@ -52,7 +52,7 @@ arbeitender, mobile vernetzter Computer ist.
 In diesem Fall muss man sich nicht mit dem von einer Person getragenen mobilen Computer befassen, sondern mit dem
 mobilen Computer, der Menschen befördert.
 
-Die Größe eines vernetzten Computersystems kann von einer Handvoll Geräten bis zu Millionen von Computern variieren.
+Die Grösse eines vernetzten Computersystems kann von einer Handvoll Geräten bis zu Millionen von Computern variieren.
 Das Verbindungsnetzwerk kann verdrahtet, drahtlos oder eine Kombination aus beidem sein.
 Darüber hinaus sind diese Systeme oft hochdynamisch, da Computer beitreten und verlassen können, wobei die Topologie und
 Leistung des zugrunde liegenden Netzwerks fast ständig wechselt.
@@ -61,7 +61,7 @@ Es ist schwierig, sich Computersysteme vorzustellen, die nicht vernetzt sind.
 Und tatsächlich können die meisten vernetzten Computersysteme von überall auf der Welt aus zugegriffen werden, weil sie
 mit dem Internet verbunden sind.
 Das Studium dieser Systeme kann leicht extrem komplex werden.
-In diesem Kapitel beginnen wir, Licht darauf zu werfen, was verstanden werden muss, um das größere Bild zu erstellen,
+In diesem Kapitel beginnen wir, Licht darauf zu werfen, was verstanden werden muss, um das grössere Bild zu erstellen,
 ohne sich zu verlieren.
 
 ## 1.1 Von vernetzten Systemen zu verteilten Systemen
@@ -89,13 +89,13 @@ verbinden. Dies geschieht in der Regel, wenn Dienste, die auf einem System laufe
 verfügbar gemacht werden müssen, an die zuvor nicht gedacht wurde. Ein Beispiel dafür ist die Integration von
 Finanzdienstleistungen mit Projektmanagementdiensten, wie es oft in einer einzelnen Organisation der Fall ist. Im
 wissenschaftlichen Forschungsbereich haben wir Bemühungen gesehen, eine Vielzahl von oft teuren Ressourcen (
-Spezialcomputer, Supercomputer, sehr große Datenbanksysteme usw.) zu dem zu verbinden, was als Grid-Computer bezeichnet
+Spezialcomputer, Supercomputer, sehr grosse Datenbanksysteme usw.) zu dem zu verbinden, was als Grid-Computer bezeichnet
 wird.
 
 Die zweite, **expansive Sichtweise** ist, dass ein bestehendes System durch zusätzliche Computer erweitert werden
 musste. Diese Sichtweise steht im Zusammenhang mit dem Gebiet der verteilten Systeme. Es geht darum, ein System mit
 Computern zu erweitern, um Ressourcen dort bereitzustellen, wo sie benötigt werden. Eine Erweiterung kann auch durch das
-Bedürfnis nach größerer Zuverlässigkeit getrieben werden: Wenn ein Computer ausfällt, gibt es andere, die übernehmen
+Bedürfnis nach grösserer Zuverlässigkeit getrieben werden: Wenn ein Computer ausfällt, gibt es andere, die übernehmen
 können. Eine wichtige Art von Erweiterung ist, wenn ein Dienst für entfernte Benutzer und Anwendungen verfügbar gemacht
 werden muss, zum Beispiel durch Bereitstellung einer Web-Schnittstelle oder einer Smartphone-Anwendung. Dieses letzte
 Beispiel zeigt auch, dass die Unterscheidung zwischen einer integrativen und einer expansiven Sichtweise nicht eindeutig
@@ -157,7 +157,7 @@ Dafür müssen sie einige Einstellungen vornehmen, wie den eingehenden und ausge
 Im Falle von Google Mail sind dies imap.gmail.com und smtp.gmail.com.
 Logischerweise scheint es, als würden diese beiden Server alle Ihre Mails bearbeiten.
 Mit einer Schätzung von fast 2 Milliarden Benutzern im Jahr 2022 ist es jedoch unwahrscheinlich, dass nur zwei Computer
-all ihre E-Mails bearbeiten können (die auf mehr als 300 Milliarden pro Jahr geschätzt wurden, das heißt, etwa 10.000
+all ihre E-Mails bearbeiten können (die auf mehr als 300 Milliarden pro Jahr geschätzt wurden, das heisst, etwa 10.000
 Mails pro Sekunde).
 Hinter den Kulissen wurde der gesamte Google Mail-Dienst natürlich auf viele Computer verteilt, die gemeinsam ein
 verteiltes System bilden.
@@ -181,13 +181,13 @@ ausgewählt, für den eine gute Leistung in Bezug auf Latenz und Bandbreite gew�
 Das CDN stellt dynamisch sicher, dass der ausgewählte Server den erforderlichen Inhalt sofort verfügbar hat,
 aktualisiert diesen Inhalt bei Bedarf oder entfernt ihn vom Server, wenn dort keine oder nur sehr wenige Benutzer
 bedient werden müssen.
-Der Benutzer weiß derweil nichts darüber, was hinter den Kulissen vor sich geht (was wiederum eine Form der
+Der Benutzer weiss derweil nichts darüber, was hinter den Kulissen vor sich geht (was wiederum eine Form der
 Verteilungstransparenz ist).
 In diesem Beispiel sehen wir auch, dass Inhalte nicht auf alle Server kopiert werden, sondern nur dorthin, wo es
 sinnvoll ist, also ausreichend und aus Leistungsgründen.
-CDNs kopieren Inhalte auch auf mehrere Server, um ein hohes Maß an Zuverlässigkeit zu gewährleisten.
+CDNs kopieren Inhalte auch auf mehrere Server, um ein hohes Mass an Zuverlässigkeit zu gewährleisten.
 
-Als abschließendes, viel kleineres verteiltes System betrachten Sie eine Einrichtung basierend auf einem
+Als abschliessendes, viel kleineres verteiltes System betrachten Sie eine Einrichtung basierend auf einem
 Network-Attached Storage-Gerät, auch NAS genannt.
 Für den Hausgebrauch besteht ein typisches NAS aus 2–4 Steckplätzen für interne Festplatten.
 Das NAS fungiert als Dateiserver: Es ist über ein (in der Regel drahtloses) Netzwerk für jedes autorisierte Gerät
@@ -215,7 +215,7 @@ Tatsächlich sind verteilte und dezentralisierte Lösungen von Natur aus schwier
 - Verteilte und dezentralisierte Systeme leiden fast ständig unter partiellen Ausfällen: Ein Prozess oder eine Ressource
   an einem der beteiligten Computer funktioniert nicht wie erwartet. Es kann tatsächlich eine Weile dauern, diesen
   Fehler zu entdecken, während solche Fehler vorzugsweise maskiert werden (d.h., sie bleiben für Benutzer und
-  Anwendungen unbemerkt), einschließlich der Wiederherstellung von Ausfällen.
+  Anwendungen unbemerkt), einschliesslich der Wiederherstellung von Ausfällen.
 - In engem Zusammenhang mit partiellen Ausfällen steht die Tatsache, dass in vielen vernetzten Computersystemen
   teilnehmende Knoten, Prozesse, Ressourcen usw. kommen und gehen. Dies macht diese Systeme hochdynamisch und erfordert
   Formen des automatisierten Managements und der Wartung, was wiederum die Komplexität erhöht.
@@ -243,7 +243,7 @@ erhöhte Komplexität rechtfertigt.
 
 In Anbetracht der Tatsache, dass verteilte Systeme von Natur aus schwierig sind, ist es wichtig, einen systematischen
 Ansatz zu ihrer Untersuchung zu wählen.
-Eine unserer größten Sorgen ist, dass es in verteilten Systemen so viele explizite und implizite Abhängigkeiten gibt.
+Eine unserer grössten Sorgen ist, dass es in verteilten Systemen so viele explizite und implizite Abhängigkeiten gibt.
 
 Zum Beispiel gibt es so etwas wie ein separates Kommunikationsmodul oder ein separates Sicherheitsmodul nicht.
 Unser Ansatz besteht darin, verteilte Systeme aus einer begrenzten Anzahl, aber verschiedenen Perspektiven zu
@@ -316,7 +316,7 @@ aber auch durch die Vielzahl von Zusammenarbeitstools, die durch die COVID-19-Pa
 Die Ressourcenfreigabe in verteilten Systemen wird auch durch den Erfolg von File-Sharing-Peer-to-Peer-Netzwerken wie
 BitTorrent illustriert. Diese verteilten Systeme ermöglichen es Benutzern, Dateien einfach über das Internet zu teilen.
 Peer-to-Peer-Netzwerke werden oft mit der Verteilung von Medien Dateien wie Audio und Video in Verbindung gebracht. In
-anderen Fällen wird die Technologie zum Verteilen großer Datenmengen verwendet, wie im Fall von Software-Updates,
+anderen Fällen wird die Technologie zum Verteilen grosser Datenmengen verwendet, wie im Fall von Software-Updates,
 Backup-Diensten und Datenabgleich über mehrere Server.
 
 Die nahtlose Integration von Ressourcenfreigabeeinrichtungen in einer vernetzten Umgebung ist ebenfalls heute üblich.
@@ -333,8 +333,8 @@ völlig verborgen.
 ### 1.2.2 Verteilungstransparenz
 
 Ein wichtiges Ziel eines verteilten Systems ist es, die Tatsache zu verbergen, dass seine Prozesse und Ressourcen
-physisch über mehrere Computer verteilt sind, möglicherweise über große Entfernungen hinweg. Mit anderen Worten, es
-versucht, die Verteilung von Prozessen und Ressourcen für Endbenutzer und Anwendungen transparent, das heißt unsichtbar,
+physisch über mehrere Computer verteilt sind, möglicherweise über grosse Entfernungen hinweg. Mit anderen Worten, es
+versucht, die Verteilung von Prozessen und Ressourcen für Endbenutzer und Anwendungen transparent, das heisst unsichtbar,
 zu machen. Wie wir in Kapitel 2 ausführlicher diskutieren werden, wird die Verteilungstransparenz durch die sogenannte
 Middleware realisiert, skizziert in Abbildung 1.2 (siehe Gazis und Katsiri [2022] für eine erste Einführung). Im
 Wesentlichen sehen Anwendungen überall die gleiche Schnittstelle, während hinter dieser Schnittstelle, wo und wie
@@ -373,7 +373,7 @@ Ressourcen für Benutzer und Anwendungen unsichtbar sein sollte.
 
 Zuletzt, aber sicherlich nicht am wenigsten wichtig, ist es von Bedeutung, dass ein verteiltes System eine
 **Fehlertransparenz** bietet. Dies bedeutet, dass ein Benutzer oder eine Anwendung nicht bemerkt, wenn ein Teil des
-Systems nicht ordnungsgemäß funktioniert, und dass das System anschließend (und automatisch) von diesem Fehler erholt.
+Systems nicht ordnungsgemäss funktioniert, und dass das System anschliessend (und automatisch) von diesem Fehler erholt.
 Fehler zu maskieren ist eines der schwierigsten Probleme in verteilten Systemen und ist sogar unmöglich, wenn bestimmte
 scheinbar realistische Annahmen getroffen werden, wie wir in Kapitel 8 besprechen werden. Die Hauptproblematik beim
 Maskieren und transparenten Wiederherstellen von Fehlern liegt in der Unfähigkeit, zwischen einem "toten" Prozess und
@@ -404,11 +404,11 @@ verlangsamen. In einem solchen Fall wäre es vielleicht besser gewesen, früher 
 erlauben, die Kontaktversuche abzubrechen.
 
 Ein weiteres Beispiel ist, wo wir garantieren müssen, dass mehrere Replikate, die auf verschiedenen Kontinenten
-befindlich sind, jederzeit konsistent sein müssen. Das heißt, wenn eine Kopie geändert wird, sollte diese Änderung zu
+befindlich sind, jederzeit konsistent sein müssen. Das heisst, wenn eine Kopie geändert wird, sollte diese Änderung zu
 allen Kopien propagiert werden, bevor eine andere Operation erlaubt wird. Ein einziges Update kann jetzt sogar Sekunden
 dauern, etwas, das den Benutzern nicht verborgen werden kann.
 
-Schließlich gibt es Situationen, in denen es überhaupt nicht offensichtlich ist, dass das Verbergen der Verteilung eine
+Schliesslich gibt es Situationen, in denen es überhaupt nicht offensichtlich ist, dass das Verbergen der Verteilung eine
 gute Idee ist.
 Da sich verteilte Systeme auf Geräte ausweiten, die Menschen herumtragen, und das Standort- und Kontextbewusstsein immer
 wichtiger wird, ist es vielleicht am besten, die Verteilung offenzulegen, anstatt zu versuchen, sie zu verbergen.
@@ -503,19 +503,19 @@ anbieten, um Richtlinien hinzuzufügen, die ein Benutzer als separate Komponente
 
 ### 1.2.4 Zuverlässigkeit
 
-Wie der Name schon sagt, bezieht sich Zuverlässigkeit auf das Maß, inwieweit man sich darauf verlassen kann, dass ein
+Wie der Name schon sagt, bezieht sich Zuverlässigkeit auf das Mass, inwieweit man sich darauf verlassen kann, dass ein
 Computersystem wie erwartet funktioniert. Im Gegensatz zu einzelnen Computersystemen kann die Zuverlässigkeit in
 verteilten Systemen aufgrund von partiellen Ausfällen recht komplex sein: Irgendwo gibt es eine fehlerhafte Komponente,
 während das System insgesamt immer noch den Erwartungen zu entsprechen scheint (bis zu einem bestimmten Punkt oder
 Moment). Obwohl auch Einzelcomputer-Systeme unter Ausfällen leiden können, die nicht sofort auftreten, verkompliziert
-eine potenziell große Sammlung von vernetzten Computersystemen die Dinge erheblich. Tatsächlich sollte man davon
+eine potenziell grosse Sammlung von vernetzten Computersystemen die Dinge erheblich. Tatsächlich sollte man davon
 ausgehen, dass zu jedem Zeitpunkt immer partielle Ausfälle auftreten. Ein wichtiges Ziel von verteilten Systemen besteht
 darin, diese Ausfälle zu verbergen, sowie die Wiederherstellung von diesen Ausfällen zu verbergen. Diese Verschleierung
 wird als Fehlertoleranz bezeichnet.
 
 #### Grundkonzepte
 
-Zuverlässigkeit ist ein Begriff, der mehrere nützliche Anforderungen an verteilte Systeme abdeckt, einschließlich der
+Zuverlässigkeit ist ein Begriff, der mehrere nützliche Anforderungen an verteilte Systeme abdeckt, einschliesslich der
 folgenden [Kopetz und Verissimo, 1993]:
 
 * Verfügbarkeit
@@ -542,7 +542,7 @@ Die beiden sind nicht dasselbe.
 **Sicherheit** bezieht sich auf die Situation, dass bei einem vorübergehenden Versagen des Systems kein katastrophales
 Ereignis eintritt.
 Viele Prozesssteuerungssysteme, wie sie beispielsweise zur Steuerung von Kernkraftwerken oder zum
-Senden von Personen ins All verwendet werden, müssen ein hohes Maß an Sicherheit bieten.
+Senden von Personen ins All verwendet werden, müssen ein hohes Mass an Sicherheit bieten.
 Wenn solche Steuerungssysteme nur für einen sehr kurzen Moment versagen, könnten die Folgen verheerend sein.
 Viele Beispiele aus der Vergangenheit (und wahrscheinlich viele weitere, die noch kommen werden) zeigen, wie schwer es
 ist, sichere Systeme zu bauen.
@@ -612,7 +612,7 @@ dem Zugriff auf Informationen und Ressourcen verbunden sind. In jedem Computersy
 das System sicherstellen muss, dass es tatsächlich mit der richtigen Entität zu tun hat. Aus diesem Grund ist
 Authentifizierung unerlässlich: Überprüfung der Korrektheit einer behaupteten Identität. Genauso wichtig ist das Konzept
 des Vertrauens. Wenn ein System eine Person positiv authentifizieren kann, welchen Wert hat diese Authentifizierung,
-wenn der Person nicht vertraut werden kann? Allein aus diesem Grund ist eine ordnungsgemäße Autorisierung wichtig, da
+wenn der Person nicht vertraut werden kann? Allein aus diesem Grund ist eine ordnungsgemässe Autorisierung wichtig, da
 sie dazu verwendet werden kann, den Schaden zu begrenzen, den eine Person, der im Nachhinein nicht vertraut werden
 konnte, verursachen kann. Zum Beispiel können in Finanzsystemen Autorisierungen den Geldbetrag begrenzen, den eine
 Person zwischen verschiedenen Konten übertragen darf. Vertrauen, Authentifizierung und Autorisierung werden im Kapitel 9
@@ -652,9 +652,9 @@ einige Daten zur Verfügung, bei denen es wichtig ist, dass eine Partei, aber la
 wissen muss, dass sie von Alice stammen. In diesem Fall kann Alice die Daten mit ihrem geheimen Schlüssel SKA
 verschlüsseln, was zu SKA(data) führt. Wenn sichergestellt werden kann, dass der zugehörige öffentliche Schlüssel PKA
 tatsächlich Alice gehört, dann ist das erfolgreiche Entschlüsseln von SKA(data) zu data der Beweis, dass Alice von data
-weiß: Sie ist die einzige, die den geheimen Schlüssel SKA besitzt. Natürlich müssen wir die Annahme treffen, dass Alice
+weiss: Sie ist die einzige, die den geheimen Schlüssel SKA besitzt. Natürlich müssen wir die Annahme treffen, dass Alice
 tatsächlich die einzige ist, die SKA besitzt. Zu einigen dieser Annahmen kehren wir in Kapitel 9 zurück.
-Wie sich herausstellt, kommt der Beweis, dass eine Entität einige Daten gesehen hat oder von ihnen weiß, häufig in
+Wie sich herausstellt, kommt der Beweis, dass eine Entität einige Daten gesehen hat oder von ihnen weiss, häufig in
 gesicherten verteilten Systemen vor. Die praktische Platzierung von digitalen Signaturen erfolgt in der Regel
 effizienter durch eine Hash-Funktion. Eine Hash-Funktion H hat die Eigenschaft, dass sie bei der Operation auf einige
 Daten, d.h. H(data), eine Zeichenkette fester Länge zurückgibt, unabhängig von der Länge der Daten. Jede Änderung von
@@ -669,7 +669,7 @@ kann dann diese Signatur überprüfen, indem er PKA(sig) berechnet und überprü
 Die Anwendung von Kryptographie in verteilten Systemen hat viele Formen. Neben ihrer allgemeinen Verwendung für
 Verschlüsselung und Entschlüsselung sind insbesondere Authentifizierungsprotokolle, in denen ein System überprüfen kann,
 ob es tatsächlich mit der richtigen Entität zu tun hat, und Verteilungsprotokolle, mit denen Schlüssel oder vertrauliche
-Informationen sicher zwischen Parteien ausgetauscht werden können, von Bedeutung. Schließlich gibt es noch eine Klasse
+Informationen sicher zwischen Parteien ausgetauscht werden können, von Bedeutung. Schliesslich gibt es noch eine Klasse
 von Protokollen, die versuchen, festzustellen, ob eine Partei ehrlich ist oder ob sie versucht, das System in
 irgendeiner Weise zu täuschen.
 In den folgenden Kapiteln werden wir sehen, wie diese verschiedenen Protokolle und Techniken in verteilten Systemen
@@ -693,7 +693,7 @@ Designziele für Entwickler verteilter Systeme geworden.
 Die Skalierbarkeit eines Systems kann entlang von mindestens drei verschiedenen Dimensionen gemessen werden (
 siehe [Neuman, 1994]):
 
-* **Größenskalierbarkeit:** Ein System kann bezüglich seiner Größe skalierbar sein,
+* **Grössenskalierbarkeit:** Ein System kann bezüglich seiner Grösse skalierbar sein,
   was bedeutet, dass wir dem System problemlos weitere Benutzer und Ressourcen hinzufügen können, ohne dass ein
   spürbarer Leistungsverlust auftritt.
 * **Geografische Skalierbarkeit:** Ein geografisch skalierbares System ist eines, bei dem Benutzer und Ressourcen weit
@@ -704,9 +704,9 @@ siehe [Neuman, 1994]):
 
 Lassen Sie uns einen genaueren Blick auf jede dieser drei Skalierbarkeitsdimensionen werfen.
 
-**Größenskalierbarkeit**: Wenn ein System skalieren muss, müssen sehr unterschiedliche Arten von Problemen gelöst
-werden. Betrachten wir zunächst die Skalierung hinsichtlich der Größe. Wenn mehr Benutzer oder Ressourcen unterstützt
-werden müssen, stoßen wir oft auf die Grenzen zentralisierter Dienste, obwohl oft aus sehr unterschiedlichen Gründen.
+**Grössenskalierbarkeit**: Wenn ein System skalieren muss, müssen sehr unterschiedliche Arten von Problemen gelöst
+werden. Betrachten wir zunächst die Skalierung hinsichtlich der Grösse. Wenn mehr Benutzer oder Ressourcen unterstützt
+werden müssen, stossen wir oft auf die Grenzen zentralisierter Dienste, obwohl oft aus sehr unterschiedlichen Gründen.
 Viele Dienste sind in dem Sinne zentralisiert, dass sie von einem einzelnen Server auf einer spezifischen Maschine im
 verteilten System implementiert werden. In einem moderneren Setting könnten wir eine Gruppe von zusammenarbeitenden
 Servern haben, die auf einem Cluster von eng gekoppelten Maschinen an einem Ort koexistieren. Das Problem mit diesem
@@ -715,31 +715,31 @@ wachsende Anzahl von Anfragen bearbeiten muss. Um zu veranschaulichen, wie dies 
 Dienst auf einer einzelnen Maschine implementiert ist. Es gibt im Wesentlichen drei Hauptursachen für Engpässe:
 
 - Die Rechenkapazität, begrenzt durch die CPUs
-- Die Speicherkapazität, einschließlich der I/O-Übertragungsrate
+- Die Speicherkapazität, einschliesslich der I/O-Übertragungsrate
 - Das Netzwerk zwischen dem Benutzer und dem zentralisierten Dienst
 
 Betrachten wir zunächst die Rechenkapazität. Stellen Sie sich einen Dienst vor, der optimale Routen unter
 Berücksichtigung von Echtzeit-Verkehrsinformationen berechnet. Es ist nicht schwer vorstellbar, dass dies
 hauptsächlich ein rechenintensiver Dienst sein könnte, der mehrere (zehn) Sekunden benötigt, um eine Anfrage
-abzuschließen. Wenn nur eine einzige Maschine verfügbar ist, wird selbst ein modernes Hochleistungssystem schließlich
-auf Probleme stoßen, wenn die Anzahl der Anfragen über einen bestimmten Punkt hinaus ansteigt.
+abzuschliessen. Wenn nur eine einzige Maschine verfügbar ist, wird selbst ein modernes Hochleistungssystem schliesslich
+auf Probleme stossen, wenn die Anzahl der Anfragen über einen bestimmten Punkt hinaus ansteigt.
 
-Ebenso werden wir, aber aus anderen Gründen, auf Probleme stoßen, wenn wir einen hauptsächlich I/O-gebundenen Dienst
+Ebenso werden wir, aber aus anderen Gründen, auf Probleme stossen, wenn wir einen hauptsächlich I/O-gebundenen Dienst
 haben. Ein typisches Beispiel ist eine schlecht gestaltete zentralisierte Suchmaschine. Das Problem mit inhaltsbasierten
 Suchanfragen besteht darin, dass wir im Wesentlichen eine Abfrage gegen einen gesamten Datensatz abgleichen müssen.
 Selbst mit fortgeschrittenen Indexierungstechniken könnten wir immer noch vor dem Problem stehen, eine riesige
 Datenmenge verarbeiten zu müssen, die die Haupt-Speicherkapazität der Maschine, auf der der Dienst läuft, übersteigt.
-Als Konsequenz wird ein Großteil der Verarbeitungszeit durch die vergleichsweise langsamen Festplattenzugriffe und den
+Als Konsequenz wird ein Grossteil der Verarbeitungszeit durch die vergleichsweise langsamen Festplattenzugriffe und den
 Datentransfer zwischen Festplatte und Hauptspeicher bestimmt. Einfach mehr oder schnellere Festplatten hinzuzufügen,
 wird sich als keine nachhaltige Lösung erweisen, wenn die Anzahl der Anfragen weiter zunimmt.
 
-Schließlich kann auch das Netzwerk zwischen dem Benutzer und dem Dienst die Ursache für schlechte Skalierbarkeit sein.
+Schliesslich kann auch das Netzwerk zwischen dem Benutzer und dem Dienst die Ursache für schlechte Skalierbarkeit sein.
 Stellen Sie sich einen Video-on-Demand-Dienst vor, der hochwertige Videos an mehrere Benutzer streamen muss. Ein
 Videostream kann leicht eine Bandbreite von 8 bis 10 Mbps benötigen. Wenn ein Dienst Punkt-zu-Punkt-Verbindungen mit
 seinen Kunden einrichtet, kann er bald an die Grenzen der Netzwerkkapazität seiner eigenen ausgehenden
-Übertragungsleitungen stoßen.
+Übertragungsleitungen stossen.
 
-Es gibt mehrere Lösungen, um die Größenskalierbarkeit zu bewältigen, die wir weiter unten diskutieren werden, nachdem
+Es gibt mehrere Lösungen, um die Grössenskalierbarkeit zu bewältigen, die wir weiter unten diskutieren werden, nachdem
 wir geografische und administrative Skalierbarkeit betrachtet haben.
 
 **Geografische Skalierbarkeit**: Ein weiteres Problem, das die geografische Skalierbarkeit beeinträchtigt, ist, dass
@@ -749,11 +749,11 @@ zurückgesendet wird. Genauer gesagt, sehen wir oft ein Kommunikationsmuster, da
 besteht, wie es bei Datenbanktransaktionen der Fall sein kann. Dieser Ansatz funktioniert in der Regel gut in LANs, bei
 denen die Kommunikation zwischen zwei Maschinen oft höchstens einige hundert Mikrosekunden beträgt. In einem
 Wide-Area-System müssen wir jedoch berücksichtigen, dass die Interprozesskommunikation möglicherweise hunderte von
-Millisekunden dauert, das ist drei Größenordnungen langsamer. Das Erstellen von Anwendungen unter Verwendung synchroner
+Millisekunden dauert, das ist drei Grössenordnungen langsamer. Das Erstellen von Anwendungen unter Verwendung synchroner
 Kommunikation in Wide-Area-Systemen erfordert viel Vorsicht (aber es ist nicht unmöglich). Wir werden auch darauf später
 eingehen.
 
-**Administrative Skalierbarkeit:** Schließlich ist eine schwierige und oft offene Frage, wie man ein verteiltes System
+**Administrative Skalierbarkeit:** Schliesslich ist eine schwierige und oft offene Frage, wie man ein verteiltes System
 über
 mehrere, unabhängige administrative Domänen hinweg skalieren kann. Ein Hauptproblem, das gelöst werden muss, ist das der
 konfligierenden Richtlinien bezüglich Ressourcennutzung (und Bezahlung), Verwaltung und Sicherheit. Zur
@@ -764,16 +764,16 @@ direkt auf Ressourcen bei der Organisation B zugreifen kann.
 
 Viele Komponenten eines verteilten Systems, die innerhalb einer einzigen Domäne liegen, können oft von Benutzern, die
 innerhalb derselben Domäne operieren, als vertrauenswürdig angesehen werden. In solchen Fällen haben die
-Systemadministratoren möglicherweise Anwendungen getestet und zertifiziert und besondere Maßnahmen ergriffen, um
+Systemadministratoren möglicherweise Anwendungen getestet und zertifiziert und besondere Massnahmen ergriffen, um
 sicherzustellen, dass solche Komponenten nicht manipuliert werden können. Im Wesentlichen vertrauen die Benutzer ihren
 Systemadministratoren. Dieses Vertrauen erweitert sich jedoch nicht natürlich über die Grenzen von Domänen hinweg.
-Wenn sich ein verteiltes System auf eine andere Domäne ausdehnt, müssen zwei Arten von Sicherheitsmaßnahmen ergriffen
+Wenn sich ein verteiltes System auf eine andere Domäne ausdehnt, müssen zwei Arten von Sicherheitsmassnahmen ergriffen
 werden. Erstens muss sich das verteilte System gegen bösartige Angriffe aus der neuen Domäne schützen. Zum Beispiel
 haben Benutzer aus der neuen Domäne möglicherweise nur Lesezugriff auf das Dateisystem in seiner ursprünglichen Domäne.
 Ebenso dürfen Einrichtungen wie teure Bildsatzsysteme oder Hochleistungscomputer nicht für nicht autorisierte Benutzer
 verfügbar gemacht werden. Zweitens muss sich die neue Domäne gegen bösartige Angriffe aus dem verteilten System
 schützen. Ein typisches Beispiel ist das Herunterladen von Programmen, wie im Fall des föderierten Lernens.
-Grundsätzlich weiß die neue Domäne nicht, was sie von solch fremdem Code erwarten kann. Das Problem, wie wir in Kapitel
+Grundsätzlich weiss die neue Domäne nicht, was sie von solch fremdem Code erwarten kann. Das Problem, wie wir in Kapitel
 9 sehen werden, besteht darin, diese Beschränkungen durchzusetzen.
 Als Gegenbeispiel für verteilte Systeme, die mehrere administrative Domänen umspannen und anscheinend keine Probleme mit
 der administrativen Skalierbarkeit haben, betrachten Sie moderne File-Sharing-Peer-to-Peer-Netzwerke. In diesen Fällen
@@ -804,7 +804,7 @@ einfach: Versuchen Sie, so wenig wie möglich auf Antworten auf Anfragen zu wart
 enfernten Maschine angefordert wurde, besteht eine Alternative zum Warten auf eine Antwort vom Server darin, andere
 nützliche Arbeiten auf der Anfordererseite durchzuführen. Im Wesentlichen bedeutet dies, die anfordernde Anwendung so zu
 konstruieren, dass sie nur asynchrone Kommunikation verwendet. Wenn eine Antwort eintrifft, wird die Anwendung
-unterbrochen und ein spezieller Handler aufgerufen, um die zuvor ausgestellte Anfrage abzuschließen. Asynchrone
+unterbrochen und ein spezieller Handler aufgerufen, um die zuvor ausgestellte Anfrage abzuschliessen. Asynchrone
 Kommunikation kann oft in Batch-Verarbeitungssystemen und parallelen Anwendungen verwendet werden, bei denen unabhängige
 Aufgaben zur Ausführung geplant werden können, während eine andere Aufgabe auf die Fertigstellung der Kommunikation
 wartet. Alternativ kann ein neuer Thread gestartet werden, um die Anfrage auszuführen. Obwohl er beim Warten
@@ -826,7 +826,7 @@ gezeigt. Dieser Ansatz des Code-Versands wird vom Web durch JavaScript weitgehen
 #### Partitionierung und Verteilung
 
 Eine weitere wichtige Skalierungstechnik ist die Partitionierung und Verteilung, die darin besteht, eine Komponente oder
-andere Ressource in kleinere Teile zu zerlegen und diese Teile anschließend im System zu verteilen. Ein gutes Beispiel
+andere Ressource in kleinere Teile zu zerlegen und diese Teile anschliessend im System zu verteilen. Ein gutes Beispiel
 für Partitionierung und Verteilung ist das Internet Domain Name System (DNS). Der DNS-Namensraum ist hierarchisch in
 einen Baum von Domänen organisiert, der in nicht überlappende Zonen unterteilt ist, wie für das ursprüngliche DNS in
 Abbildung 1.7 gezeigt. Die Namen in jeder Zone werden von einem einzelnen Namensserver gehandhabt. Ohne jetzt zu sehr
@@ -846,7 +846,7 @@ dokumentenbasiertes Informationssystem zu sein, bei dem jedes Dokument seinen ei
 URL hat. Konzeptionell könnte es sogar so aussehen, als gäbe es nur einen einzigen Server. Das Web ist jedoch physisch
 partitioniert und auf einige hundert Millionen Server verteilt, von denen jeder oft mehrere Websites oder Teile von
 Websites verwaltet. Der Name des Servers, der ein Dokument verwaltet, ist in die URL dieses Dokuments kodiert. Nur
-aufgrund dieser Verteilung von Dokumenten konnte das Web auf seine jetzige Größe skalieren. Beachten Sie jedoch, dass es
+aufgrund dieser Verteilung von Dokumenten konnte das Web auf seine jetzige Grösse skalieren. Beachten Sie jedoch, dass es
 fast unmöglich ist herauszufinden, wie viele Server Webdienste anbieten: Eine Website ist heute viel mehr als nur einige
 statische Webdokumente.
 
@@ -871,7 +871,7 @@ Inwieweit Inkonsistenzen toleriert werden können, hängt von der Nutzung einer 
 Webnutzer akzeptabel, dass ihr Browser ein zwischengespeichertes Dokument zurückgibt, dessen Gültigkeit in den letzten
 Minuten nicht überprüft wurde. Es gibt jedoch auch viele Fälle, in denen starke Konsistenzgarantien erfüllt werden
 müssen, wie im Fall von elektronischen Börsen und Auktionen. Das Problem mit starker Konsistenz ist, dass eine
-Aktualisierung sofort zu allen anderen Kopien weitergeleitet werden muss. Außerdem ist es oft auch erforderlich, dass
+Aktualisierung sofort zu allen anderen Kopien weitergeleitet werden muss. Ausserdem ist es oft auch erforderlich, dass
 Updates gleichzeitig erfolgen, wenn zwei Aktualisierungen gleichzeitig stattfinden, was ein globales Ordnungsproblem
 einführt. Um die Dinge noch schlimmer zu machen, kann die Kombination von Konsistenz mit wünschenswerten Eigenschaften
 wie Verfügbarkeit einfach unmöglich sein, wie wir in Kapitel 8 diskutieren.
@@ -883,13 +883,13 @@ einführen. Wir kehren in Kapitel 7 ausführlich zu Replikation und Konsistenz z
 
 #### Diskussion
 
-Beim Betrachten dieser Skalierungstechniken könnte man argumentieren, dass die Größenskalierbarkeit aus technischer
+Beim Betrachten dieser Skalierungstechniken könnte man argumentieren, dass die Grössenskalierbarkeit aus technischer
 Sicht das geringste Problem darstellt. Oft kann die Erhöhung der Kapazität einer Maschine Abhilfe schaffen, obwohl
 möglicherweise hohe monetäre Kosten anfallen. Geografische Skalierbarkeit ist ein weitaus schwierigeres Problem, da
 Netzwerklatenzen natürlich von unten begrenzt sind. Infolgedessen könnten wir gezwungen sein, Daten an Orte zu kopieren,
 die den Kunden nahe liegen, was zu Problemen bei der Aufrechterhaltung konsistenter Kopien führt. Die Praxis zeigt, dass
 die Kombination von Verteilungs-, Replikations- und Caching-Techniken mit verschiedenen Formen der Konsistenz im
-Allgemeinen zu akzeptablen Lösungen führt. Schließlich scheint die administrative Skalierbarkeit das schwierigste zu
+Allgemeinen zu akzeptablen Lösungen führt. Schliesslich scheint die administrative Skalierbarkeit das schwierigste zu
 lösende Problem zu sein, teilweise weil wir uns mit nichttechnischen Fragen auseinandersetzen müssen, wie der Politik
 von Organisationen und der menschlichen Zusammenarbeit. Die Einführung und nun weit verbreitete Nutzung von
 Peer-to-Peer-Technologie hat erfolgreich demonstriert, was erreicht werden kann, wenn Endbenutzer die Kontrolle
@@ -920,7 +920,7 @@ einer verteilten Anwendung zum ersten Mal treffen:
 
 Beachten Sie, wie diese Annahmen sich auf Eigenschaften beziehen, die einzigartig für verteilte Systeme sind:
 Zuverlässigkeit, Sicherheit, Heterogenität und Netzwerk-Topologie; Latenz und Bandbreite; Transportkosten; und
-schließlich administrative Bereiche.
+schliesslich administrative Bereiche.
 Bei der Entwicklung von nicht verteilten Anwendungen werden die meisten dieser Probleme wahrscheinlich nicht auftreten.
 
 Die meisten in diesem Buch besprochenen Prinzipien beziehen sich direkt auf diese Annahmen.
@@ -960,32 +960,32 @@ Es gibt verschiedene Typen von verteilten Systemen, die als auf die Unterstützu
 Informationsverarbeitung und Durchdringung ausgerichtet klassifiziert werden können. Verteilte Computing-Systeme werden
 typischerweise für Hochleistungsanwendungen eingesetzt, die oft aus dem Bereich des parallelen Computings stammen. Ein
 Bereich, der aus der parallelen Verarbeitung entstand, war anfangs das Grid-Computing mit einem starken Fokus auf das
-weltweite Teilen von Ressourcen, was schließlich zu dem führte, was heute als Cloud-Computing bekannt ist.
+weltweite Teilen von Ressourcen, was schliesslich zu dem führte, was heute als Cloud-Computing bekannt ist.
 Cloud-Computing geht über das Hochleistungscomputing hinaus und unterstützt auch verteilte Systeme in traditionellen
 Büroumgebungen, in denen Datenbanken eine wichtige Rolle spielen. Typischerweise werden in diesen Umgebungen
-Transaktionsverarbeitungssysteme eingesetzt. Schließlich ist eine aufkommende Klasse von verteilten Systemen dort, wo
+Transaktionsverarbeitungssysteme eingesetzt. Schliesslich ist eine aufkommende Klasse von verteilten Systemen dort, wo
 die Komponenten klein sind, das System ad hoc zusammengestellt wird, vor allem aber nicht mehr durch einen
 Systemadministrator verwaltet wird. Diese letzte Klasse wird typischerweise von durchdringenden Computingsystemen,
-einschließlich mobiler Computing-Systeme sowie sensorreichen Umgebungen, dargestellt.
+einschliesslich mobiler Computing-Systeme sowie sensorreichen Umgebungen, dargestellt.
 Die Angelegenheiten werden weiter kompliziert durch die Tatsache, dass viele Entwickler ursprünglich Annahmen über das
 zugrundeliegende Netzwerk treffen, die grundlegend falsch sind. Später, wenn die Annahmen fallen gelassen werden, kann
 es schwierig sein, unerwünschtes Verhalten zu maskieren. Ein typisches Beispiel ist die Annahme, dass Netzwerk-Latenz
 nicht signifikant ist. Andere Fallstricke sind die Annahme, dass das Netzwerk zuverlässig, statisch, sicher und homogen
 ist.
 
-# 2 Architectures
+# 2 Architekturen
 
-Verteilte Systeme sind oft komplexe Softwarestücke, deren Komponenten per Definition auf mehrere Maschinen verteilt
-sind. Um ihre Komplexität zu beherrschen, ist es entscheidend, dass diese Systeme ordnungsgemäß organisiert werden. Es
+Verteilte Systeme sind oft komplexe Software, deren Komponenten per Definition auf mehrere Maschinen verteilt
+sind. Um ihre Komplexität zu beherrschen, ist es entscheidend, dass diese Systeme sinnvoll organisiert werden. Es
 gibt verschiedene Ansichten darüber, wie die Organisation eines verteilten Systems betrachtet werden kann, aber eine
-offensichtliche ist die Unterscheidung zwischen der logischen Organisation der Sammlung von Softwarekomponenten
+offensichtliche ist die Unterscheidung zwischen der logischen Organisation der Softwarekomponenten
 einerseits und der tatsächlichen physischen Realisierung andererseits.
 Die Organisation verteilter Systeme dreht sich meist um die Softwarekomponenten, die das System bilden. Diese
 Softwarearchitekturen sagen uns, wie die verschiedenen Softwarekomponenten organisiert sein sollten und wie sie
 interagieren sollten. In diesem Kapitel werden wir zunächst einigen häufig angewandten architektonischen Stilen zur
 Organisation von (verteilten) Computersystemen Beachtung schenken.
 Ein wichtiges Ziel verteilter Systeme ist es, Anwendungen von zugrunde liegenden Plattformen zu trennen, indem sie eine
-sogenannte Middleware-Schicht bereitstellen. Die Annahme einer solchen Schicht ist eine wichtige architektonische
+sogenannte Middleware-Schicht bereitstellen. Die Verwendung einer solchen Schicht ist eine wichtige architektonische
 Entscheidung, und ihr Hauptzweck ist es, Verteilungstransparenz zu bieten. Allerdings müssen Kompromisse eingegangen
 werden, um Transparenz zu erreichen, was zu verschiedenen Techniken geführt hat, um die Middleware an die Bedürfnisse
 der Anwendungen anzupassen, die sie nutzen. Wir diskutieren einige der häufiger angewandten Techniken, da sie die
@@ -1003,22 +1003,22 @@ Beispiele, die die Komplexität vieler realer verteilter Systeme veranschauliche
 ## 2.1 Architekturstile
 
 Wir beginnen unsere Diskussion über Architekturen, indem wir zunächst die logische Organisation eines verteilten Systems
-in Softwarekomponenten betrachten, auch als seine Softwarearchitektur
+in Softwarekomponenten betrachten, auch als seine Softwarearchitektur 
 bezeichnet [Bass et al., 2021; Richards und Ford, 2020]. Die Forschung zu Softwarearchitekturen hat sich erheblich
 weiterentwickelt, und es wird mittlerweile allgemein akzeptiert, dass das Entwerfen oder Übernehmen einer Architektur
-entscheidend für die erfolgreiche Entwicklung großer Softwaresysteme ist.
+entscheidend für die erfolgreiche Entwicklung grosser Softwaresysteme ist.
 
 Für unsere Diskussion ist der Begriff des Architekturstils wichtig. Ein solcher Stil wird in Bezug auf Komponenten
 formuliert, die Art und Weise, wie Komponenten miteinander verbunden sind, die zwischen Komponenten ausgetauschten Daten
-und schließlich, wie diese Elemente gemeinsam zu einem System konfiguriert werden. Eine Komponente ist eine modulare
+und schliesslich, wie diese Elemente gemeinsam zu einem System konfiguriert werden. Eine Komponente ist eine modulare
 Einheit mit wohldefinierten erforderlichen und bereitgestellten Schnittstellen, die innerhalb ihrer Umgebung
 austauschbar ist [OMG, 2004]. Dass eine Komponente ersetzt werden kann, insbesondere während ein System weiter betrieben
 wird, ist wichtig. Denn oft ist es keine Option, ein System für Wartungsarbeiten herunterzufahren. Im besten Fall können
-nur Teile davon vorübergehend außer Betrieb gesetzt werden. Das Ersetzen einer Komponente ist nur möglich, wenn ihre
+nur Teile davon vorübergehend ausser Betrieb gesetzt werden. Das Ersetzen einer Komponente ist nur möglich, wenn ihre
 Schnittstellen unberührt bleiben. In der Praxis sehen wir, dass das Ersetzen oder Aktualisieren einer Komponente
 bedeutet, dass ein Teil eines Systems (wie ein Server) ein reguläres Update durchführt und auf die aktualisierten
-Komponenten umschaltet, sobald deren Installation abgeschlossen ist. Besondere Maßnahmen können erforderlich sein, wenn
-ein Teil des verteilten Systems neu gestartet werden muss, damit die Aktualisierungen wirksam werden. Solche Maßnahmen
+Komponenten umschaltet, sobald deren Installation abgeschlossen ist. Besondere Massnahmen können erforderlich sein, wenn
+ein Teil des verteilten Systems neu gestartet werden muss, damit die Aktualisierungen wirksam werden. Solche Massnahmen
 können das Vorhandensein replizierter Standbys umfassen, die die Funktion übernehmen, während der teilweise Neustart
 stattfindet.
 
@@ -1051,13 +1051,13 @@ höheren Ebene gemacht. Die drei häufigen Fälle sind in Abbildung 2.1 dargeste
 Abbildung 2.1(a) zeigt eine Standardorganisation, bei der nur Abwärtsrufe zur nächsten niedrigeren Schicht gemacht
 werden. Diese Organisation wird häufig bei Netzwerkkommunikation eingesetzt.
 
-In vielen Situationen stoßen wir auch auf die in Abbildung 2.1(b) gezeigte Organisation. Betrachten Sie zum Beispiel
+In vielen Situationen stossen wir auch auf die in Abbildung 2.1(b) gezeigte Organisation. Betrachten Sie zum Beispiel
 eine Anwendung A, die eine Bibliothek LOS verwendet, um eine Schnittstelle zum Betriebssystem herzustellen. Gleichzeitig
 nutzt die Anwendung eine spezialisierte mathematische Bibliothek Lmath, die ebenfalls unter Verwendung von LOS
 implementiert wurde. In diesem Fall, bezogen auf Abbildung 2.1(b), ist A auf Schicht N − 1, Lmath auf Schicht N − 2 und
 LOS, die beiden gemeinsam ist, auf Schicht N − 3 implementiert.
 
-Schließlich wird in Abbildung 2.1(c) eine besondere Situation gezeigt. In einigen Fällen ist es praktisch, eine untere
+Schliesslich wird in Abbildung 2.1(c) eine besondere Situation gezeigt. In einigen Fällen ist es praktisch, eine untere
 Schicht einen Aufwärtsruf zu ihrer nächsthöheren Schicht machen zu lassen. Ein typisches Beispiel ist, wenn ein
 Betriebssystem das Auftreten eines Ereignisses signalisiert, zu diesem Zweck ruft es eine benutzerdefinierte Operation
 auf, für die eine Anwendung zuvor eine Referenz (typischerweise als Handle bezeichnet) übergeben hatte.
@@ -1095,7 +1095,7 @@ Protokolls und seiner Schnittstellen. (Alle Einzelheiten finden Sie in [Stevens,
 
 #### Anwendungsschichtung
 
-Wenden wir uns nun der logischen Schichtung von Anwendungen zu. In Anbetracht der Tatsache, dass eine große Klasse
+Wenden wir uns nun der logischen Schichtung von Anwendungen zu. In Anbetracht der Tatsache, dass eine grosse Klasse
 verteilter Anwendungen darauf abzielt, Benutzern oder Anwendungen den Zugang zu Datenbanken zu ermöglichen, haben viele
 Menschen eine Unterscheidung zwischen drei logischen Ebenen befürwortet, die im Wesentlichen einem geschichteten
 Architekturstil folgen:
@@ -1116,7 +1116,7 @@ spezialisiert ist. Solche Suchmaschinen erscheinen als scheinbar einfache Websit
 eine Stadt oder Region, eine Preisspanne, den Typ des Hauses usw. angeben kann. Das Backend besteht aus einer riesigen
 Datenbank von derzeit zum Verkauf stehenden Häusern. Die Verarbeitungsschicht tut nichts anderes, als die
 bereitgestellten Beschreibungen in eine Sammlung von Datenbankabfragen umzuwandeln, die Antworten abzurufen und diese
-Antworten nachzubearbeiten, indem sie beispielsweise die Ausgabe nach Relevanz sortiert und anschließend eine HTML-Seite
+Antworten nachzubearbeiten, indem sie beispielsweise die Ausgabe nach Relevanz sortiert und anschliessend eine HTML-Seite
 generiert. Abbildung 2.4 zeigt diese Organisation.
 
 Als weiteres Beispiel betrachten wir die Organisation der Website dieses Buches, insbesondere die Schnittstelle, die es
@@ -1136,7 +1136,7 @@ Anwendungsschnittstellenebene in Bezug auf Rechenaufwand und auszuführende Akti
 
 ### 2.1.2 Serviceorientierte Architekturen
 
-Obwohl der geschichtete Architekturstil beliebt ist, stellt einer seiner größten Nachteile die oft starke Abhängigkeit
+Obwohl der geschichtete Architekturstil beliebt ist, stellt einer seiner grössten Nachteile die oft starke Abhängigkeit
 zwischen den verschiedenen Schichten dar. Gute Beispiele, bei denen diese potenziellen Abhängigkeiten sorgfältig
 berücksichtigt wurden, findet man bei der Gestaltung von Kommunikationsprotokoll-Stacks. Schlechte Beispiele umfassen
 Anwendungen, die im Wesentlichen als Zusammensetzungen bestehender Komponenten entworfen und entwickelt wurden, ohne
@@ -1157,7 +1157,7 @@ der Abhängigkeiten im Vergleich zu einem geschichteten Architekturstil.
 Nehmen wir den objektbasierten Ansatz als Beispiel, haben wir eine logische Organisation, wie in Abbildung 2.5 gezeigt.
 Im Wesentlichen entspricht jedes Objekt dem, was wir als Komponente definiert haben, und diese Komponenten sind durch
 einen Prozeduraufrufmechanismus verbunden. Im Falle verteilter Systeme kann ein Prozeduraufruf auch über ein Netzwerk
-stattfinden, das heißt, das aufrufende Objekt muss nicht auf derselben Maschine ausgeführt werden wie das aufgerufene
+stattfinden, das heisst, das aufrufende Objekt muss nicht auf derselben Maschine ausgeführt werden wie das aufgerufene
 Objekt. Tatsächlich kann der genaue Ort, an dem das aufgerufene Objekt sich befindet, für den Anrufer transparent sein:
 Das aufgerufene Objekt kann ebenso gut als separater Prozess auf derselben Maschine laufen.
 
@@ -1201,15 +1201,15 @@ werden, so dass sie unabhängig voneinander funktionieren können, ebnet man den
 die allgemein als SOAs abgekürzt werden.
 
 Angeregt durch objektorientierte Designs und inspiriert durch den Unix-Ansatz, bei dem viele kleine und gegenseitig
-unabhängige Programme leicht zusammengesetzt werden können, um größere Programme zu bilden, haben Softwarearchitekten an
+unabhängige Programme leicht zusammengesetzt werden können, um grössere Programme zu bilden, haben Softwarearchitekten an
 dem gearbeitet, was als Mikroservices bezeichnet wird. Wesentlich ist, dass jeder Mikroservice als separater (Netzwerk-)
 Prozess ausgeführt wird. Die Implementierung eines Mikroservices könnte in Form eines entfernten Objekts erfolgen, aber
-das ist keine Voraussetzung. Außerdem gibt es, obwohl man von Mikroservices spricht, keine allgemeine Übereinstimmung
-darüber, wie groß ein solcher Dienst sein sollte. Am wichtigsten ist jedoch, dass ein Mikroservice wirklich einen
+das ist keine Voraussetzung. Ausserdem gibt es, obwohl man von Mikroservices spricht, keine allgemeine Übereinstimmung
+darüber, wie gross ein solcher Dienst sein sollte. Am wichtigsten ist jedoch, dass ein Mikroservice wirklich einen
 separaten, unabhängigen Dienst darstellt. Mit anderen Worten, Modularisierung ist der Schlüssel zur Gestaltung von
 Mikroservices [Wolff, 2017].
 
-Dennoch spielt die Größe eine Rolle. Indem wir bereits festgestellt haben, dass Mikroservices als separate vernetzte
+Dennoch spielt die Grösse eine Rolle. Indem wir bereits festgestellt haben, dass Mikroservices als separate vernetzte
 Prozesse laufen, erhalten wir auch eine Wahlmöglichkeit, wo wir einen Mikroservice platzieren. Wie wir später in diesem
 Kapitel sehen werden, haben mit dem Aufkommen von Edge- und Fog-Infrastrukturen Diskussionen über die Orchestrierung der
 Bereitstellung verteilter Anwendungen über verschiedene Schichten begonnen. Mit anderen Worten, wo platzieren wir was.
@@ -1219,7 +1219,7 @@ Bereitstellung verteilter Anwendungen über verschiedene Schichten begonnen. Mit
 In einer serviceorientierten Architektur wird eine verteilte Anwendung oder ein System im Wesentlichen als
 Zusammensetzung vieler Dienste konstruiert. Ein Unterschied (wenn auch nicht strikt) zu Mikroservices besteht darin,
 dass nicht alle diese Dienste derselben administrativen Organisation angehören müssen. Wir sind bereits auf dieses
-Phänomen gestoßen, als wir Cloud-Computing diskutierten: Es kann durchaus sein, dass eine Organisation, die ihre
+Phänomen gestossen, als wir Cloud-Computing diskutierten: Es kann durchaus sein, dass eine Organisation, die ihre
 Geschäftsanwendung betreibt, Speicherdienste eines Cloud-Anbieters nutzt. Diese Speicherdienste sind logisch vollständig
 in eine einzelne Einheit eingekapselt, deren Schnittstelle Kunden zur Verfügung gestellt wird.
 
@@ -1230,8 +1230,8 @@ einer lokalen Datenbank mit den E-Books operiert. Die Auftragsbearbeitung umfass
 Artikeln, das Registrieren und Überprüfen des Lieferkanals (eventuell per E-Mail), aber auch die Sicherstellung, dass
 eine Zahlung erfolgt. Letzteres kann von einem separaten Dienst, der von einer anderen Organisation betrieben wird,
 gehandhabt werden, zu dem ein kaufender Kunde für die Zahlung umgeleitet wird, wonach die E-Book-Organisation
-benachrichtigt wird, damit sie die Transaktion abschließen kann. Dieses Beispiel zeigt auch, dass, während Mikroservices
-als relativ klein angesehen werden, ein allgemeiner Dienst als relativ groß erwartet werden kann. Tatsächlich ist es
+benachrichtigt wird, damit sie die Transaktion abschliessen kann. Dieses Beispiel zeigt auch, dass, während Mikroservices
+als relativ klein angesehen werden, ein allgemeiner Dienst als relativ gross erwartet werden kann. Tatsächlich ist es
 nicht ungewöhnlich, einen Dienst als Sammlung von Mikroservices zu implementieren.
 
 Auf diese Weise sehen wir, dass das Problem der Entwicklung eines verteilten Systems teilweise eines der
@@ -1271,7 +1271,7 @@ bezeichnet:
 
 Um einen Bucket oder ein Objekt zu erstellen, würde eine Anwendung im Wesentlichen eine PUT-Anfrage mit der URI des
 Buckets/Objekts senden. Grundsätzlich wird bei dem Dienst das HTTP-Protokoll verwendet. Mit anderen Worten, es handelt
-sich einfach um eine weitere HTTP-Anfrage, die anschließend von S3 korrekt interpretiert wird. Wenn der Bucket oder das
+sich einfach um eine weitere HTTP-Anfrage, die anschliessend von S3 korrekt interpretiert wird. Wenn der Bucket oder das
 Objekt bereits existiert, wird eine HTTP-Fehlermeldung zurückgegeben.
 
 Ähnlich, um zu erfahren, welche Objekte in einem Bucket enthalten sind, würde eine Anwendung eine GET-Anfrage mit der
