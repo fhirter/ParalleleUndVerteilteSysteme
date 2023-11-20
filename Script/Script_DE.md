@@ -1048,7 +1048,7 @@ wobei eine Komponente auf Schicht Lj einen Abwärtsruf (downcall) zu einer Kompo
 i < j) tätigen kann und in der Regel eine Antwort erwartet. Nur in Ausnahmefällen wird ein Aufwärtsruf (upcall) zu einer
 höheren Ebene gemacht. Die drei häufigen Fälle sind in Abbildung 2.1 dargestellt.
 
-Abbildung 2.1(a) zeigt eine Standardorganisation, bei der nur Abwärtsrufe zur nächsten niedrigeren Schicht gemacht
+Abbildung 2.1(a) zeigt eine Standardorganisation, bei der nur Aufrufe zur nächsten niedrigeren Schicht gemacht
 werden. Diese Organisation wird häufig bei Netzwerkkommunikation eingesetzt.
 
 In vielen Situationen stossen wir auch auf die in Abbildung 2.1(b) gezeigte Organisation. Betrachten Sie zum Beispiel
@@ -1058,14 +1058,14 @@ implementiert wurde. In diesem Fall, bezogen auf Abbildung 2.1(b), ist A auf Sch
 LOS, die beiden gemeinsam ist, auf Schicht N − 3 implementiert.
 
 Schliesslich wird in Abbildung 2.1(c) eine besondere Situation gezeigt. In einigen Fällen ist es praktisch, eine untere
-Schicht einen Aufwärtsruf zu ihrer nächsthöheren Schicht machen zu lassen. Ein typisches Beispiel ist, wenn ein
+Schicht einen Aufruf zu ihrer nächsthöheren Schicht machen zu lassen. Ein typisches Beispiel ist, wenn ein
 Betriebssystem das Auftreten eines Ereignisses signalisiert, zu diesem Zweck ruft es eine benutzerdefinierte Operation
 auf, für die eine Anwendung zuvor eine Referenz (typischerweise als Handle bezeichnet) übergeben hatte.
 
 #### Geschichtete Kommunikationsprotokolle
 
 Eine bekannte und allgegenwärtig angewandte geschichtete Architektur ist die der Kommunikationsprotokoll-Stacks. Wir
-konzentrieren uns hier nur auf das globale Bild und vertagen eine detaillierte Diskussion auf Abschnitt 4.1.1.
+konzentrieren uns hier auf einen Überblick und vertagen eine detaillierte Diskussion auf Abschnitt 4.1.1.
 
 In Kommunikationsprotokoll-Stacks implementiert jede Schicht einen oder mehrere Kommunikationsdienste, die es
 ermöglichen, Daten von einer Quelle zu einem oder mehreren Zielen zu senden. Zu diesem Zweck bietet jede Schicht eine
@@ -1148,8 +1148,8 @@ von Programmen beeinträchtigte.)
 
 Solche direkten Abhängigkeiten von spezifischen Komponenten haben zu einem Architekturstil geführt, der eine lockerere
 Organisation in eine Sammlung separater, unabhängiger Einheiten widerspiegelt. Jede Einheit kapselt einen Dienst ein. Ob
-sie nun Dienste, Objekte oder Mikrodienste genannt werden, sie haben gemeinsam, dass der Dienst als separater Prozess (
-oder Thread) ausgeführt wird. Natürlich bedeutet das separate Ausführen von Einheiten nicht unbedingt eine Verringerung
+sie nun Service, Objects oder Microservices genannt werden, sie haben gemeinsam, dass der Dienst als separater Prozess 
+(oder Thread) ausgeführt wird. Natürlich bedeutet das separate Ausführen von Einheiten nicht unbedingt eine Verringerung
 der Abhängigkeiten im Vergleich zu einem geschichteten Architekturstil.
 
 #### Objektbasierte Architekturstile
@@ -1174,11 +1174,11 @@ Organisation, die in Abbildung 2.6 dargestellt wird, wird üblicherweise als ver
 entferntes Objekt bezeichnet.
 
 Wenn sich ein Client an ein verteiltes Objekt bindet, wird eine Implementierung der Schnittstelle des Objekts, die als
-Proxy bezeichnet wird, in den Adressraum des Clients geladen. Ein Proxy ist analog zu einem sogenannten Client-Stumpf in
+Proxy bezeichnet wird, in den Adressraum des Clients geladen. Ein Proxy ist analog zu einem sogenannten Client-Stub in
 RPC-Systemen. Das Einzige, was es tut, ist, Methodenaufrufe in Nachrichten zu verpacken und Antwortnachrichten
 auszupacken, um das Ergebnis des Methodenaufrufs an den Client zurückzugeben. Das eigentliche Objekt befindet sich auf
 einem Server, wo es dieselbe Schnittstelle bietet wie auf der Client-Maschine. Eingehende Aufrufanfragen werden zuerst
-an einen Server-Stumpf weitergeleitet, der sie auspackt, um Methodenaufrufe an der Schnittstelle des Objekts auf dem
+an einen Server-Stub weitergeleitet, der sie auspackt, um Methodenaufrufe an der Schnittstelle des Objekts auf dem
 Server durchzuführen. Der Server-Stumpf ist auch dafür verantwortlich, Rückgabewerte in eine Nachricht zu verpacken und
 diese Antwortnachrichten an den Proxy auf der Client-Seite weiterzuleiten.
 
@@ -1202,7 +1202,7 @@ die allgemein als SOAs abgekürzt werden.
 
 Angeregt durch objektorientierte Designs und inspiriert durch den Unix-Ansatz, bei dem viele kleine und gegenseitig
 unabhängige Programme leicht zusammengesetzt werden können, um grössere Programme zu bilden, haben Softwarearchitekten an
-dem gearbeitet, was als Mikroservices bezeichnet wird. Wesentlich ist, dass jeder Mikroservice als separater (Netzwerk-)
+dem gearbeitet, was als Microservices bezeichnet wird. Wesentlich ist, dass jeder Mikroservice als separater (Netzwerk-)
 Prozess ausgeführt wird. Die Implementierung eines Mikroservices könnte in Form eines entfernten Objekts erfolgen, aber
 das ist keine Voraussetzung. Ausserdem gibt es, obwohl man von Mikroservices spricht, keine allgemeine Übereinstimmung
 darüber, wie gross ein solcher Dienst sein sollte. Am wichtigsten ist jedoch, dass ein Mikroservice wirklich einen
