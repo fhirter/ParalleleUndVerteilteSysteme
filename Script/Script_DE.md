@@ -1395,11 +1395,10 @@ Die Ereigniszusammenstellung erweist sich als schwierige Aufgabe, insbesondere w
 Quellen stammen, die über das verteilte System verteilt sind.
 
 In Publish-Subscribe-Systemen wie diesen ist das entscheidende Problem die effiziente und skalierbare
-Implementierung des Abgleichs von Abonnements mit Benachrichtigungen. Von aussen bietet die
+Implementierung des Abgleichs von Abonnementen mit Benachrichtigungen. Einerseits bietet die
 Publish-Subscribe-Architektur viel Potenzial für den Aufbau sehr grosser verteilter Systeme aufgrund der starken
 Entkopplung von Prozessen.
-Andererseits ist es keine triviale Aufgabe, skalierbare Implementierungen zu entwickeln, ohne diese Unabhängigkeit zu
-verlieren, insbesondere im Fall von inhaltsbasierten Publish-Subscribe-Systemen. In diesem Sinne, obwohl viele
-behaupten, dass der Publish-Subscribe-Stil den Weg zu skalierbaren Architekturen bietet, ist die Tatsache, dass
-Implementierungen leicht einen Engpass bilden können, sicherlich, wenn Sicherheit und Datenschutz auf dem Spiel stehen,
-wie wir in Kapitel 9 und später in Kapitel 5 diskutieren werden."
+Andererseits ist es keine triviale Aufgabe, skalierbare Implementierungen zu entwickeln, ohne diese Entkopplung zu
+verlieren, insbesondere im Fall von inhaltsbasierten Publish-Subscribe-Systemen. Obwohl viele behaupten, dass der
+Publish-Subscribe-Stil den Weg zu skalierbaren Architekturen bietet, können Implementierungen leicht einen Flaschenhals
+bilden, insbesondere wenn Sicherheit und Datenschutz berücksichtigt werden.
