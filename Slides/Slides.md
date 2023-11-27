@@ -5,7 +5,7 @@
 - Eine single core CPU kann nur einen Prozess gleichzeitig ausführen
 - Multi-core CPUs entsprechend mehrere gleichzeitig
 - Ausser in sehr einfachen Embedded Systemen müssen jedoch immer sehr viele Prozesse «gleichzeitig» ausgeführt werden können z.B. auf einem Server oder auf einem Desktop Computer
-![img.png](htop.png)
+![img.png](Images/htop.png)
 
 ### «Parallele Systeme»
 
@@ -14,13 +14,13 @@
 - Die Prozessoren befinden sich auf demselben Chip oder auf dem selben Mainboard
 - Sie haben geteilten sowie gemeinsamen Speicher
 - Die Verbindung zwischen ihnen (Interconnect) hat geringe Latenz, hohe Bandbreite und ist zuverlässig.
-![img.png](parallelSystems)
+![img.png](Images/parallelSystems)
 
 ---
 
 - Parallele Ausführung (parallelism): Mehr als eine Aufgabe wird gleichzeitig ausgeführt
 - Nebenläufig (concurrency): Mehr als eine Aufgabe wird abgearbeitet (durch schnelles context switching)
-![img.png](concurrent_vs_parallel.png)
+![img.png](Images/concurrent_vs_parallel.png)
 
 ---
 
@@ -31,7 +31,7 @@
 
 > «A distributed system is a collection of independent computers that appears to its users as a single coherent system.»
 
-![img.png](DistributedSystem.png)
+![img.png](Images/DistributedSystem.png)
 VanSteen, 2017, S. 26
 
 P: Prozessor,
@@ -43,7 +43,11 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 - Zusammenarbeit
 
 ### Domain Name System
-![img.png](DomainNameSystem)
+![img.png](Images/DomainNameSystem)
+
+---
+
+![w:1000px](Images/when-the-cloud-leaves-the-datacenter-530836-1.jpg)
 
 ### Anforderungen an moderne Software
 
@@ -60,7 +64,7 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 - Verfügbarkeit, Skalierbarkeit: Mehre identische Systeme müssen verfügbar sein und bei Bedarf sollen weitere schnell gestartet werden können
 - Tradeoff: Kostengünstig, Einfach
 
-![img.png](LoadBalancing.png)
+![img.png](Images/LoadBalancing.png)
 
 ## Decentralized vs Distributed
 
@@ -83,24 +87,20 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
 ---
 
-![w:1000px](PizzaAsAService.png)
+![w:1000px](Images/PizzaAsAService.png)
 
 ### Abstractions
-![w:1000px](Abstractions.png)
+![w:1000px](Images/Abstractions.png)
 (VanSteen, 2017, S. 30)
 
 ### XaaS
-![w:1000px](XaaS.png)
+![w:1000px](Images/XaaS.png)
 
 
 ### Fallstudie
 
-![w:1000px](CaseStudyDashboard.png)
-
----
-
-![when-the-cloud-leaves-the-datacenter-530836-1.jpg](when-the-cloud-leaves-the-datacenter-530836-1.jpg)
+![w:1000px](Images/CaseStudyDashboard.png)
 
 ## Ports and Adaptors architecture
 
-![w:600px](ports-and-adapters-architecture.svg)
+![w:600px](Images/ports-and-adapters-architecture.svg)
