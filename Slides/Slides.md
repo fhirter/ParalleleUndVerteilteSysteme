@@ -37,7 +37,6 @@ VanSteen, 2017, S. 26
 P: Prozessor,
 Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
-
 ## Resource Sharing
 - Ressourcen verfügbar machen: Drucker, Computing, Storage, Daten, Netzwerk
 - Teure Ressourcen können besser ausgelastet werden und müssen nicht mehrfach angeschafft werden
@@ -45,7 +44,6 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
 ### Domain Name System
 ![img.png](DomainNameSystem)
-
 
 ### Anforderungen an moderne Software
 
@@ -102,3 +100,7 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 ---
 
 ![when-the-cloud-leaves-the-datacenter-530836-1.jpg](when-the-cloud-leaves-the-datacenter-530836-1.jpg)
+
+## Ports and Adaptors architecture
+
+![w:600px](ports-and-adapters-architecture.svg)
