@@ -334,7 +334,8 @@ völlig verborgen.
 
 Ein wichtiges Ziel eines verteilten Systems ist es, die Tatsache zu verbergen, dass seine Prozesse und Ressourcen
 physisch über mehrere Computer verteilt sind, möglicherweise über grosse Entfernungen hinweg. Mit anderen Worten, es
-versucht, die Verteilung von Prozessen und Ressourcen für Endbenutzer und Anwendungen transparent, das heisst unsichtbar,
+versucht, die Verteilung von Prozessen und Ressourcen für Endbenutzer und Anwendungen transparent, das heisst
+unsichtbar,
 zu machen. Wie wir in Kapitel 2 ausführlicher diskutieren werden, wird die Verteilungstransparenz durch die sogenannte
 Middleware realisiert, skizziert in Abbildung 1.2 (siehe Gazis und Katsiri [2022] für eine erste Einführung). Im
 Wesentlichen sehen Anwendungen überall die gleiche Schnittstelle, während hinter dieser Schnittstelle, wo und wie
@@ -846,7 +847,8 @@ dokumentenbasiertes Informationssystem zu sein, bei dem jedes Dokument seinen ei
 URL hat. Konzeptionell könnte es sogar so aussehen, als gäbe es nur einen einzigen Server. Das Web ist jedoch physisch
 partitioniert und auf einige hundert Millionen Server verteilt, von denen jeder oft mehrere Websites oder Teile von
 Websites verwaltet. Der Name des Servers, der ein Dokument verwaltet, ist in die URL dieses Dokuments kodiert. Nur
-aufgrund dieser Verteilung von Dokumenten konnte das Web auf seine jetzige Grösse skalieren. Beachten Sie jedoch, dass es
+aufgrund dieser Verteilung von Dokumenten konnte das Web auf seine jetzige Grösse skalieren. Beachten Sie jedoch, dass
+es
 fast unmöglich ist herauszufinden, wie viele Server Webdienste anbieten: Eine Website ist heute viel mehr als nur einige
 statische Webdokumente.
 
@@ -1003,7 +1005,7 @@ Beispiele, die die Komplexität vieler realer verteilter Systeme veranschauliche
 ## 2.1 Architekturstile
 
 Wir beginnen unsere Diskussion über Architekturen, indem wir zunächst die logische Organisation eines verteilten Systems
-in Softwarekomponenten betrachten, auch als seine Softwarearchitektur 
+in Softwarekomponenten betrachten, auch als seine Softwarearchitektur
 bezeichnet [Bass et al., 2021; Richards und Ford, 2020]. Die Forschung zu Softwarearchitekturen hat sich erheblich
 weiterentwickelt, und es wird mittlerweile allgemein akzeptiert, dass das Entwerfen oder Übernehmen einer Architektur
 entscheidend für die erfolgreiche Entwicklung grosser Softwaresysteme ist.
@@ -1116,7 +1118,8 @@ spezialisiert ist. Solche Suchmaschinen erscheinen als scheinbar einfache Websit
 eine Stadt oder Region, eine Preisspanne, den Typ des Hauses usw. angeben kann. Das Backend besteht aus einer riesigen
 Datenbank von derzeit zum Verkauf stehenden Häusern. Die Verarbeitungsschicht tut nichts anderes, als die
 bereitgestellten Beschreibungen in eine Sammlung von Datenbankabfragen umzuwandeln, die Antworten abzurufen und diese
-Antworten nachzubearbeiten, indem sie beispielsweise die Ausgabe nach Relevanz sortiert und anschliessend eine HTML-Seite
+Antworten nachzubearbeiten, indem sie beispielsweise die Ausgabe nach Relevanz sortiert und anschliessend eine
+HTML-Seite
 generiert. Abbildung 2.4 zeigt diese Organisation.
 
 Als weiteres Beispiel betrachten wir die Organisation der Website dieses Buches, insbesondere die Schnittstelle, die es
@@ -1148,7 +1151,7 @@ von Programmen beeinträchtigte.)
 
 Solche direkten Abhängigkeiten von spezifischen Komponenten haben zu einem Architekturstil geführt, der eine lockerere
 Organisation in eine Sammlung separater, unabhängiger Einheiten widerspiegelt. Jede Einheit kapselt einen Dienst ein. Ob
-sie nun Service, Objects oder Microservices genannt werden, sie haben gemeinsam, dass der Dienst als separater Prozess 
+sie nun Service, Objects oder Microservices genannt werden, sie haben gemeinsam, dass der Dienst als separater Prozess
 (oder Thread) ausgeführt wird. Natürlich bedeutet das separate Ausführen von Einheiten nicht unbedingt eine Verringerung
 der Abhängigkeiten im Vergleich zu einem geschichteten Architekturstil.
 
@@ -1201,7 +1204,8 @@ werden, so dass sie unabhängig voneinander funktionieren können, ebnet man den
 die allgemein als SOAs abgekürzt werden.
 
 Angeregt durch objektorientierte Designs und inspiriert durch den Unix-Ansatz, bei dem viele kleine und gegenseitig
-unabhängige Programme leicht zusammengesetzt werden können, um grössere Programme zu bilden, haben Softwarearchitekten an
+unabhängige Programme leicht zusammengesetzt werden können, um grössere Programme zu bilden, haben Softwarearchitekten
+an
 dem gearbeitet, was als Microservices bezeichnet wird. Wesentlich ist, dass jeder Mikroservice als separater (Netzwerk-)
 Prozess ausgeführt wird. Die Implementierung eines Mikroservices könnte in Form eines entfernten Objekts erfolgen, aber
 das ist keine Voraussetzung. Ausserdem gibt es, obwohl man von Mikroservices spricht, keine allgemeine Übereinstimmung
@@ -1230,7 +1234,8 @@ einer lokalen Datenbank mit den E-Books operiert. Die Auftragsbearbeitung umfass
 Artikeln, das Registrieren und Überprüfen des Lieferkanals (eventuell per E-Mail), aber auch die Sicherstellung, dass
 eine Zahlung erfolgt. Letzteres kann von einem separaten Dienst, der von einer anderen Organisation betrieben wird,
 gehandhabt werden, zu dem ein kaufender Kunde für die Zahlung umgeleitet wird, wonach die E-Book-Organisation
-benachrichtigt wird, damit sie die Transaktion abschliessen kann. Dieses Beispiel zeigt auch, dass, während Mikroservices
+benachrichtigt wird, damit sie die Transaktion abschliessen kann. Dieses Beispiel zeigt auch, dass, während
+Mikroservices
 als relativ klein angesehen werden, ein allgemeiner Dienst als relativ gross erwartet werden kann. Tatsächlich ist es
 nicht ungewöhnlich, einen Dienst als Sammlung von Mikroservices zu implementieren.
 
@@ -1283,3 +1288,118 @@ kann die Einfachheit von RESTful-Architekturen leicht Lösungen für komplexe Ko
 Beispiel sind verteilte Transaktionen, die in der Regel erfordern, dass Dienste den Ausführungszustand verfolgen.
 Andererseits gibt es viele Beispiele, in denen RESTful-Architekturen perfekt zu einem einfachen Integrationsschema von
 Diensten passen, während die Vielzahl von Dienstschnittstellen die Angelegenheit komplizieren kann.
+
+### 2.1.3 Publish-subscribe architectures
+
+Während Systeme weiter wachsen und Prozesse einfacher beitreten oder verlassen können, wird es wichtig, eine Architektur
+zu haben, in der Abhängigkeiten zwischen Prozessen so klein wie möglich sind. Eine grosse Anzahl verteilter Systeme hat
+eine Architektur gewählt, in der eine starke Trennung zwischen Verarbeitung und Koordination besteht. Die Idee ist,
+ein System als eine Sammlung autonom arbeitender Prozesse zu betrachten. In diesem Modell umfasst die Koordination die
+Kommunikation und Zusammenarbeit zwischen den Prozessen. Sie bildet den Klebstoff, der die von den Prozessen
+ausgeführten Aktivitäten zu einem Ganzen verbindet [Gelernter und Carriero, 1992]. Cabri et al. [2000] bieten eine
+Taxonomie von Koordinationsmodellen, die gleichermassen auf viele Arten verteilter Systeme angewendet werden können.
+Indem wir ihre Terminologie leicht anpassen, machen wir eine Unterscheidung zwischen Modellen entlang zweier
+Dimensionen, zeitlich und referenziell, wie unten dargestellt.
+
+|                     | Zeitlich gekoppelt | zeitlich entkoppelt |
+|---------------------|--------------------|---------------------|
+| Referenz-gekoppelt  | Direkt             | Mailbox             |
+| Referenz-entkoppelt | Event-based        | Geteilter Datenraum |
+
+Wenn Prozesse zeitlich und referenziell gekoppelt sind, findet die Koordination direkt statt, was als direkte
+Koordination bezeichnet wird. Die referenzielle Kopplung erscheint in der Regel in Form von expliziten Referenzen in der
+Kommunikation. Zum Beispiel kann ein Prozess nur kommunizieren, wenn er den Namen oder die Kennung der anderen Prozesse
+kennt, mit denen er Informationen austauschen möchte. Zeitliche Kopplung bedeutet, dass kommunizierende Prozesse beide
+aktiv sein müssen. Im echten Leben ist das Sprechen über Mobiltelefone (unter der Annahme, dass ein Mobiltelefon nur
+einen Besitzer hat) ein Beispiel für direkte Kommunikation.
+
+Eine andere Art der Koordination tritt auf, wenn Prozesse zeitlich entkoppelt, aber referenziell gekoppelt sind, was wir
+als Mailbox-Koordination bezeichnen. In diesem Fall ist es nicht notwendig, dass zwei kommunizierende Prozesse
+gleichzeitig aktiv sind, um die Kommunikation zu ermöglichen. Stattdessen findet die Kommunikation statt, indem
+Nachrichten in ein (möglicherweise gemeinsames) Postfach (Mailbox) gelegt werden. Da es notwendig ist, das Postfach, das
+die auszutauschenden Nachrichten enthalten wird, explizit zu adressieren, besteht eine referenzielle Kopplung.
+
+Die Kombination aus referenziell entkoppelten und zeitlich gekoppelten Systemen bildet die Gruppe der Modelle für
+"event-based" Koordination. In referenziell entkoppelten Systemen kennen Prozesse einander nicht explizit. Das
+Einzige, was ein Prozess tun kann, ist, eine Benachrichtigung zu veröffentlichen, die das Eintreten eines Ereignisses
+beschreibt (z.B., dass er Aktivitäten koordinieren möchte oder dass er gerade interessante Ergebnisse produziert hat).
+In der Annahme, dass Benachrichtigungen in allen möglichen Arten und Formen kommen, können Prozesse ein Abonnement
+(Subscription) für eine bestimmte Art von Benachrichtigung erstellen (siehe auch [Mühl et al., 2006]). In einem
+idealen ereignisbasierten Koordinationsmodell wird eine veröffentlichte Benachrichtigung genau an die Prozesse
+geliefert, die sie abonniert haben.
+Allerdings wird im Allgemeinen verlangt, dass der Abonnent zum Zeitpunkt der Veröffentlichung der Benachrichtigung aktiv
+ist.
+
+Ein bekanntes Koordinationsmodell ist die Kombination aus referenziell und zeitlich entkoppelten Prozessen. Dies wird
+als "gemeinsamer Datenraum" bezeichnet. Die zentrale Idee ist, dass Prozesse ausschliesslich durch Tupel
+kommunizieren, die strukturierte Datensätze bestehend aus mehreren Feldern sind, sehr ähnlich einer Zeile in einer
+Datenbanktabelle. Prozesse können jede Art von Tupel in den gemeinsamen Datenraum einfügen. Um ein Tupel abzurufen,
+stellt ein Prozess ein Suchmuster zur Verfügung, das gegen die Tupel abgeglichen wird. Jedes passende Tupel wird
+zurückgegeben.
+
+Gemeinsame Datenräume werden daher als Implementierung eines assoziativen Suchmechanismus für Tupel angesehen. Wenn ein
+Prozess ein Tupel aus dem Datenraum extrahieren möchte, gibt er die Werte der Felder an, die ihn interessieren.
+Jedes entsprechende Tupel wird dann aus dem Datenraum entfernt und an den Prozess weitergegeben.
+
+Gemeinsame Datenräume werden oft mit ereignisbasierter Koordination kombiniert: Ein Prozess abonniert bestimmte Tupel,
+indem er ein Suchmuster angibt; wenn ein Prozess ein Tupel in den Datenraum einfügt, werden passende Abonnenten
+benachrichtigt. In beiden Fällen haben wir es mit einer Publish-Subscribe-Architektur zu tun, und tatsächlich ist das
+zentrale Merkmal, dass Prozesse keine explizite Referenzen zueinander haben. Der Unterschied zwischen einem rein
+ereignisbasierten Architekturstil und dem eines gemeinsamen Datenraums wird in Abbildung 2.10 gezeigt. Es ist auch
+eine Abstraktion des Mechanismus ersichtlich, durch den Herausgeber und Abonnenten verbunden werden. Dies wird bekannt
+als "event bus" bezeichnet.
+
+Ein wichtiger Aspekt von Publish-Subscribe-Systemen ist, dass die Kommunikation durch die Beschreibung der Events
+erfolgt, an denen ein Abonnent interessiert ist. Folglich spielt die Benennung eine entscheidende Rolle. Wir werden
+später zur Benennung zurückkehren, aber vorerst ist wichtige, dass oft Datenobjekte nicht explizit von Sendern
+und Empfängern identifiziert werden.
+
+Nehmen wir zunächst an, dass Ereignisse durch eine Reihe von Attributen beschrieben werden. Eine Benachrichtigung, die
+einen Event beschreibt, wird als veröffentlicht (published) bezeichnet, wenn sie anderen Prozessen zum Lesen zur
+Verfügung gestellt wird. Zu diesem Zweck muss ein Abonnement an die Middleware übergeben werden, das eine Beschreibung
+des Ereignisses enthält, an dem der Abonnent (Subscriber) interessiert ist. Eine solche Beschreibung besteht
+typischerweise aus einigen (Attribut, Wert)-Paaren, was für sogenannte themenbasierte (topic based)
+Publish-Subscribe-Systeme üblich ist.
+
+Als Alternative können in inhaltsbasierten Publish-Subscribe-Systemen Abonnements auch aus (Attribut, Bereich)-Paaren
+bestehen. In diesem Fall wird erwartet, dass das spezifizierte Attribut Werte innerhalb eines bestimmten Bereichs
+annimmt. Beschreibungen können manchmal unter Verwendung aller Arten von Prädikaten formuliert werden, die über die
+Attribute formuliert sind, sehr ähnlich wie SQL-ähnliche Abfragen im Fall von relationalen Datenbanken. Offensichtlich
+wird es umso schwieriger sein zu testen, ob ein Ereignis einer Beschreibung entspricht, je komplexer eine
+Beschreibung sein darf.
+
+Wir sind jetzt mit einer Situation konfrontiert, in der Abonnements mit Benachrichtigungen abgeglichen werden müssen,
+wie in Abbildung 2.12 gezeigt. Oft wird ein Event veröffentlicht, wenn neue Daten zur Verfügung stehen.
+In diesem Fall gibt es bei erfolgreichem Matching zwei mögliche Szenarien. Im ersten Fall kann die Middleware
+entscheiden, die veröffentlichte Benachrichtigung zusammen mit den zugehörigen Daten an ihren aktuellen Satz von
+Abonnenten weiterzuleiten, also an Prozesse mit einem passenden Abonnement. Alternativ kann die Middleware auch nur eine
+Benachrichtigung weiterleiten, woraufhin Abonnenten eine Leseoperation ausführen können, um das Datenobjekt abzurufen.
+
+In den Fällen, in denen Daten, die mit einem Ereignis verbunden sind, sofort an Abonnenten weitergeleitet werden, bietet
+die Middleware im Allgemeinen keine Datenspeicherung an. Die Speicherung wird entweder explizit durch einen separaten
+Dienst oder durch die Abonnenten selbst gehandhabt. Mit anderen Worten, wir haben ein referenziell entkoppeltes, aber
+zeitlich gekoppeltes System.
+
+Diese Situation unterscheidet sich, wenn Benachrichtigungen so gesendet werden, dass Abonnenten die zugehörigen Daten
+explizit lesen müssen. Notwendigerweise muss die Middleware dann Datenobjekte speichern. In diesen Situationen gibt es
+zusätzliche Operationen für das Datenmanagement. Es ist auch möglich, ein Datenobjekt mit einer Ablaufzeit auszustatten,
+sodass das Datenobjekt automatisch gelöscht wird, wenn die Zeit abgelaufen ist.
+
+Ereignisse können die Verarbeitung von Abonnements leicht komplizieren. Um dies zu veranschaulichen, betrachten wir ein
+Abonnement wie „benachrichtigen, wenn Raum ZI.1060 unbesetzt und die Tür unverschlossen ist.“ Typischerweise kann ein
+verteiltes System, das solche Abonnements unterstützt, durch das Platzieren unabhängiger Sensoren zur Überwachung der
+Raumbelegung (z.B. Bewegungsmelder) und solcher zur Registrierung des Status eines Türschlosses implementiert werden.
+Nach dem bisher skizzierten Ansatz müssten wir solche primitiven Ereignisse zu einem Datenobjekt
+zusammenfügen, bevor es veröffentlicht und anderen Prozessen zugestellt werden kann.
+Die Ereigniszusammenstellung erweist sich als schwierige Aufgabe, insbesondere wenn die primitiven Ereignisse aus
+Quellen stammen, die über das verteilte System verteilt sind.
+
+In Publish-Subscribe-Systemen wie diesen ist das entscheidende Problem die effiziente und skalierbare
+Implementierung des Abgleichs von Abonnements mit Benachrichtigungen. Von aussen bietet die
+Publish-Subscribe-Architektur viel Potenzial für den Aufbau sehr grosser verteilter Systeme aufgrund der starken
+Entkopplung von Prozessen.
+Andererseits ist es keine triviale Aufgabe, skalierbare Implementierungen zu entwickeln, ohne diese Unabhängigkeit zu
+verlieren, insbesondere im Fall von inhaltsbasierten Publish-Subscribe-Systemen. In diesem Sinne, obwohl viele
+behaupten, dass der Publish-Subscribe-Stil den Weg zu skalierbaren Architekturen bietet, ist die Tatsache, dass
+Implementierungen leicht einen Engpass bilden können, sicherlich, wenn Sicherheit und Datenschutz auf dem Spiel stehen,
+wie wir in Kapitel 9 und später in Kapitel 5 diskutieren werden."
