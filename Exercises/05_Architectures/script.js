@@ -1,9 +1,9 @@
 import {AMQPWebSocketClient} from './amqp-websocket-client.mjs'
 
 const host = "cow-01.rmq2.cloudamqp.com/ws/amqp";
-const vhost = "fggiprgi";
-const username = "fggiprgi";
-const password = "R3dw9XypW-ARjPQUyBwLMDD2tp2x4O3I";
+const vhost = "";
+const username = "";
+const password = "";
 
 const url = `wss://${host}}`;
 const amqp = new AMQPWebSocketClient(url, `${vhost}`, username, password);
