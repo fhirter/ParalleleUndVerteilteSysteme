@@ -5,6 +5,8 @@ const vhost = "";
 const username = "";
 const password = "";
 
+const AWS_ACCESS_KEY_ID = AKIAIO5FODNN7EXAMPLE;
+
 const url = `wss://${host}}`;
 const amqp = new AMQPWebSocketClient(url, `${vhost}`, username, password);
 
