@@ -88,6 +88,39 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 - [Ably](https://ably.com/)
 - ...
 
+
+## Schichtenarchitekturen
+
+![w:200px](Images/distributedSystems/02/02-01a.png)
+
+## Ports and Adaptors architecture
+
+![w:600px](Images/ports-and-adapters-architecture.svg)
+
+## Publish-subscribe Architekturen
+
+![w:600px](Images/distributedSystems/02/02-09.png)
+
+---
+
+![w:600px](Images/distributedSystems/02/02-10a.png)
+
+---
+
+![w:600px](Images/distributedSystems/02/02-10b.png)
+
+---
+
+![w:600px](Images/distributedSystems/02/02-12.png)
+
+---
+
+![w:800px](Images/distributedSystems/02/02-14b.png)
+
+---
+
+![w:1000px](Images/distributedSystems/02/02-17.png)
+
 ## Cloud Computing
 > The entire history of software engineering is that of the rise in levels of abstraction.
 
@@ -109,6 +142,5 @@ Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
 ![w:1000px](Images/CaseStudyDashboard.png)
 
-## Ports and Adaptors architecture
-
-![w:600px](Images/ports-and-adapters-architecture.svg)
+## Edge Computing
+![02-28.png](Images/distributedSystems/02/02-28.png)
