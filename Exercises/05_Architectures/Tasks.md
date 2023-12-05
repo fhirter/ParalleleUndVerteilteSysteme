@@ -8,6 +8,13 @@ Schicke dieses am Ende der Unterrichtseinheit dem Dozenten.
 Organisiert euch selbstständig in der Klasse, wie ihr die Aufgabe Lösen wollt.
 Stellt sicher, dass alle verstehen, was gemacht wurde.
 
+## Lernziele
+
+Die Studierenden kennen verschiedene Architekturstile und deren Anwendung.
+Die Studierenden könne die technischen Vorzüge spezifischer Entwicklungen im Bereich verteilter Computersysteme
+analysieren und nachvollziehbar begründen. Sie können Sachverhalte klar erklären, um die Qualität des Feedbacks zu
+optimieren.
+
 ## Aufgabenstellung
 
 ### Architektur
