@@ -1,4 +1,12 @@
 <!-- headingDivider: 4 -->
+<style>
+img {
+  display: block;
+  margin: 0 auto;
+}
+</style>
+
+
 # Parallele und verteilte Systeme
 ## Einführung
 ### «Parallele Systeme»
