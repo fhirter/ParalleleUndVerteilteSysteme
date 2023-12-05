@@ -1403,6 +1403,118 @@ verlieren, insbesondere im Fall von inhaltsbasierten Publish-Subscribe-Systemen.
 Publish-Subscribe-Stil den Weg zu skalierbaren Architekturen bietet, können Implementierungen leicht einen Flaschenhals
 bilden, insbesondere wenn Sicherheit und Datenschutz berücksichtigt werden.
 
+### 2.3 Geschichtete Systemarchitekturen
+
+Lassen Sie uns nun betrachten, wie viele verteilte Systeme tatsächlich organisiert sind, indem wir uns anschauen, wo
+Softwarekomponenten platziert sind. Die Entscheidung über Softwarekomponenten, ihre Interaktion und ihre Platzierung
+führt zu einer Instanz einer Softwarearchitektur, auch bekannt als Systemarchitektur [Bass et al., 2021]. Wir beginnen
+mit der Diskussion von geschichteten Architekturen. Andere Formen folgen später.
+
+Trotz des Mangels an Konsens über viele Fragen der verteilten Systeme gibt es eine Sache, über die sich viele Forscher
+und Praktiker einig sind: Das Denken in Begriffen von Clients, die Dienste von Servern anfordern, hilft, die Komplexität
+verteilter Systeme zu verstehen und zu bewältigen [Saltzer und Kaashoek, 2009]. Im Folgenden betrachten wir zunächst
+eine einfache geschichtete Organisation, gefolgt von einer Betrachtung mehrschichtiger Organisationen.
+
+#### 2.3.1 Einfache Client-Server-Architektur
+
+Im grundlegenden Client-Server-Modell werden Prozesse in einem verteilten System in zwei (möglicherweise überlappende)
+Gruppen unterteilt. Ein Server ist ein Prozess, der einen bestimmten Dienst implementiert, zum Beispiel einen
+Dateisystemdienst oder einen Datenbankdienst. Ein Client ist ein Prozess, der einen Dienst von einem Server anfordert,
+indem er eine Anfrage sendet und anschließend auf die Antwort des Servers wartet. Diese Client-Server-Interaktion, auch
+bekannt als Anfrage-Antwort-Verhalten, wird in Abbildung 2.16 gezeigt.
+
+Die Kommunikation zwischen einem Client und einem Server kann durch ein einfaches verbindungsloses Protokoll
+implementiert werden, wenn das zugrundeliegende Netzwerk ziemlich zuverlässig ist, wie in vielen lokalen Netzwerken. In
+diesen Fällen sendet ein Client, wenn er einen Dienst anfordert, einfach eine Nachricht an den Server, in der er den
+gewünschten Dienst zusammen mit den erforderlichen Eingabedaten identifiziert. Die Nachricht wird dann an den Server
+gesendet. Dieser wartet immer auf eine eingehende Anfrage, verarbeitet sie anschließend und verpackt die Ergebnisse in
+eine Antwortnachricht, die dann an den Client gesendet wird.
+
+Die Verwendung eines verbindungslosen Protokolls hat den offensichtlichen Vorteil, effizient zu sein. Solange
+Nachrichten nicht verloren gehen oder beschädigt werden, funktioniert das gerade skizzierte Anfrage-/Antwortprotokoll
+gut. Leider ist es nicht trivial, das Protokoll widerstandsfähig gegen gelegentliche Übertragungsausfälle zu machen. Das
+Einzige, was wir tun können, ist möglicherweise, den Client die Anfrage erneut senden zu lassen, wenn keine
+Antwortnachricht eingeht. Das Problem ist jedoch, dass der Client nicht erkennen kann, ob die ursprüngliche
+Anfragenachricht verloren gegangen ist oder ob die Übertragung der Antwort fehlgeschlagen ist. Wenn die Antwort verloren
+ging, kann das erneute Senden einer Anfrage dazu führen, dass die Operation zweimal ausgeführt wird. Wenn die Operation
+etwas wie "Überweise 10.000 $ von meinem Bankkonto" war, dann wäre es offensichtlich besser gewesen, stattdessen einfach
+einen Fehler zu melden. Andererseits, wenn die Operation "Sag mir, wie viel Geld ich noch habe" war, wäre es völlig
+akzeptabel, die Anfrage erneut zu senden. Wenn eine Operation mehrmals ohne Schaden wiederholt werden kann, wird sie als
+idempotent bezeichnet. Da einige Anfragen idempotent sind und andere nicht, sollte klar sein, dass es keine einheitliche
+Lösung für den Umgang mit verlorenen Nachrichten gibt. Eine detaillierte Diskussion über den Umgang mit
+Übertragungsausfällen wird in Abschnitt 8.3 aufgeschoben.
+
+Als Alternative verwenden viele Client-Server-Systeme ein zuverlässiges, verbindungsorientiertes Protokoll. Obwohl diese
+Lösung in einem lokalen Netzwerk aufgrund der relativ niedrigen Leistung nicht ganz angemessen ist, funktioniert sie in
+Weitverkehrsnetzen, in denen die Kommunikation grundsätzlich unzuverlässig ist, einwandfrei. Zum Beispiel basieren
+nahezu alle Internetanwendungsprotokolle auf zuverlässigen TCP/IP-Verbindungen. In diesem Fall stellt ein Client
+zunächst eine Verbindung zum Server her, bevor er die Anfrage sendet. Der Server verwendet in der Regel dieselbe
+Verbindung, um die Antwortnachricht zu senden, woraufhin die Verbindung abgebaut wird. Das Problem könnte sein, dass das
+Aufbauen und Abbauen einer Verbindung relativ kostspielig ist, insbesondere wenn die Anfrage- und Antwortnachrichten
+klein sind.
+
+Das Client-Server-Modell war über die Jahre hinweg Gegenstand vieler Debatten und Kontroversen. Eines der Hauptprobleme
+war, wie man eine klare Unterscheidung zwischen einem Client und einem Server ziehen kann. Nicht überraschend gibt es
+oft keine klare Unterscheidung. Zum Beispiel kann ein Server für eine verteilte Datenbank kontinuierlich als Client
+agieren, weil er Anfragen an verschiedene Dateiserver weiterleitet, die für die Implementierung der Datenbanktabellen
+verantwortlich sind. In einem solchen Fall verarbeitet der Datenbankserver lediglich die Anfragen.
+
+### 2.3.2 Multitier-Architekturen
+
+Die Unterscheidung in drei logische Ebenen, wie bisher diskutiert, deutet auf mehrere Möglichkeiten hin, eine
+Client-Server-Anwendung physisch auf mehrere Maschinen zu verteilen. Die einfachste Organisation besteht darin, nur zwei
+Arten von Maschinen zu haben:
+
+1. Eine Client-Maschine, die nur die Programme enthält, die (Teile von) der Benutzeroberflächenebene implementieren
+2. Eine Server-Maschine, die den Rest enthält, also die Programme, die die Verarbeitungs- und Datenebene implementieren
+
+In dieser Organisation wird alles vom Server gehandhabt, während der Client im Wesentlichen nicht mehr als ein dummes
+Terminal ist, möglicherweise nur mit einer bequemen grafischen Schnittstelle. Es gibt jedoch viele andere Möglichkeiten.
+Wie in Abschnitt 2.1.1 erläutert, werden viele verteilte Anwendungen in drei Schichten unterteilt: (1) eine
+Benutzeroberflächenschicht, (2) eine Verarbeitungsschicht und (3) eine Datenschicht. Ein Ansatz zur Organisation von
+Clients und Servern besteht dann darin, diese Schichten auf verschiedene Maschinen zu verteilen, wie in Abbildung 2.17
+gezeigt (siehe auch Umar [1997]). Als ersten Schritt machen wir eine Unterscheidung zwischen nur zwei Arten von
+Maschinen: Client-Maschinen und Server-Maschinen, was zu einer (physisch) zweistufigen Architektur führt.
+Eine mögliche Organisation besteht darin, nur den terminalabhängigen Teil der Benutzeroberfläche auf der Client-Maschine
+zu haben, wie in Abbildung 2.17(a) gezeigt, und den Anwendungen die Fernsteuerung ihrer Datendarstellung zu überlassen.
+Eine Alternative besteht darin, die gesamte Benutzeroberflächensoftware auf der Client-Seite zu platzieren, wie in
+Abbildung 2.17(b) gezeigt. In solchen Fällen teilen wir die Anwendung im Wesentlichen in ein grafisches Frontend, das
+über ein anwendungsspezifisches Protokoll mit dem Rest der Anwendung (auf dem Server) kommuniziert. In diesem Modell
+führt das Frontend (die Client-Software) keine Verarbeitung durch, außer der zur Darstellung der Anwendungsschnittstelle
+erforderlichen.
+Dieser Überlegung folgend, können wir auch einen Teil der Anwendung an das Frontend verschieben, wie in Abbildung 2.17(
+c) gezeigt. Ein Beispiel, wo dies sinnvoll ist, ist eine Anwendung, die ein Formular verwendet, das vollständig
+ausgefüllt werden muss, bevor es verarbeitet werden kann. Das Frontend kann dann die Korrektheit und Konsistenz des
+Formulars überprüfen und bei Bedarf mit dem Benutzer interagieren. Ein weiteres Beispiel für die Organisation von
+Abbildung 2.17(c) ist das eines Textverarbeitungsprogramms, bei dem die grundlegenden Bearbeitungsfunktionen auf der
+Client-Seite ausgeführt werden, wo sie auf lokal zwischengespeicherten oder im Speicher befindlichen Daten operieren,
+während die fortgeschrittenen Unterstützungswerkzeuge wie die Rechtschreib- und Grammatikprüfung auf der Server-Seite
+ausgeführt werden.
+In vielen Client-Server-Umgebungen sind die in Abbildung 2.17(d) und Abbildung 2.17(e) gezeigten Organisationen
+besonders beliebt. Diese Organisationen werden verwendet, wenn die Client-Maschine ein PC oder eine Workstation ist, die
+über ein Netzwerk mit einem verteilten Dateisystem oder einer Datenbank verbunden ist. Im Wesentlichen läuft der größte
+Teil der Anwendung auf der Client-Maschine, aber alle Operationen auf Dateien oder Datenbankeinträgen gehen zum Server.
+Zum Beispiel laufen viele Bankanwendungen auf der Maschine eines Endbenutzers, wo der Benutzer Transaktionen und
+ähnliches vorbereitet. Sobald dies abgeschlossen ist, kontaktiert die Anwendung die Datenbank auf dem Server der Bank
+und lädt die Transaktionen zur weiteren Verarbeitung hoch. Abbildung 2.17(e) stellt die Situation dar, in der die lokale
+Festplatte des Clients einen Teil der Daten enthält. Zum Beispiel kann beim Surfen im Web ein Client nach und nach einen
+riesigen Cache auf der lokalen Festplatte der zuletzt besuchten Webseiten anlegen.
+
+Wenn wir, wie bisher, nur zwischen Client- und Servermaschinen unterscheiden, übersehen wir den Punkt, dass ein Server
+manchmal als Client agieren muss, wie in Abbildung 2.18 dargestellt. Dies führt zu einer (physisch) dreischichtigen
+Architektur.
+
+In dieser Architektur werden traditionell Programme, die Teil der Verarbeitungsschicht sind, von einem separaten Server
+ausgeführt, können aber zusätzlich teilweise über die Client- und Servermaschinen verteilt sein. Ein typisches Beispiel,
+wo eine dreischichtige Architektur verwendet wird, ist in der Transaktionsverarbeitung. Ein separater Prozess, genannt
+der Transaktionsverarbeitungsmonitor, koordiniert alle Transaktionen über möglicherweise verschiedene Datenserver.
+Ein anderes, aber sehr unterschiedliches Beispiel, wo wir oft eine dreischichtige Architektur sehen, ist in der
+Organisation von Websites.
+In diesem Fall fungiert ein Webserver als Zugangspunkt zu einer Website und leitet Anfragen an einen Anwendungsserver
+weiter, wo die eigentliche Verarbeitung stattfindet. Dieser Anwendungsserver interagiert wiederum mit einem
+Datenbankserver. Wir sind bereits auf eine solche Organisation gestoßen, als wir die Website dieses Buches und die
+Möglichkeiten zur Erstellung und zum Herunterladen einer personalisierten Kopie diskutierten.
+
 ## 2.5 Hybride Systemarchitekturen
 
 Reale verteilte Systeme sind komplex, da sie eine Vielzahl von Architekturen kombinieren: Zentralisierte Merkmale werden
@@ -1566,6 +1678,7 @@ Arbeitslasten zu tun, die zusammen zu einer höheren Nachfrage nach Orchestrieru
 verbirgt die Cloud aus der Perspektive des Kunden viele ihrer internen Komplexitäten, was bei Edge-Infrastrukturen
 nicht unbedingt der Fall ist, was die Orchestrierung erheblich erschwert [Bittencourt et al., 2018]. Die
 Orchestrierung beinhaltet Folgendes (siehe auch Taleb et al. [2017]):
+
 - **Ressourcenzuweisung**: Spezifische Dienste erfordern spezifische Ressourcen. Die Frage ist dann, die
   Verfügbarkeit der für die Ausführung eines Dienstes erforderlichen Ressourcen zu garantieren. Typischerweise
   handelt es sich bei Ressourcen um CPU, Speicher, Arbeitsspeicher und Netzwerkeinrichtungen.
