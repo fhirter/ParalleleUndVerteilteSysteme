@@ -32,11 +32,11 @@ async function start() {
     }
 }
 
-function attachPublish(ch) {
+function attachPublish(channel) {
     document.forms[0].onsubmit = async (e) => {
         e.preventDefault()
         try {
-            await ch.basicPublish("amq.fanout", "", input.value, {contentType: "text/plain"})
+            await channel.basicPublish("amq.fanout", "", input.value, {contentType: "text/plain"})
         } catch (err) {
             console.error("Error", err, "reconnecting in 1s")
             disablePublish()
