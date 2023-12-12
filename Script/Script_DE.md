@@ -1403,107 +1403,299 @@ verlieren, insbesondere im Fall von inhaltsbasierten Publish-Subscribe-Systemen.
 Publish-Subscribe-Stil den Weg zu skalierbaren Architekturen bietet, können Implementierungen leicht einen Flaschenhals
 bilden, insbesondere wenn Sicherheit und Datenschutz berücksichtigt werden.
 
-### 2.3.1 Einfache Client-Server-Architektur
+### 2.3 Geschichtete Systemarchitekturen
 
-Im grundlegenden Client-Server-Modell werden Prozesse in einem verteilten System in zwei (möglicherweise sich
-überschneidende) Gruppen eingeteilt. Ein Server ist ein Prozess, der einen spezifischen Dienst implementiert,
-beispielsweise einen Dateisystemdienst oder einen Datenbankdienst. Ein Client ist ein Prozess, der einen Dienst von
-einem Server anfordert, indem er ihm eine Anfrage sendet und anschliessend auf die Antwort des Servers wartet. Diese
-Client-Server-Interaktion, auch bekannt als Anfrage-Antwort-Verhalten (Request-Response), wird in Abbildung 2.16
-gezeigt.
+Lassen Sie uns nun betrachten, wie viele verteilte Systeme tatsächlich organisiert sind, indem wir uns anschauen, wo
+Softwarekomponenten platziert sind. Die Entscheidung über Softwarekomponenten, ihre Interaktion und ihre Platzierung
+führt zu einer Instanz einer Softwarearchitektur, auch bekannt als Systemarchitektur [Bass et al., 2021]. Wir beginnen
+mit der Diskussion von geschichteten Architekturen. Andere Formen folgen später.
+
+Trotz des Mangels an Konsens über viele Fragen der verteilten Systeme gibt es eine Sache, über die sich viele Forscher
+und Praktiker einig sind: Das Denken in Begriffen von Clients, die Dienste von Servern anfordern, hilft, die Komplexität
+verteilter Systeme zu verstehen und zu bewältigen [Saltzer und Kaashoek, 2009]. Im Folgenden betrachten wir zunächst
+eine einfache geschichtete Organisation, gefolgt von einer Betrachtung mehrschichtiger Organisationen.
+
+#### 2.3.1 Einfache Client-Server-Architektur
+
+Im grundlegenden Client-Server-Modell werden Prozesse in einem verteilten System in zwei (möglicherweise überlappende)
+Gruppen unterteilt. Ein Server ist ein Prozess, der einen bestimmten Dienst implementiert, zum Beispiel einen
+Dateisystemdienst oder einen Datenbankdienst. Ein Client ist ein Prozess, der einen Dienst von einem Server anfordert,
+indem er eine Anfrage sendet und anschließend auf die Antwort des Servers wartet. Diese Client-Server-Interaktion, auch
+bekannt als Anfrage-Antwort-Verhalten, wird in Abbildung 2.16 gezeigt.
 
 Die Kommunikation zwischen einem Client und einem Server kann durch ein einfaches verbindungsloses Protokoll
-implementiert werden, wenn das zugrunde liegende Netzwerk ziemlich zuverlässig ist, wie es bei vielen lokalen Netzwerken
-der Fall ist. In diesen Fällen verpackt ein Client, wenn er einen Dienst anfordert, einfach eine Nachricht für den
-Server, in der der gewünschte Dienst zusammen mit den notwendigen Eingabedaten identifiziert wird. Die Nachricht wird
-dann an den Server gesendet. Letzterer wartet ständig auf eine eingehende Anfrage, welche er verarbeitet und die
-Ergebnisse in einer Antwortnachricht an den Client sendet.
+implementiert werden, wenn das zugrundeliegende Netzwerk ziemlich zuverlässig ist, wie in vielen lokalen Netzwerken. In
+diesen Fällen sendet ein Client, wenn er einen Dienst anfordert, einfach eine Nachricht an den Server, in der er den
+gewünschten Dienst zusammen mit den erforderlichen Eingabedaten identifiziert. Die Nachricht wird dann an den Server
+gesendet. Dieser wartet immer auf eine eingehende Anfrage, verarbeitet sie anschließend und verpackt die Ergebnisse in
+eine Antwortnachricht, die dann an den Client gesendet wird.
 
 Die Verwendung eines verbindungslosen Protokolls hat den offensichtlichen Vorteil, effizient zu sein. Solange
-Nachrichten nicht verloren gehen oder beschädigt werden, funktioniert das eben skizzierte Anfrage/Antwort-Protokoll gut.
-Leider ist es nicht trivial, das Protokoll widerstandsfähig gegen gelegentliche Übertragungsfehler zu machen. Das
+Nachrichten nicht verloren gehen oder beschädigt werden, funktioniert das gerade skizzierte Anfrage-/Antwortprotokoll
+gut. Leider ist es nicht trivial, das Protokoll widerstandsfähig gegen gelegentliche Übertragungsausfälle zu machen. Das
 Einzige, was wir tun können, ist möglicherweise, den Client die Anfrage erneut senden zu lassen, wenn keine
 Antwortnachricht eingeht. Das Problem ist jedoch, dass der Client nicht erkennen kann, ob die ursprüngliche
-Anfragenachricht verloren gegangen ist oder dass die Übertragung der Antwort fehlgeschlagen ist. Wenn die Antwort
-verloren ging, kann das erneute Senden einer Anfrage dazu führen, dass die Operation zweimal ausgeführt wird. Wenn die
-Operation so etwas wie „Überweise 10.000 Dollar von meinem Bankkonto“ war, dann wäre es sicherlich besser gewesen, wenn
-wir einfach einen Fehler gemeldet hätten. Andererseits, wenn die Operation „Sag mir, wie viel Geld ich noch habe“ war,
-wäre es völlig akzeptabel, die Anfrage erneut zu senden. Wenn eine Operation mehrmals ohne Schaden wiederholt werden
-kann, wird sie als idempotent bezeichnet. Da einige Anfragen idempotent sind und andere nicht, sollte klar sein, dass es
-keine einzelne Lösung für den Umgang mit verlorenen Nachrichten gibt. Eine detaillierte Diskussion über die Behandlung
-von Übertragungsfehlern ist in Abschnitt 8.3 zu finden.
+Anfragenachricht verloren gegangen ist oder ob die Übertragung der Antwort fehlgeschlagen ist. Wenn die Antwort verloren
+ging, kann das erneute Senden einer Anfrage dazu führen, dass die Operation zweimal ausgeführt wird. Wenn die Operation
+etwas wie "Überweise 10.000 $ von meinem Bankkonto" war, dann wäre es offensichtlich besser gewesen, stattdessen einfach
+einen Fehler zu melden. Andererseits, wenn die Operation "Sag mir, wie viel Geld ich noch habe" war, wäre es völlig
+akzeptabel, die Anfrage erneut zu senden. Wenn eine Operation mehrmals ohne Schaden wiederholt werden kann, wird sie als
+idempotent bezeichnet. Da einige Anfragen idempotent sind und andere nicht, sollte klar sein, dass es keine einheitliche
+Lösung für den Umgang mit verlorenen Nachrichten gibt. Eine detaillierte Diskussion über den Umgang mit
+Übertragungsausfällen wird in Abschnitt 8.3 aufgeschoben.
 
-Als Alternative verwenden viele Client-Server-Systeme ein zuverlässiges verbindungsorientiertes Protokoll. Obwohl diese
-Lösung in einem lokalen Netzwerk aufgrund der relativ geringen Leistung nicht ganz angemessen ist, funktioniert sie in
-über grössere Distanzen, in denen die Kommunikation von Natur aus unzuverlässig ist, perfekt. Beispielsweise basieren
-praktisch alle Internetanwendungsprotokolle auf zuverlässigen TCP/IP-Verbindungen. In diesem Fall stellt ein Client,
-wenn er einen Dienst anfordert, zunächst eine Verbindung zum Server her, bevor er die Anfrage sendet. Der Server
-verwendet im Allgemeinen dieselbe Verbindung, um die Antwortnachricht zu senden, nach der die Verbindung abgebaut wird.
-Das Problem könnte sein, dass das Aufbauen und Abbauen einer Verbindung relativ aufwendig ist, insbesondere wenn die
-Anfrage- und Antwortnachrichten klein sind.
+Als Alternative verwenden viele Client-Server-Systeme ein zuverlässiges, verbindungsorientiertes Protokoll. Obwohl diese
+Lösung in einem lokalen Netzwerk aufgrund der relativ niedrigen Leistung nicht ganz angemessen ist, funktioniert sie in
+Weitverkehrsnetzen, in denen die Kommunikation grundsätzlich unzuverlässig ist, einwandfrei. Zum Beispiel basieren
+nahezu alle Internetanwendungsprotokolle auf zuverlässigen TCP/IP-Verbindungen. In diesem Fall stellt ein Client
+zunächst eine Verbindung zum Server her, bevor er die Anfrage sendet. Der Server verwendet in der Regel dieselbe
+Verbindung, um die Antwortnachricht zu senden, woraufhin die Verbindung abgebaut wird. Das Problem könnte sein, dass das
+Aufbauen und Abbauen einer Verbindung relativ kostspielig ist, insbesondere wenn die Anfrage- und Antwortnachrichten
+klein sind.
 
-Das Client-Server-Modell war im Laufe der Jahre Gegenstand vieler Debatten und Kontroversen. Eines der Hauptprobleme
-war, wie man eine klare Unterscheidung zwischen einem Client und einem Server zieht. Nicht überraschend gibt es oft
-keine klare Unterscheidung. Zum Beispiel kann ein Server für eine verteilte Datenbank kontinuierlich als Client agieren,
-weil er Anfragen an verschiedene Dateiserver weiterleitet, die für die Implementierung der Datenbanktabellen
-verantwortlich sind. In einem solchen Fall verarbeitet der Datenbankserver selbst nur die Abfragen.
+Das Client-Server-Modell war über die Jahre hinweg Gegenstand vieler Debatten und Kontroversen. Eines der Hauptprobleme
+war, wie man eine klare Unterscheidung zwischen einem Client und einem Server ziehen kann. Nicht überraschend gibt es
+oft keine klare Unterscheidung. Zum Beispiel kann ein Server für eine verteilte Datenbank kontinuierlich als Client
+agieren, weil er Anfragen an verschiedene Dateiserver weiterleitet, die für die Implementierung der Datenbanktabellen
+verantwortlich sind. In einem solchen Fall verarbeitet der Datenbankserver lediglich die Anfragen.
 
-### 2.3.2 Mehrebenen-Architekturen
+### 2.3.2 Multitier-Architekturen
 
-Die Unterscheidung in drei logische Ebenen, wie bisher besprochen, legt mehrere Möglichkeiten für die physische
-Verteilung einer Client-Server-Anwendung über mehrere Maschinen nahe. Die einfachste Organisation besteht darin, nur
-zwei Arten von Maschinen zu haben:
+Die Unterscheidung in drei logische Ebenen, wie bisher diskutiert, deutet auf mehrere Möglichkeiten hin, eine
+Client-Server-Anwendung physisch auf mehrere Maschinen zu verteilen. Die einfachste Organisation besteht darin, nur zwei
+Arten von Maschinen zu haben:
 
-1. Eine Client-Maschine, die nur die Programme enthält, die (Teile) der Benutzeroberflächenebene implementieren
-2. Eine Server-Maschine, die den Rest enthält, das heisst, die Programme, die die Verarbeitungs- und Datenebene
-   implementieren
+1. Eine Client-Maschine, die nur die Programme enthält, die (Teile von) der Benutzeroberflächenebene implementieren
+2. Eine Server-Maschine, die den Rest enthält, also die Programme, die die Verarbeitungs- und Datenebene implementieren
 
 In dieser Organisation wird alles vom Server gehandhabt, während der Client im Wesentlichen nicht mehr als ein dummes
-Terminal ist, möglicherweise nur mit einer bequemen grafischen Oberfläche. Es gibt jedoch viele andere Möglichkeiten.
-Wie in Abschnitt 2.1.1 erläutert, sind viele verteilte Anwendungen in drei Schichten unterteilt: (1) eine
+Terminal ist, möglicherweise nur mit einer bequemen grafischen Schnittstelle. Es gibt jedoch viele andere Möglichkeiten.
+Wie in Abschnitt 2.1.1 erläutert, werden viele verteilte Anwendungen in drei Schichten unterteilt: (1) eine
 Benutzeroberflächenschicht, (2) eine Verarbeitungsschicht und (3) eine Datenschicht. Ein Ansatz zur Organisation von
-Clients und Servern besteht dann darin, diese Schichten über verschiedene Maschinen zu verteilen, wie in Abbildung 2.17
+Clients und Servern besteht dann darin, diese Schichten auf verschiedene Maschinen zu verteilen, wie in Abbildung 2.17
 gezeigt (siehe auch Umar [1997]). Als ersten Schritt machen wir eine Unterscheidung zwischen nur zwei Arten von
-Maschinen: Client-Maschinen und Server-Maschinen, was auch als (physisch) zweistufige Architektur bezeichnet wird.
-
+Maschinen: Client-Maschinen und Server-Maschinen, was zu einer (physisch) zweistufigen Architektur führt.
 Eine mögliche Organisation besteht darin, nur den terminalabhängigen Teil der Benutzeroberfläche auf der Client-Maschine
-zu haben, wie in Abbildung 2.17(a) gezeigt, und den Anwendungen die Fernsteuerung der Präsentation ihrer Daten zu
-ermöglichen. Eine Alternative besteht darin, die gesamte Benutzeroberflächensoftware auf der Clientseite zu platzieren,
-wie in Abbildung 2.17(b) gezeigt. In solchen Fällen teilen wir die Anwendung im Wesentlichen in ein grafisches Frontend
-auf, das über ein anwendungsspezifisches Protokoll mit dem Rest der Anwendung (auf dem Server befindlich) kommuniziert.
-In diesem Modell führt das Frontend (die Client-Software) keine andere Verarbeitung durch als die für die Präsentation
-der Anwendungsschnittstelle notwendige.
-
-In dieser Argumentationslinie könnten wir auch einen Teil der Anwendung zum Frontend verschieben, wie in Abbildung 2.17(
-c) gezeigt. Ein Beispiel, wo dies sinnvoll ist, ist, wenn die Anwendung ein Formular verwendet, das vollständig
+zu haben, wie in Abbildung 2.17(a) gezeigt, und den Anwendungen die Fernsteuerung ihrer Datendarstellung zu überlassen.
+Eine Alternative besteht darin, die gesamte Benutzeroberflächensoftware auf der Client-Seite zu platzieren, wie in
+Abbildung 2.17(b) gezeigt. In solchen Fällen teilen wir die Anwendung im Wesentlichen in ein grafisches Frontend, das
+über ein anwendungsspezifisches Protokoll mit dem Rest der Anwendung (auf dem Server) kommuniziert. In diesem Modell
+führt das Frontend (die Client-Software) keine Verarbeitung durch, außer der zur Darstellung der Anwendungsschnittstelle
+erforderlichen.
+Dieser Überlegung folgend, können wir auch einen Teil der Anwendung an das Frontend verschieben, wie in Abbildung 2.17(
+c) gezeigt. Ein Beispiel, wo dies sinnvoll ist, ist eine Anwendung, die ein Formular verwendet, das vollständig
 ausgefüllt werden muss, bevor es verarbeitet werden kann. Das Frontend kann dann die Korrektheit und Konsistenz des
 Formulars überprüfen und bei Bedarf mit dem Benutzer interagieren. Ein weiteres Beispiel für die Organisation von
 Abbildung 2.17(c) ist das eines Textverarbeitungsprogramms, bei dem die grundlegenden Bearbeitungsfunktionen auf der
-Clientseite ausgeführt werden, wo sie auf lokal zwischengespeicherten oder im Speicher befindlichen Daten arbeiten,
-während die fortgeschrittenen Unterstützungswerkzeuge wie Rechtschreib- und Grammatikprüfung auf der Serverseite
+Client-Seite ausgeführt werden, wo sie auf lokal zwischengespeicherten oder im Speicher befindlichen Daten operieren,
+während die fortgeschrittenen Unterstützungswerkzeuge wie die Rechtschreib- und Grammatikprüfung auf der Server-Seite
 ausgeführt werden.
-
 In vielen Client-Server-Umgebungen sind die in Abbildung 2.17(d) und Abbildung 2.17(e) gezeigten Organisationen
 besonders beliebt. Diese Organisationen werden verwendet, wenn die Client-Maschine ein PC oder eine Workstation ist, die
-über ein Netzwerk mit einem verteilten Dateisystem oder einer Datenbank verbunden ist. Im Wesentlichen wird der grösste
-Teil der Anwendung auf der Client-Maschine ausgeführt, aber alle Operationen an Dateien oder Datenbankeinträgen gehen
-zum Server. Zum Beispiel laufen viele Bankanwendungen auf der Maschine eines Endbenutzers, wo der Benutzer Transaktionen
-vorbereitet und dergleichen. Nach Abschluss kontaktiert die Anwendung die Datenbank auf dem Server der Bank und lädt die
-Transaktionen zur weiteren Verarbeitung hoch. Abbildung 2.17(e) repräsentiert die Situation, in der die lokale
-Festplatte des Clients einen Teil der Daten enthält. Beispielsweise kann ein Client beim Surfen im Web nach und nach
-einen riesigen Cache auf der lokalen Festplatte der zuletzt inspizierten Webseiten aufbauen.
+über ein Netzwerk mit einem verteilten Dateisystem oder einer Datenbank verbunden ist. Im Wesentlichen läuft der größte
+Teil der Anwendung auf der Client-Maschine, aber alle Operationen auf Dateien oder Datenbankeinträgen gehen zum Server.
+Zum Beispiel laufen viele Bankanwendungen auf der Maschine eines Endbenutzers, wo der Benutzer Transaktionen und
+ähnliches vorbereitet. Sobald dies abgeschlossen ist, kontaktiert die Anwendung die Datenbank auf dem Server der Bank
+und lädt die Transaktionen zur weiteren Verarbeitung hoch. Abbildung 2.17(e) stellt die Situation dar, in der die lokale
+Festplatte des Clients einen Teil der Daten enthält. Zum Beispiel kann beim Surfen im Web ein Client nach und nach einen
+riesigen Cache auf der lokalen Festplatte der zuletzt besuchten Webseiten anlegen.
 
-Wenn wir, wie bisher, nur Client- und Servermaschinen unterscheiden, übersehen wir den Punkt, dass ein Server manchmal
-als Client agieren muss, wie in Abbildung 2.18 gezeigt, was zu einer (physisch) dreistufigen Architektur führt.
+Wenn wir, wie bisher, nur zwischen Client- und Servermaschinen unterscheiden, übersehen wir den Punkt, dass ein Server
+manchmal als Client agieren muss, wie in Abbildung 2.18 dargestellt. Dies führt zu einer (physisch) dreischichtigen
+Architektur.
 
 In dieser Architektur werden traditionell Programme, die Teil der Verarbeitungsschicht sind, von einem separaten Server
 ausgeführt, können aber zusätzlich teilweise über die Client- und Servermaschinen verteilt sein. Ein typisches Beispiel,
-wo eine dreistufige Architektur verwendet wird, ist in der Transaktionsverarbeitung. Ein separater Prozess, der
-Transaktionsverarbeitungsmonitor genannt wird, koordiniert alle Transaktionen über möglicherweise verschiedene
-Datenserver.
+wo eine dreischichtige Architektur verwendet wird, ist in der Transaktionsverarbeitung. Ein separater Prozess, genannt
+der Transaktionsverarbeitungsmonitor, koordiniert alle Transaktionen über möglicherweise verschiedene Datenserver.
+Ein anderes, aber sehr unterschiedliches Beispiel, wo wir oft eine dreischichtige Architektur sehen, ist in der
+Organisation von Websites.
+In diesem Fall fungiert ein Webserver als Zugangspunkt zu einer Website und leitet Anfragen an einen Anwendungsserver
+weiter, wo die eigentliche Verarbeitung stattfindet. Dieser Anwendungsserver interagiert wiederum mit einem
+Datenbankserver. Wir sind bereits auf eine solche Organisation gestoßen, als wir die Website dieses Buches und die
+Möglichkeiten zur Erstellung und zum Herunterladen einer personalisierten Kopie diskutierten.
 
-Ein anderes, aber sehr unterschiedliches Beispiel, wo wir oft eine dreistufige Architektur sehen, ist in der
-Organisation von Websites. In diesem Fall fungiert ein Webserver als Eingangspunkt zu einer Website und leitet Anfragen
-an einen Anwendungsserver weiter, wo die eigentliche Verarbeitung stattfindet. Dieser Anwendungsserver interagiert
-wiederum mit einem Datenbankserver. Wir sind bereits auf eine solche Organisation gestossen, als wir über die Website
-dieses Buches und die Möglichkeiten zur Erstellung und zum Herunterladen einer personalisierten Kopie sprachen.
+## 2.5 Hybride Systemarchitekturen
+
+Reale verteilte Systeme sind komplex, da sie eine Vielzahl von Architekturen kombinieren: Zentralisierte Merkmale werden
+mit Peer-to-Peer-Merkmalen kombiniert und mit hierarchischen Organisationen usw. Die Komplexität wird dadurch
+verschärft, dass viele verteilte Systeme Organisationsgrenzen überschreiten, was zu wahrhaft dezentralisierten Lösungen
+führt, bei denen sogar keine einzelne Organisation die Verantwortung für den Betrieb eines Systems übernehmen kann. In
+diesem Abschnitt werden wir diese komplexen, hybriden Systemarchitekturen genauer betrachten.
+
+### 2.5.1 Cloud-Computing
+
+Organisationen, die Rechenzentren betreiben, haben nach Wegen gesucht, ihre Ressourcen Kunden zur Verfügung zu stellen.
+Dies führte schließlich zum Konzept des Utility-Computings, bei dem ein Kunde Aufgaben in ein Rechenzentrum hochladen
+und auf Basis der genutzten Ressourcen abgerechnet werden konnte. Utility-Computing bildete die Grundlage für das, was
+heute allgemein als Cloud-Computing bezeichnet wird.
+
+Gemäß Vaquero et al. [2008] zeichnet sich Cloud-Computing durch einen leicht nutzbaren und zugänglichen Pool an
+virtualisierten Ressourcen aus. Welche und wie Ressourcen genutzt werden, kann dynamisch konfiguriert werden, was die
+Grundlage für Skalierbarkeit bietet: Muss mehr Arbeit erledigt werden, kann ein Kunde einfach mehr Ressourcen erwerben.
+Die Verbindung zum Utility-Computing wird dadurch hergestellt, dass Cloud-Computing im Allgemeinen auf einem
+Pay-per-Use-Modell basiert, bei dem Garantien durch maßgeschneiderte Service-Level-Agreements (SLAs) angeboten werden.
+Vereinfacht gesagt, sind Clouds in vier Schichten organisiert, wie in Abbildung 2.27 dargestellt.
+
+**Hardware**: Die unterste Schicht wird durch die Mittel zur Verwaltung der notwendigen Hardware gebildet: Prozessoren,
+Router, aber auch Strom- und Kühlsysteme. Sie wird in der Regel in Rechenzentren implementiert und enthält die
+Ressourcen, die Kunden normalerweise nie direkt sehen.
+
+**Infrastruktur**: Diese ist eine wichtige Schicht, die das Rückgrat für die meisten Cloud-Computing-Plattformen bildet.
+Sie
+setzt Virtualisierungstechniken (besprochen in Abschnitt 3.2) ein, um Kunden eine Infrastruktur aus virtuellen Speicher-
+und Rechenressourcen zur Verfügung zu stellen. Tatsächlich ist nichts so, wie es scheint: Cloud-Computing dreht sich um
+die Zuweisung und Verwaltung virtueller Speichergeräte und virtueller Server.
+
+**Plattform**: Man könnte argumentieren, dass die Plattformschicht einem Cloud-Computing-Kunden das bietet, was ein
+Betriebssystem Anwendungsentwicklern bietet, nämlich die Mittel, um Anwendungen einfach zu entwickeln und
+bereitzustellen, die in einer Cloud ausgeführt werden müssen. In der Praxis wird einem Anwendungsentwickler eine
+anbieterspezifische API angeboten, die Aufrufe zum Hochladen und Ausführen eines Programms in der Cloud dieses Anbieters
+enthält. Dies ist vergleichbar mit der Unix-Exec-Familie von Systemaufrufen, die eine ausführbare Datei als Parameter
+nehmen und sie an das Betriebssystem zur Ausführung übergeben.
+
+Darüber hinaus bietet die Plattformschicht wie Betriebssysteme höherstufige Abstraktionen für Speicherung und Ähnliches.
+Zum Beispiel wird, wie besprochen, das Amazon S3-Speichersystem [Murty, 2008; Culkin und Zazon, 2022] dem
+Anwendungsentwickler in Form einer API angeboten, die es ermöglicht, (lokal erstellte) Dateien in Buckets zu
+organisieren und zu speichern. Durch das Speichern einer Datei in einem Bucket wird diese Datei automatisch in die
+Amazon-Cloud hochgeladen.
+
+**Anwendung**: In dieser Schicht laufen tatsächliche Anwendungen und werden den Benutzern zur weiteren Anpassung
+angeboten.
+Bekannte Beispiele sind die in Bürosoftwarepaketen zu findenden Anwendungen (Textverarbeitung, Tabellenkalkulation,
+Präsentationsanwendungen usw.). Es ist wichtig zu verstehen, dass diese Anwendungen wiederum in der Cloud des Anbieters
+ausgeführt werden. Wie zuvor können sie mit der herkömmlichen Suite von Anwendungen verglichen werden, die bei der
+Installation eines Betriebssystems mitgeliefert werden.
+
+Cloud-Computing-Anbieter bieten diese Schichten ihren Kunden über verschiedene Schnittstellen (einschließlich
+Kommandozeilentools, Programmierschnittstellen und Web-Schnittstellen) an, was zu drei
+
+### 2.5.2 Die Edge-Cloud-Architektur
+
+Mit der zunehmenden Anzahl vernetzter Geräte und dem Aufkommen des Internet der Dinge (IoT) wurde vielen bewusst, dass
+wir möglicherweise mehr als nur Cloud-Computing benötigen. So entstand das Edge-Computing. Es gibt viel über
+Edge-Computing zu sagen, und vieles wurde bereits gesagt. Und wie es bei so vielen Themen in verteilten Systemen der
+Fall ist, dauert es einfach ein paar Jahre, bis sich die Dinge etwas beruhigen. In diesem Abschnitt betrachten wir
+Edge-Computing aus einer architektonischen Perspektive und werden im Laufe des Buches auf verschiedene Elemente
+zurückkommen, oft ohne Edge-Computing explizit zu erwähnen. Eine ausgezeichnete Übersicht über Edge-Computing bieten
+Yousefpour et al. [2019], und interessierte Leser werden auf dieses Papier verwiesen, um einen besseren Einblick in
+seine Nomenklatur zu erhalten. Wir nehmen bewusst eine vereinfachte und breite Sicht auf Edge-Computing ein und
+verwenden es als allgemeinen Begriff für die meisten Dinge, die zwischen den Geräten des Internet der Dinge und den
+typischerweise durch Cloud-Computing angebotenen Diensten liegen. In diesem Sinne folgen wir der Diskussion von
+Horner [2021].
+
+Wie der Name schon sagt, befasst sich Edge-Computing mit der Platzierung von Diensten „am Rand“ des Netzwerks. Diese
+Kante wird oft durch die Grenze zwischen Unternehmensnetzwerken und dem eigentlichen Internet gebildet, beispielsweise
+wie von einem Internetdienstanbieter (ISP) bereitgestellt. Zum Beispiel befinden sich viele Universitäten auf einem
+Campus mit verschiedenen Gebäuden, die jeweils über ein eigenes lokales Netzwerk verfügen, das wiederum über ein
+campusweites Netzwerk verbunden ist. Als Teil des Campus können mehrere On-Premise-Dienste für Speicherung,
+Rechenleistung, Sicherheit, Vorlesungen usw. vorhanden sein. On-Premise bedeutet, dass die lokale IT-Abteilung dafür
+verantwortlich ist, diese Dienste auf Servern zu hosten, die direkt mit dem Campusnetzwerk verbunden sind. Ein Großteil
+des Verkehrs, der mit diesen Diensten zusammenhängt, verlässt niemals das Campusnetzwerk, und das Netzwerk zusammen mit
+seinen Servern und Diensten bildet eine typische Edge-Infrastruktur.
+
+Gleichzeitig können solche Server mit denen anderer Universitäten verbunden sein und möglicherweise wiederum andere
+Server nutzen. Mit anderen Worten, anstatt Verbindungen zwischen Universitäten in einer Peer-to-Peer-Manier
+einzurichten, sehen wir auch Konfigurationen, in denen verschiedene Universitäten Dienste über eine logisch
+zentralisierte Infrastruktur teilen. Eine solche Infrastruktur kann „in der Cloud“ angesiedelt sein, aber ebenso gut
+durch eine regionale Infrastruktur mit lokal verfügbaren Rechenzentren eingerichtet worden sein. Je näher wir zu
+Cloud-Infrastrukturen kommen, desto häufiger wird der Begriff Fog-Computing verwendet. Wir sehen also ein Gesamtbild
+entstehen, wie in Abbildung 2.28 dargestellt, wo die Grenzen zwischen Cloud und Edge verschwimmen.
+
+Viele Konfigurationen für eine Edge-Infrastruktur kommen leicht in den Sinn, von Infrastrukturen, die benötigt werden,
+um Ihre Aktivitäten zu verfolgen, bis hin zu geschichteten Video-Streaming-Infrastrukturen, Gaming-Infrastrukturen usw.
+Was all diese gemein haben, ist, dass es ein intelligentes Endgerät gibt, das auf die eine oder andere Weise (
+letztendlich) eine Verbindung zu einem Dienst herstellen muss, der irgendwo in der Cloud gehostet wird. Dann taucht die
+Frage auf, warum überhaupt eine Edge-Infrastruktur benötigt wird. Logischerweise scheint es viel einfacher zu sein, sich
+direkt mit dem Cloud-Dienst zu verbinden, indem vorhandene und oft ausgezeichnete Netzwerkeinrichtungen verwendet
+werden. Lassen Sie uns einige Argumente kritisch betrachten.
+
+Latenz und Bandbreite: Es sollte aus unseren Beispielen klar geworden sein, dass Edge-Infrastrukturen als nahe an den
+Endgeräten betrachtet werden. Nähe kann in Bezug auf Latenz und oft auch Bandbreite gemessen werden. Im Laufe der
+Jahrzehnte hat sich die Bandbreite oder eigentlich der Mangel an Bandbreite als wichtiger Faktor erwiesen, um Dienste
+nahe an den Endgeräten anzubieten. Wenn jedoch etwas klar geworden ist, dann, dass die verfügbare Bandbreite weiter
+zunimmt und nun den Punkt erreicht hat, an dem man ernsthaft hinterfragen sollte, wie problematisch sie tatsächlich ist
+und ob die Installation und Wartung von Edge-Infrastrukturen aufgrund unzureichender Bandbreite ein guter Grund ist.
+Dennoch gibt es Situationen, in denen die Nähe zu Endgeräten tatsächlich erforderlich ist, um die Qualität des Dienstes
+zu garantieren. Das kanonische Beispiel bilden Videodienste: Je näher die Videoquellen sind, desto besser können
+Bandbreitengarantien gegeben werden, was Probleme wie Jitter verringert.
+Problematischer ist es, wenn uns die Naturgesetze im Weg stehen. Dies kann leicht passieren, wenn es um Latenz geht. Es
+kann 100 ms dauern, um eine Cloud zu erreichen, was viele interaktive Anwendungen ziemlich nutzlos macht. Ein solch
+wichtiges Beispiel ist (halb-)autonomes Fahren. Ein Auto muss seine Umgebung kontinuierlich durch eine Vielzahl von
+Sensoren beobachten und entsprechend reagieren. Die Koordination seiner Bewegungen über die Cloud ist allein aus
+Echtzeitgesichtspunkten nicht akzeptabel. Dieses Beispiel zeigt auch, dass Autos einander möglicherweise über die
+Fähigkeiten ihrer Sensoren hinaus erkennen müssen, beispielsweise wenn sie sich einer Kreuzung mit klarer Sicht nähern.
+In einem Echtzeitsystem könnten Autos ihre aktuelle Position an eine lokale Edge-Infrastruktur weitergeben und sich
+gegenseitig offenbaren, wenn sie sich der Kreuzung nähern.
+Weitere Beispiele, in denen Latenz eine entscheidende Rolle spielt, kommen leicht in den Sinn. Die Überwindung von
+Latenz ist einer der überzeugendsten Gründe für die Entwicklung von Edge-Infrastrukturen.
+
+Zuverlässigkeit: Viele argumentieren, dass die Cloud-Konnektivität für viele Anwendungen einfach nicht zuverlässig genug
+ist, weshalb Edge-Infrastrukturen eingesetzt werden sollten. Inwieweit dies ein gültiges Argument ist, bleibt
+abzuwarten. Tatsache ist, dass für viele vernetzte Anwendungen die Konnektivität im Allgemeinen gut und zuverlässig,
+wenn nicht sogar ausgezeichnet ist. Natürlich gibt es Situationen, in denen man sich nicht auf eine 24/7-Zuverlässigkeit
+verlassen kann. Dies kann der Fall sein bei Krankenhäusern, Fabriken und anderen allgemein kritischen Einstellungen.
+Doch auch in diesen Fällen wurden traditionell bereits Maßnahmen ergriffen, und inwieweit Edge-Computing etwas Neues
+bringt, ist nicht immer klar.
+
+Sicherheit und Datenschutz: Schließlich argumentieren viele, dass Edge-Lösungen die Sicherheit und den Datenschutz
+verbessern. Es kommt darauf an. Man könnte argumentieren, dass, wenn eine Cloud-Lösung nicht sicher ist, es keinen Grund
+gibt, warum eine Edge-Lösung sicher sein sollte. Eine implizite Annahme, die viele Menschen machen, ist, dass eine
+Edge-Infrastruktur von einer bestimmten Organisation besessen wird und innerhalb der (geschützten) Netzwerkgrenzen
+dieser Organisation betrieben wird. In diesem Fall wird es in der Tat oft einfacher, Daten und Operationen zu schützen,
+doch man sollte fragen, ob ein solcher Schutz ausreichend ist. Wie wir in Kapitel 9 besprechen werden, hilft der
+Versuch, Vermögenswerte zu schützen, indem man eine sichere Mauer um eine Organisation baut, nicht gegen
+Insiderangriffe, ob sie beabsichtigt sind oder nicht. Eine ähnliche Überlegung gilt für den Datenschutz: Wenn wir
+persönliche Daten in der Cloud nicht schützen können, warum sollte dann eine Edge-Infrastruktur für den Datenschutz
+ausreichen? Eine gründliche Diskussion über die Rolle und Position des Datenschutzes in Edge und Edge-Geräten wird von
+Hong [2017] geführt. Aus dieser Diskussion wird klar, dass hier noch viel Arbeit nötig sein wird.
+
+Ein weiterer Grund für die Notwendigkeit von
+Edge-Infrastrukturen kann mit Sicherheit und Datenschutz zusammenhängen. In vielen Fällen dürfen Organisationen aus
+regulatorischen Gründen keine Daten in der Cloud speichern oder durch einen Cloud-Dienst verarbeiten lassen. Zum
+Beispiel müssen medizinische Aufzeichnungen auf zertifizierten Servern vor Ort gehalten und strenge Prüfverfahren
+eingehalten werden. In diesem Fall muss sich eine Organisation auf den Betrieb einer Edge-Infrastruktur verlassen.
+
+ie Einführung zusätzlicher Schichten zwischen Endgeräten und Cloud-Infrastrukturen eröffnet im Vergleich zur relativ
+einfachen Situation der alleinigen
+Nutzung von Cloud Computing eine Reihe von Herausforderungen. Bei Letzterem kann argumentiert werden, dass der
+Cloud-Anbieter in großem Maße entscheidet, wo und wie ein Dienst tatsächlich implementiert wird. In der Praxis haben
+wir es mit einem Rechenzentrum zu tun, in dem die (Mikro-)Dienste, die den gesamten Dienst bilden, auf mehrere
+Maschinen verteilt sind.
+
+Im Fall des Edge Computing wird die Situation komplizierter. Hier muss die
+Kundenorganisation informierte Entscheidungen darüber treffen, was wo zu tun ist. Welche Dienste müssen vor Ort auf
+einer lokalen Edge-Infrastruktur platziert werden und welche können in die Cloud verlagert werden? Inwieweit bietet
+eine Edge-Infrastruktur Möglichkeiten für virtuelle Ressourcen, ähnlich wie in der Cloud? Zudem kann man bei der Cloud
+davon ausgehen, dass Rechen- und Speicherressourcen im Überfluss vorhanden sind, was bei einer Edge-Infrastruktur
+nicht unbedingt der Fall ist. In der Praxis verfügen Letztere einfach über weniger Hardware-Ressourcen und bieten oft
+auch weniger Flexibilität in Bezug auf verfügbare Plattformen.
+
+Insgesamt scheint die Zuweisung von Ressourcen im Fall des Edge Computing
+im Vergleich zu Clouds deutlich herausfordernder zu sein. Wie von Hong und Varghese [2019] zusammengefasst, haben wir
+es mit Einschränkungen in Bezug auf Ressourcen, höheren Graden an Hardware-Heterogenität und dynamischeren
+Arbeitslasten zu tun, die zusammen zu einer höheren Nachfrage nach Orchestrierung geführt haben. Darüber hinaus
+verbirgt die Cloud aus der Perspektive des Kunden viele ihrer internen Komplexitäten, was bei Edge-Infrastrukturen
+nicht unbedingt der Fall ist, was die Orchestrierung erheblich erschwert [Bittencourt et al., 2018]. Die
+Orchestrierung beinhaltet Folgendes (siehe auch Taleb et al. [2017]):
+
+- **Ressourcenzuweisung**: Spezifische Dienste erfordern spezifische Ressourcen. Die Frage ist dann, die
+  Verfügbarkeit der für die Ausführung eines Dienstes erforderlichen Ressourcen zu garantieren. Typischerweise
+  handelt es sich bei Ressourcen um CPU, Speicher, Arbeitsspeicher und Netzwerkeinrichtungen.
+- **Serviceplatzierung**: Unabhängig von der Verfügbarkeit der Ressourcen ist es wichtig zu entscheiden, wann und wo ein
+  Dienst platziert werden soll. Dies ist besonders relevant für mobile Anwendungen, da in diesem Fall das Auffinden der
+  Edge-Infrastruktur, die am nächsten an der Anwendung liegt, entscheidend sein kann. Ein typisches Anwendungsbeispiel
+  ist die Videokonferenz, bei der die Kodierung oft nicht auf dem mobilen Gerät, sondern in einer Edge-Infrastruktur
+  erfolgt. In der Praxis muss entschieden werden, an welchen Edge-Standorten der Dienst installiert werden soll. Eine
+  umfassende Übersicht über die Dienstplatzierung im Falle von Edge Computing wird von Salaht et al. [2020]
+  bereitgestellt.
+- **Edge-Auswahl**: In Verbindung mit der Serviceplatzierung steht die Entscheidung, welche Edge-Infrastruktur verwendet
+  werden soll, wenn der Dienst angeboten werden muss. Es mag logisch erscheinen, die Edge-Infrastruktur zu nutzen, die
+  dem Endgerät am nächsten ist, aber es können alle möglichen Umstände eine alternative Lösung verlangen, zum Beispiel
+  die Konnektivität dieser Edge zum Cloud-Anbieter.
+
+Weitere Probleme spielen ebenfalls eine Rolle, aber es sollte mittlerweile klar sein, dass die Edge-Cloud-Architektur
+weitaus anspruchsvoller ist, als man zunächst annehmen könnte. Darüber hinaus muss sich die unterschiedliche Perspektive
+darauf, wie das Kontinuum zwischen Endgeräten und der Cloud mit Edge-Komponenten und -Lösungen gefüllt werden sollte,
+noch zusammenfinden [Antonini et al., 2019].
+
