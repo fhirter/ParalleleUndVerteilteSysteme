@@ -10,8 +10,8 @@ Stellt sicher, dass alle verstehen, was gemacht wurde.
 
 ## Lernziele
 
-Die Studierenden kennen verschiedene Architekturstile und deren Anwendung.
-Die Studierenden könne die technischen Vorzüge spezifischer Entwicklungen im Bereich verteilter Computersysteme
+- Die Studierenden kennen verschiedene Architekturstile und deren Anwendung.
+- Die Studierenden könne die technischen Vorzüge spezifischer Entwicklungen im Bereich verteilter Computersysteme
 analysieren und nachvollziehbar begründen. Sie können Sachverhalte klar erklären, um die Qualität des Feedbacks zu
 optimieren.
 
@@ -20,11 +20,10 @@ optimieren.
 ### Architektur
 
 Die Applikation soll Chats zwischen einzelnen Usern sowie in Gruppen ermöglichen.
-Alle Nachrichten sollen in einer Datenbank persistiert werden.
 
 Dazu bietet sich die Publish-Subscribe in Kombination mit einer "Ports & Adaptors" Architektur an.
 
-Entwirf eine Publish-Subscribe Architektur für diese Applikation!
+Entwirf eine entsprechende Architektur für diese Applikation!
 
 Bestimme ebenfalls das Format der ausgetauschten Nachrichten.
 
@@ -37,6 +36,23 @@ Nutze für die Implementierung dazu den Message-Broker "RabbitMQ" von [CloudAMQP
 Erstelle auf CloudAmPQ einen neuen Cluster und verbinde den einfachen [Beispielclient](client.html).
 
 Erweitere die Beispielapplikation:
-
 - Anzeige der verfügbaren User
 - Erstellen von Gruppenchats
+- Persistierung der Nachrichten in einer Datenbank
+
+## Vorgehen
+
+Softwareprojekte sind sehr oft mit Forschungsprojekten vergleichbar, da oftmals die konkrete Ausgestaltung der Lösung
+zu Beginn nicht bekannt ist.
+Daher sind klassische Vorgehensmodelle kaum brauchbar.
+Es hat sich gezeigt, dass ein Vorgehen, bei dem die Lösung einerseits iterativ verfeinert wird und andererseits
+inkremental erweitert wird gute Ergebnisse bringt.
+
+Bei der obigen Aufgabenstellung lassen sich verschiedene Teile identifizieren, die bekannt sind und im Unterricht 
+behandelt wurden:
+- Publish-Subscribe Architektur
+- Ports & Adaptors Architektur
+- Beispielanwendung
+
+In Gruppen können diese Themen angegangen werden, entsprechende Architekturentwürfe können gezeichnet werden und die
+Beispielapplikation kann in Betrieb genommen werden.
