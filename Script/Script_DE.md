@@ -1402,3 +1402,108 @@ Andererseits ist es keine triviale Aufgabe, skalierbare Implementierungen zu ent
 verlieren, insbesondere im Fall von inhaltsbasierten Publish-Subscribe-Systemen. Obwohl viele behaupten, dass der
 Publish-Subscribe-Stil den Weg zu skalierbaren Architekturen bietet, können Implementierungen leicht einen Flaschenhals
 bilden, insbesondere wenn Sicherheit und Datenschutz berücksichtigt werden.
+
+### 2.3.1 Einfache Client-Server-Architektur
+
+Im grundlegenden Client-Server-Modell werden Prozesse in einem verteilten System in zwei (möglicherweise sich
+überschneidende) Gruppen eingeteilt. Ein Server ist ein Prozess, der einen spezifischen Dienst implementiert,
+beispielsweise einen Dateisystemdienst oder einen Datenbankdienst. Ein Client ist ein Prozess, der einen Dienst von
+einem Server anfordert, indem er ihm eine Anfrage sendet und anschliessend auf die Antwort des Servers wartet. Diese
+Client-Server-Interaktion, auch bekannt als Anfrage-Antwort-Verhalten (Request-Response), wird in Abbildung 2.16
+gezeigt.
+
+Die Kommunikation zwischen einem Client und einem Server kann durch ein einfaches verbindungsloses Protokoll
+implementiert werden, wenn das zugrunde liegende Netzwerk ziemlich zuverlässig ist, wie es bei vielen lokalen Netzwerken
+der Fall ist. In diesen Fällen verpackt ein Client, wenn er einen Dienst anfordert, einfach eine Nachricht für den
+Server, in der der gewünschte Dienst zusammen mit den notwendigen Eingabedaten identifiziert wird. Die Nachricht wird
+dann an den Server gesendet. Letzterer wartet ständig auf eine eingehende Anfrage, welche er verarbeitet und die
+Ergebnisse in einer Antwortnachricht an den Client sendet.
+
+Die Verwendung eines verbindungslosen Protokolls hat den offensichtlichen Vorteil, effizient zu sein. Solange
+Nachrichten nicht verloren gehen oder beschädigt werden, funktioniert das eben skizzierte Anfrage/Antwort-Protokoll gut.
+Leider ist es nicht trivial, das Protokoll widerstandsfähig gegen gelegentliche Übertragungsfehler zu machen. Das
+Einzige, was wir tun können, ist möglicherweise, den Client die Anfrage erneut senden zu lassen, wenn keine
+Antwortnachricht eingeht. Das Problem ist jedoch, dass der Client nicht erkennen kann, ob die ursprüngliche
+Anfragenachricht verloren gegangen ist oder dass die Übertragung der Antwort fehlgeschlagen ist. Wenn die Antwort
+verloren ging, kann das erneute Senden einer Anfrage dazu führen, dass die Operation zweimal ausgeführt wird. Wenn die
+Operation so etwas wie „Überweise 10.000 Dollar von meinem Bankkonto“ war, dann wäre es sicherlich besser gewesen, wenn
+wir einfach einen Fehler gemeldet hätten. Andererseits, wenn die Operation „Sag mir, wie viel Geld ich noch habe“ war,
+wäre es völlig akzeptabel, die Anfrage erneut zu senden. Wenn eine Operation mehrmals ohne Schaden wiederholt werden
+kann, wird sie als idempotent bezeichnet. Da einige Anfragen idempotent sind und andere nicht, sollte klar sein, dass es
+keine einzelne Lösung für den Umgang mit verlorenen Nachrichten gibt. Eine detaillierte Diskussion über die Behandlung
+von Übertragungsfehlern ist in Abschnitt 8.3 zu finden.
+
+Als Alternative verwenden viele Client-Server-Systeme ein zuverlässiges verbindungsorientiertes Protokoll. Obwohl diese
+Lösung in einem lokalen Netzwerk aufgrund der relativ geringen Leistung nicht ganz angemessen ist, funktioniert sie in
+über grössere Distanzen, in denen die Kommunikation von Natur aus unzuverlässig ist, perfekt. Beispielsweise basieren
+praktisch alle Internetanwendungsprotokolle auf zuverlässigen TCP/IP-Verbindungen. In diesem Fall stellt ein Client,
+wenn er einen Dienst anfordert, zunächst eine Verbindung zum Server her, bevor er die Anfrage sendet. Der Server
+verwendet im Allgemeinen dieselbe Verbindung, um die Antwortnachricht zu senden, nach der die Verbindung abgebaut wird.
+Das Problem könnte sein, dass das Aufbauen und Abbauen einer Verbindung relativ aufwendig ist, insbesondere wenn die
+Anfrage- und Antwortnachrichten klein sind.
+
+Das Client-Server-Modell war im Laufe der Jahre Gegenstand vieler Debatten und Kontroversen. Eines der Hauptprobleme
+war, wie man eine klare Unterscheidung zwischen einem Client und einem Server zieht. Nicht überraschend gibt es oft
+keine klare Unterscheidung. Zum Beispiel kann ein Server für eine verteilte Datenbank kontinuierlich als Client agieren,
+weil er Anfragen an verschiedene Dateiserver weiterleitet, die für die Implementierung der Datenbanktabellen
+verantwortlich sind. In einem solchen Fall verarbeitet der Datenbankserver selbst nur die Abfragen.
+
+### 2.3.2 Mehrebenen-Architekturen
+
+Die Unterscheidung in drei logische Ebenen, wie bisher besprochen, legt mehrere Möglichkeiten für die physische
+Verteilung einer Client-Server-Anwendung über mehrere Maschinen nahe. Die einfachste Organisation besteht darin, nur
+zwei Arten von Maschinen zu haben:
+
+1. Eine Client-Maschine, die nur die Programme enthält, die (Teile) der Benutzeroberflächenebene implementieren
+2. Eine Server-Maschine, die den Rest enthält, das heisst, die Programme, die die Verarbeitungs- und Datenebene
+   implementieren
+
+In dieser Organisation wird alles vom Server gehandhabt, während der Client im Wesentlichen nicht mehr als ein dummes
+Terminal ist, möglicherweise nur mit einer bequemen grafischen Oberfläche. Es gibt jedoch viele andere Möglichkeiten.
+Wie in Abschnitt 2.1.1 erläutert, sind viele verteilte Anwendungen in drei Schichten unterteilt: (1) eine
+Benutzeroberflächenschicht, (2) eine Verarbeitungsschicht und (3) eine Datenschicht. Ein Ansatz zur Organisation von
+Clients und Servern besteht dann darin, diese Schichten über verschiedene Maschinen zu verteilen, wie in Abbildung 2.17
+gezeigt (siehe auch Umar [1997]). Als ersten Schritt machen wir eine Unterscheidung zwischen nur zwei Arten von
+Maschinen: Client-Maschinen und Server-Maschinen, was auch als (physisch) zweistufige Architektur bezeichnet wird.
+
+Eine mögliche Organisation besteht darin, nur den terminalabhängigen Teil der Benutzeroberfläche auf der Client-Maschine
+zu haben, wie in Abbildung 2.17(a) gezeigt, und den Anwendungen die Fernsteuerung der Präsentation ihrer Daten zu
+ermöglichen. Eine Alternative besteht darin, die gesamte Benutzeroberflächensoftware auf der Clientseite zu platzieren,
+wie in Abbildung 2.17(b) gezeigt. In solchen Fällen teilen wir die Anwendung im Wesentlichen in ein grafisches Frontend
+auf, das über ein anwendungsspezifisches Protokoll mit dem Rest der Anwendung (auf dem Server befindlich) kommuniziert.
+In diesem Modell führt das Frontend (die Client-Software) keine andere Verarbeitung durch als die für die Präsentation
+der Anwendungsschnittstelle notwendige.
+
+In dieser Argumentationslinie könnten wir auch einen Teil der Anwendung zum Frontend verschieben, wie in Abbildung 2.17(
+c) gezeigt. Ein Beispiel, wo dies sinnvoll ist, ist, wenn die Anwendung ein Formular verwendet, das vollständig
+ausgefüllt werden muss, bevor es verarbeitet werden kann. Das Frontend kann dann die Korrektheit und Konsistenz des
+Formulars überprüfen und bei Bedarf mit dem Benutzer interagieren. Ein weiteres Beispiel für die Organisation von
+Abbildung 2.17(c) ist das eines Textverarbeitungsprogramms, bei dem die grundlegenden Bearbeitungsfunktionen auf der
+Clientseite ausgeführt werden, wo sie auf lokal zwischengespeicherten oder im Speicher befindlichen Daten arbeiten,
+während die fortgeschrittenen Unterstützungswerkzeuge wie Rechtschreib- und Grammatikprüfung auf der Serverseite
+ausgeführt werden.
+
+In vielen Client-Server-Umgebungen sind die in Abbildung 2.17(d) und Abbildung 2.17(e) gezeigten Organisationen
+besonders beliebt. Diese Organisationen werden verwendet, wenn die Client-Maschine ein PC oder eine Workstation ist, die
+über ein Netzwerk mit einem verteilten Dateisystem oder einer Datenbank verbunden ist. Im Wesentlichen wird der grösste
+Teil der Anwendung auf der Client-Maschine ausgeführt, aber alle Operationen an Dateien oder Datenbankeinträgen gehen
+zum Server. Zum Beispiel laufen viele Bankanwendungen auf der Maschine eines Endbenutzers, wo der Benutzer Transaktionen
+vorbereitet und dergleichen. Nach Abschluss kontaktiert die Anwendung die Datenbank auf dem Server der Bank und lädt die
+Transaktionen zur weiteren Verarbeitung hoch. Abbildung 2.17(e) repräsentiert die Situation, in der die lokale
+Festplatte des Clients einen Teil der Daten enthält. Beispielsweise kann ein Client beim Surfen im Web nach und nach
+einen riesigen Cache auf der lokalen Festplatte der zuletzt inspizierten Webseiten aufbauen.
+
+Wenn wir, wie bisher, nur Client- und Servermaschinen unterscheiden, übersehen wir den Punkt, dass ein Server manchmal
+als Client agieren muss, wie in Abbildung 2.18 gezeigt, was zu einer (physisch) dreistufigen Architektur führt.
+
+In dieser Architektur werden traditionell Programme, die Teil der Verarbeitungsschicht sind, von einem separaten Server
+ausgeführt, können aber zusätzlich teilweise über die Client- und Servermaschinen verteilt sein. Ein typisches Beispiel,
+wo eine dreistufige Architektur verwendet wird, ist in der Transaktionsverarbeitung. Ein separater Prozess, der
+Transaktionsverarbeitungsmonitor genannt wird, koordiniert alle Transaktionen über möglicherweise verschiedene
+Datenserver.
+
+Ein anderes, aber sehr unterschiedliches Beispiel, wo wir oft eine dreistufige Architektur sehen, ist in der
+Organisation von Websites. In diesem Fall fungiert ein Webserver als Eingangspunkt zu einer Website und leitet Anfragen
+an einen Anwendungsserver weiter, wo die eigentliche Verarbeitung stattfindet. Dieser Anwendungsserver interagiert
+wiederum mit einem Datenbankserver. Wir sind bereits auf eine solche Organisation gestossen, als wir über die Website
+dieses Buches und die Möglichkeiten zur Erstellung und zum Herunterladen einer personalisierten Kopie sprachen.
