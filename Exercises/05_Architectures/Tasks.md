@@ -17,6 +17,8 @@ optimieren.
 
 ## Aufgabenstellung
 
+Halte die Erkenntnisse und Designs in einem [Markdown-Dokument](https://www.markdownguide.org/) mit [Mermaid](https://mermaid.js.org/) fest.
+
 ### Architektur
 
 Die Applikation soll Chats zwischen einzelnen Usern sowie in Gruppen ermöglichen.
@@ -26,8 +28,6 @@ Dazu bietet sich die Publish-Subscribe in Kombination mit einer "Ports & Adaptor
 Entwirf eine entsprechende Architektur für diese Applikation!
 
 Bestimme ebenfalls das Format der ausgetauschten Nachrichten.
-
-Erstelle dazu ein Dokument in [Markdown](https://www.markdownguide.org/) mit [Mermaid](https://mermaid.js.org/).
 
 ### Implementierung
 
@@ -56,3 +56,7 @@ behandelt wurden:
 
 In Gruppen können diese Themen angegangen werden, entsprechende Architekturentwürfe können gezeichnet werden und die
 Beispielapplikation kann in Betrieb genommen werden.
+
+Für den Architekturentwurf bietet sich das [C4-Modell](https://c4model.com/) als Orientierung an. Der Entwurf kann dabei
+Top-Down (Context->Containers->Components->Code) oder Bottom-Up erfolgen (Code->Components->Containers->Context).
+Es kann auch abgewechselt werden zwischen Top-Down und Bottom-Up.
