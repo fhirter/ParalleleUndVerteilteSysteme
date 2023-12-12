@@ -1420,14 +1420,14 @@ eine einfache geschichtete Organisation, gefolgt von einer Betrachtung mehrschic
 Im grundlegenden Client-Server-Modell werden Prozesse in einem verteilten System in zwei (möglicherweise überlappende)
 Gruppen unterteilt. Ein Server ist ein Prozess, der einen bestimmten Dienst implementiert, zum Beispiel einen
 Dateisystemdienst oder einen Datenbankdienst. Ein Client ist ein Prozess, der einen Dienst von einem Server anfordert,
-indem er eine Anfrage sendet und anschließend auf die Antwort des Servers wartet. Diese Client-Server-Interaktion, auch
-bekannt als Anfrage-Antwort-Verhalten, wird in Abbildung 2.16 gezeigt.
+indem er eine Anfrage sendet und anschliessend auf die Antwort des Servers wartet. Diese Client-Server-Interaktion, auch
+bekannt als Anfrage-Antwort-Verhalten (Request-Response), wird in Abbildung 2.16 gezeigt.
 
 Die Kommunikation zwischen einem Client und einem Server kann durch ein einfaches verbindungsloses Protokoll
 implementiert werden, wenn das zugrundeliegende Netzwerk ziemlich zuverlässig ist, wie in vielen lokalen Netzwerken. In
 diesen Fällen sendet ein Client, wenn er einen Dienst anfordert, einfach eine Nachricht an den Server, in der er den
 gewünschten Dienst zusammen mit den erforderlichen Eingabedaten identifiziert. Die Nachricht wird dann an den Server
-gesendet. Dieser wartet immer auf eine eingehende Anfrage, verarbeitet sie anschließend und verpackt die Ergebnisse in
+gesendet. Dieser wartet immer auf eine eingehende Anfrage, verarbeitet sie anschliessend und verpackt die Ergebnisse in
 eine Antwortnachricht, die dann an den Client gesendet wird.
 
 Die Verwendung eines verbindungslosen Protokolls hat den offensichtlichen Vorteil, effizient zu sein. Solange
@@ -1442,15 +1442,15 @@ einen Fehler zu melden. Andererseits, wenn die Operation "Sag mir, wie viel Geld
 akzeptabel, die Anfrage erneut zu senden. Wenn eine Operation mehrmals ohne Schaden wiederholt werden kann, wird sie als
 idempotent bezeichnet. Da einige Anfragen idempotent sind und andere nicht, sollte klar sein, dass es keine einheitliche
 Lösung für den Umgang mit verlorenen Nachrichten gibt. Eine detaillierte Diskussion über den Umgang mit
-Übertragungsausfällen wird in Abschnitt 8.3 aufgeschoben.
+Übertragungsfehlern wird in Abschnitt 8.3 aufgeschoben.
 
 Als Alternative verwenden viele Client-Server-Systeme ein zuverlässiges, verbindungsorientiertes Protokoll. Obwohl diese
-Lösung in einem lokalen Netzwerk aufgrund der relativ niedrigen Leistung nicht ganz angemessen ist, funktioniert sie in
-Weitverkehrsnetzen, in denen die Kommunikation grundsätzlich unzuverlässig ist, einwandfrei. Zum Beispiel basieren
+Lösung in einem lokalen Netzwerk aufgrund der relativ niedrigen Leistung nicht ganz angemessen ist, funktioniert sie
+über grössere Distanzen, in denen die Kommunikation grundsätzlich unzuverlässig ist, einwandfrei. Zum Beispiel basieren
 nahezu alle Internetanwendungsprotokolle auf zuverlässigen TCP/IP-Verbindungen. In diesem Fall stellt ein Client
 zunächst eine Verbindung zum Server her, bevor er die Anfrage sendet. Der Server verwendet in der Regel dieselbe
 Verbindung, um die Antwortnachricht zu senden, woraufhin die Verbindung abgebaut wird. Das Problem könnte sein, dass das
-Aufbauen und Abbauen einer Verbindung relativ kostspielig ist, insbesondere wenn die Anfrage- und Antwortnachrichten
+Aufbauen und Abbauen einer Verbindung relativ aufwendig ist, insbesondere wenn die Anfrage- und Antwortnachrichten
 klein sind.
 
 Das Client-Server-Modell war über die Jahre hinweg Gegenstand vieler Debatten und Kontroversen. Eines der Hauptprobleme
@@ -1480,7 +1480,8 @@ zu haben, wie in Abbildung 2.17(a) gezeigt, und den Anwendungen die Fernsteuerun
 Eine Alternative besteht darin, die gesamte Benutzeroberflächensoftware auf der Client-Seite zu platzieren, wie in
 Abbildung 2.17(b) gezeigt. In solchen Fällen teilen wir die Anwendung im Wesentlichen in ein grafisches Frontend, das
 über ein anwendungsspezifisches Protokoll mit dem Rest der Anwendung (auf dem Server) kommuniziert. In diesem Modell
-führt das Frontend (die Client-Software) keine Verarbeitung durch, außer der zur Darstellung der Anwendungsschnittstelle
+führt das Frontend (die Client-Software) keine Verarbeitung durch, ausser der zur Darstellung der
+Anwendungsschnittstelle
 erforderlichen.
 Dieser Überlegung folgend, können wir auch einen Teil der Anwendung an das Frontend verschieben, wie in Abbildung 2.17(
 c) gezeigt. Ein Beispiel, wo dies sinnvoll ist, ist eine Anwendung, die ein Formular verwendet, das vollständig
@@ -1492,7 +1493,7 @@ während die fortgeschrittenen Unterstützungswerkzeuge wie die Rechtschreib- un
 ausgeführt werden.
 In vielen Client-Server-Umgebungen sind die in Abbildung 2.17(d) und Abbildung 2.17(e) gezeigten Organisationen
 besonders beliebt. Diese Organisationen werden verwendet, wenn die Client-Maschine ein PC oder eine Workstation ist, die
-über ein Netzwerk mit einem verteilten Dateisystem oder einer Datenbank verbunden ist. Im Wesentlichen läuft der größte
+über ein Netzwerk mit einem verteilten Dateisystem oder einer Datenbank verbunden ist. Im Wesentlichen läuft der grösste
 Teil der Anwendung auf der Client-Maschine, aber alle Operationen auf Dateien oder Datenbankeinträgen gehen zum Server.
 Zum Beispiel laufen viele Bankanwendungen auf der Maschine eines Endbenutzers, wo der Benutzer Transaktionen und
 ähnliches vorbereitet. Sobald dies abgeschlossen ist, kontaktiert die Anwendung die Datenbank auf dem Server der Bank
@@ -1512,29 +1513,30 @@ Ein anderes, aber sehr unterschiedliches Beispiel, wo wir oft eine dreischichtig
 Organisation von Websites.
 In diesem Fall fungiert ein Webserver als Zugangspunkt zu einer Website und leitet Anfragen an einen Anwendungsserver
 weiter, wo die eigentliche Verarbeitung stattfindet. Dieser Anwendungsserver interagiert wiederum mit einem
-Datenbankserver. Wir sind bereits auf eine solche Organisation gestoßen, als wir die Website dieses Buches und die
+Datenbankserver. Wir sind bereits auf eine solche Organisation gestossen, als wir die Website dieses Buches und die
 Möglichkeiten zur Erstellung und zum Herunterladen einer personalisierten Kopie diskutierten.
 
 ## 2.5 Hybride Systemarchitekturen
 
 Reale verteilte Systeme sind komplex, da sie eine Vielzahl von Architekturen kombinieren: Zentralisierte Merkmale werden
-mit Peer-to-Peer-Merkmalen kombiniert und mit hierarchischen Organisationen usw. Die Komplexität wird dadurch
-verschärft, dass viele verteilte Systeme Organisationsgrenzen überschreiten, was zu wahrhaft dezentralisierten Lösungen
-führt, bei denen sogar keine einzelne Organisation die Verantwortung für den Betrieb eines Systems übernehmen kann. In
-diesem Abschnitt werden wir diese komplexen, hybriden Systemarchitekturen genauer betrachten.
+mit Peer-to-Peer-Merkmalen kombiniert welche mit hierarchischen Organisationen kombiniert werden usw. Die Komplexität
+wird dadurch verschärft, dass viele verteilte Systeme Organisationsgrenzen überschreiten, was zu wahrhaft
+dezentralisierten Lösungen führt, bei denen sogar keine einzelne Organisation die Verantwortung für den Betrieb eines
+Systems übernehmen kann. In diesem Abschnitt werden wir diese komplexen, hybriden Systemarchitekturen genauer
+betrachten.
 
 ### 2.5.1 Cloud-Computing
 
 Organisationen, die Rechenzentren betreiben, haben nach Wegen gesucht, ihre Ressourcen Kunden zur Verfügung zu stellen.
-Dies führte schließlich zum Konzept des Utility-Computings, bei dem ein Kunde Aufgaben in ein Rechenzentrum hochladen
+Dies führte schliesslich zum Konzept des Utility-Computings, bei dem ein Kunde Aufgaben in ein Rechenzentrum hochladen
 und auf Basis der genutzten Ressourcen abgerechnet werden konnte. Utility-Computing bildete die Grundlage für das, was
 heute allgemein als Cloud-Computing bezeichnet wird.
 
-Gemäß Vaquero et al. [2008] zeichnet sich Cloud-Computing durch einen leicht nutzbaren und zugänglichen Pool an
+Gemäss Vaquero et al. [2008] zeichnet sich Cloud-Computing durch einen leicht nutzbaren und zugänglichen Pool an
 virtualisierten Ressourcen aus. Welche und wie Ressourcen genutzt werden, kann dynamisch konfiguriert werden, was die
 Grundlage für Skalierbarkeit bietet: Muss mehr Arbeit erledigt werden, kann ein Kunde einfach mehr Ressourcen erwerben.
 Die Verbindung zum Utility-Computing wird dadurch hergestellt, dass Cloud-Computing im Allgemeinen auf einem
-Pay-per-Use-Modell basiert, bei dem Garantien durch maßgeschneiderte Service-Level-Agreements (SLAs) angeboten werden.
+Pay-per-Use-Modell basiert, bei dem Garantien durch massgeschneiderte Service-Level-Agreements (SLAs) angeboten werden.
 Vereinfacht gesagt, sind Clouds in vier Schichten organisiert, wie in Abbildung 2.27 dargestellt.
 
 **Hardware**: Die unterste Schicht wird durch die Mittel zur Verwaltung der notwendigen Hardware gebildet: Prozessoren,
@@ -1542,16 +1544,15 @@ Router, aber auch Strom- und Kühlsysteme. Sie wird in der Regel in Rechenzentre
 Ressourcen, die Kunden normalerweise nie direkt sehen.
 
 **Infrastruktur**: Diese ist eine wichtige Schicht, die das Rückgrat für die meisten Cloud-Computing-Plattformen bildet.
-Sie
-setzt Virtualisierungstechniken (besprochen in Abschnitt 3.2) ein, um Kunden eine Infrastruktur aus virtuellen Speicher-
-und Rechenressourcen zur Verfügung zu stellen. Tatsächlich ist nichts so, wie es scheint: Cloud-Computing dreht sich um
-die Zuweisung und Verwaltung virtueller Speichergeräte und virtueller Server.
+Sie setzt Virtualisierungstechniken (besprochen in Abschnitt 3.2) ein, um Kunden eine Infrastruktur aus virtuellen
+Speicher- und Rechenressourcen zur Verfügung zu stellen. Tatsächlich ist nichts so, wie es scheint: Cloud-Computing
+dreht sich um die Zuweisung und Verwaltung virtueller Speichergeräte und virtueller Server.
 
 **Plattform**: Man könnte argumentieren, dass die Plattformschicht einem Cloud-Computing-Kunden das bietet, was ein
 Betriebssystem Anwendungsentwicklern bietet, nämlich die Mittel, um Anwendungen einfach zu entwickeln und
 bereitzustellen, die in einer Cloud ausgeführt werden müssen. In der Praxis wird einem Anwendungsentwickler eine
 anbieterspezifische API angeboten, die Aufrufe zum Hochladen und Ausführen eines Programms in der Cloud dieses Anbieters
-enthält. Dies ist vergleichbar mit der Unix-Exec-Familie von Systemaufrufen, die eine ausführbare Datei als Parameter
+enthält. Dies ist vergleichbar mit der Unix `Exec` Familie von Systemaufrufen, die eine ausführbare Datei als Parameter
 nehmen und sie an das Betriebssystem zur Ausführung übergeben.
 
 Darüber hinaus bietet die Plattformschicht wie Betriebssysteme höherstufige Abstraktionen für Speicherung und Ähnliches.
@@ -1567,8 +1568,26 @@ Präsentationsanwendungen usw.). Es ist wichtig zu verstehen, dass diese Anwendu
 ausgeführt werden. Wie zuvor können sie mit der herkömmlichen Suite von Anwendungen verglichen werden, die bei der
 Installation eines Betriebssystems mitgeliefert werden.
 
-Cloud-Computing-Anbieter bieten diese Schichten ihren Kunden über verschiedene Schnittstellen (einschließlich
-Kommandozeilentools, Programmierschnittstellen und Web-Schnittstellen) an, was zu drei
+Cloud-Computing-Anbieter bieten diese Schichten ihren Kunden durch verschiedene Schnittstellen an (einschliesslich
+Befehlszeilen-Tools, Programmierschnittstellen und Web-Schnittstellen), was zu drei verschiedenen Arten von
+Dienstleistungen führt:
+
+- **Infrastruktur-als-Service (IaaS)**, die die Hardware- und Infrastrukturschicht abdeckt.
+- **Plattform-als-Service (PaaS)**, die die Plattformschicht abdeckt.
+- **Software-als-Service (SaaS)**, bei der ihre Anwendungen abgedeckt sind.
+
+Derzeit ist die Nutzung von Clouds relativ einfach, und wir diskutieren in späteren Kapiteln konkretere Beispiele für
+Schnittstellen zu Cloud-Anbietern. Infolgedessen ist Cloud-Computing als Mittel zur Auslagerung lokaler
+Computerinfrastrukturen für viele Unternehmen zu einer ernsthaften Option geworden.
+
+Aus der Perspektive der Systemarchitektur, die sich mit der Konfiguration von (Micro-)Services über eine Infrastruktur
+befasst, könnte man argumentieren, dass es sich im Falle von Cloud-Computing um eine hochentwickelte
+Client-Server-Architektur handelt. Es sei jedoch darauf hingewiesen, dass die tatsächliche Implementierung eines Servers
+für den Client in der Regel völlig verborgen ist: Es ist oft unklar, wo sich der Server tatsächlich befindet, und sogar,
+ob der Server tatsächlich in einer vollständig verteilten Weise implementiert ist (was oft der Fall ist). Um diesen
+Punkt weiter zu veranschaulichen: Das Konzept des **Function-as-a-Service**, oder einfach FaaS, ermöglicht es einem
+Client, Code auszuführen, ohne sich sogar mit dem Starten eines Servers zur Handhabung des Codes zu beschäftigen (siehe
+auch Shahrad et al. [2019]).
 
 ### 2.5.2 Die Edge-Cloud-Architektur
 
@@ -1584,15 +1603,15 @@ verwenden es als allgemeinen Begriff für die meisten Dinge, die zwischen den Ge
 typischerweise durch Cloud-Computing angebotenen Diensten liegen. In diesem Sinne folgen wir der Diskussion von
 Horner [2021].
 
-Wie der Name schon sagt, befasst sich Edge-Computing mit der Platzierung von Diensten „am Rand“ des Netzwerks. Diese
-Kante wird oft durch die Grenze zwischen Unternehmensnetzwerken und dem eigentlichen Internet gebildet, beispielsweise
+Wie der Name schon sagt, befasst sich Edge-Computing mit der Platzierung von Diensten „am Rand“ des Netzwerks. Dieser
+Rand wird oft durch die Grenze zwischen Unternehmensnetzwerken und dem eigentlichen Internet gebildet, beispielsweise
 wie von einem Internetdienstanbieter (ISP) bereitgestellt. Zum Beispiel befinden sich viele Universitäten auf einem
 Campus mit verschiedenen Gebäuden, die jeweils über ein eigenes lokales Netzwerk verfügen, das wiederum über ein
 campusweites Netzwerk verbunden ist. Als Teil des Campus können mehrere On-Premise-Dienste für Speicherung,
 Rechenleistung, Sicherheit, Vorlesungen usw. vorhanden sein. On-Premise bedeutet, dass die lokale IT-Abteilung dafür
-verantwortlich ist, diese Dienste auf Servern zu hosten, die direkt mit dem Campusnetzwerk verbunden sind. Ein Großteil
-des Verkehrs, der mit diesen Diensten zusammenhängt, verlässt niemals das Campusnetzwerk, und das Netzwerk zusammen mit
-seinen Servern und Diensten bildet eine typische Edge-Infrastruktur.
+verantwortlich ist, diese Dienste auf Servern zu hosten, die direkt mit dem Campusnetzwerk verbunden sind. Ein Grossteil
+des Datenverkehrs, der mit diesen Diensten zusammenhängt, verlässt niemals das Campusnetzwerk, und das Netzwerk zusammen
+mit seinen Servern und Diensten bildet eine typische Edge-Infrastruktur.
 
 Gleichzeitig können solche Server mit denen anderer Universitäten verbunden sein und möglicherweise wiederum andere
 Server nutzen. Mit anderen Worten, anstatt Verbindungen zwischen Universitäten in einer Peer-to-Peer-Manier
@@ -1602,16 +1621,16 @@ durch eine regionale Infrastruktur mit lokal verfügbaren Rechenzentren eingeric
 Cloud-Infrastrukturen kommen, desto häufiger wird der Begriff Fog-Computing verwendet. Wir sehen also ein Gesamtbild
 entstehen, wie in Abbildung 2.28 dargestellt, wo die Grenzen zwischen Cloud und Edge verschwimmen.
 
-Viele Konfigurationen für eine Edge-Infrastruktur kommen leicht in den Sinn, von Infrastrukturen, die benötigt werden,
-um Ihre Aktivitäten zu verfolgen, bis hin zu geschichteten Video-Streaming-Infrastrukturen, Gaming-Infrastrukturen usw.
-Was all diese gemein haben, ist, dass es ein intelligentes Endgerät gibt, das auf die eine oder andere Weise (
-letztendlich) eine Verbindung zu einem Dienst herstellen muss, der irgendwo in der Cloud gehostet wird. Dann taucht die
+Viele Beispiele für Edge-Infrastruktur kommen leicht in den Sinn, von Diensten, die benötigt werden,
+um Ihre Aktivitäten zu verfolgen, bis hin zu Video-Streaming, Gaming usw.
+Was all diese gemein haben, ist, dass es ein intelligentes Endgerät gibt, das auf die eine oder andere Weise eine
+Verbindung zu einem Dienst herstellen muss, der irgendwo in der Cloud gehostet wird. Dann taucht die
 Frage auf, warum überhaupt eine Edge-Infrastruktur benötigt wird. Logischerweise scheint es viel einfacher zu sein, sich
 direkt mit dem Cloud-Dienst zu verbinden, indem vorhandene und oft ausgezeichnete Netzwerkeinrichtungen verwendet
 werden. Lassen Sie uns einige Argumente kritisch betrachten.
 
-Latenz und Bandbreite: Es sollte aus unseren Beispielen klar geworden sein, dass Edge-Infrastrukturen als nahe an den
-Endgeräten betrachtet werden. Nähe kann in Bezug auf Latenz und oft auch Bandbreite gemessen werden. Im Laufe der
+**Latenz und Bandbreite:** Es sollte aus unseren Beispielen klar geworden sein, dass Edge-Infrastrukturen als nahe an
+den Endgeräten betrachtet werden. Nähe kann in Bezug auf Latenz und oft auch Bandbreite gemessen werden. Im Laufe der
 Jahrzehnte hat sich die Bandbreite oder eigentlich der Mangel an Bandbreite als wichtiger Faktor erwiesen, um Dienste
 nahe an den Endgeräten anzubieten. Wenn jedoch etwas klar geworden ist, dann, dass die verfügbare Bandbreite weiter
 zunimmt und nun den Punkt erreicht hat, an dem man ernsthaft hinterfragen sollte, wie problematisch sie tatsächlich ist
@@ -1626,22 +1645,22 @@ Sensoren beobachten und entsprechend reagieren. Die Koordination seiner Bewegung
 Echtzeitgesichtspunkten nicht akzeptabel. Dieses Beispiel zeigt auch, dass Autos einander möglicherweise über die
 Fähigkeiten ihrer Sensoren hinaus erkennen müssen, beispielsweise wenn sie sich einer Kreuzung mit klarer Sicht nähern.
 In einem Echtzeitsystem könnten Autos ihre aktuelle Position an eine lokale Edge-Infrastruktur weitergeben und sich
-gegenseitig offenbaren, wenn sie sich der Kreuzung nähern.
+gegenseitig informieren, wenn sie sich der Kreuzung nähern.
 Weitere Beispiele, in denen Latenz eine entscheidende Rolle spielt, kommen leicht in den Sinn. Die Überwindung von
 Latenz ist einer der überzeugendsten Gründe für die Entwicklung von Edge-Infrastrukturen.
 
-Zuverlässigkeit: Viele argumentieren, dass die Cloud-Konnektivität für viele Anwendungen einfach nicht zuverlässig genug
-ist, weshalb Edge-Infrastrukturen eingesetzt werden sollten. Inwieweit dies ein gültiges Argument ist, bleibt
+**Zuverlässigkeit:** Viele argumentieren, dass die Cloud-Konnektivität für viele Anwendungen einfach nicht zuverlässig
+genug ist, weshalb Edge-Infrastrukturen eingesetzt werden sollten. Inwieweit dies ein gültiges Argument ist, bleibt
 abzuwarten. Tatsache ist, dass für viele vernetzte Anwendungen die Konnektivität im Allgemeinen gut und zuverlässig,
 wenn nicht sogar ausgezeichnet ist. Natürlich gibt es Situationen, in denen man sich nicht auf eine 24/7-Zuverlässigkeit
-verlassen kann. Dies kann der Fall sein bei Krankenhäusern, Fabriken und anderen allgemein kritischen Einstellungen.
-Doch auch in diesen Fällen wurden traditionell bereits Maßnahmen ergriffen, und inwieweit Edge-Computing etwas Neues
+verlassen kann. Dies kann der Fall sein bei Krankenhäusern, Fabriken und anderen allgemein kritischen Einrichtungen.
+Doch auch in diesen Fällen wurden traditionell bereits Massnahmen ergriffen, und inwieweit Edge-Computing etwas Neues
 bringt, ist nicht immer klar.
 
-Sicherheit und Datenschutz: Schließlich argumentieren viele, dass Edge-Lösungen die Sicherheit und den Datenschutz
+**Sicherheit und Datenschutz:** Schliesslich argumentieren viele, dass Edge-Lösungen die Sicherheit und den Datenschutz
 verbessern. Es kommt darauf an. Man könnte argumentieren, dass, wenn eine Cloud-Lösung nicht sicher ist, es keinen Grund
 gibt, warum eine Edge-Lösung sicher sein sollte. Eine implizite Annahme, die viele Menschen machen, ist, dass eine
-Edge-Infrastruktur von einer bestimmten Organisation besessen wird und innerhalb der (geschützten) Netzwerkgrenzen
+Edge-Infrastruktur im Besitz von einer bestimmten Organisation ist und innerhalb der (geschützten) Netzwerkgrenzen
 dieser Organisation betrieben wird. In diesem Fall wird es in der Tat oft einfacher, Daten und Operationen zu schützen,
 doch man sollte fragen, ob ein solcher Schutz ausreichend ist. Wie wir in Kapitel 9 besprechen werden, hilft der
 Versuch, Vermögenswerte zu schützen, indem man eine sichere Mauer um eine Organisation baut, nicht gegen
@@ -1650,18 +1669,17 @@ persönliche Daten in der Cloud nicht schützen können, warum sollte dann eine 
 ausreichen? Eine gründliche Diskussion über die Rolle und Position des Datenschutzes in Edge und Edge-Geräten wird von
 Hong [2017] geführt. Aus dieser Diskussion wird klar, dass hier noch viel Arbeit nötig sein wird.
 
-Ein weiterer Grund für die Notwendigkeit von
-Edge-Infrastrukturen kann mit Sicherheit und Datenschutz zusammenhängen. In vielen Fällen dürfen Organisationen aus
-regulatorischen Gründen keine Daten in der Cloud speichern oder durch einen Cloud-Dienst verarbeiten lassen. Zum
-Beispiel müssen medizinische Aufzeichnungen auf zertifizierten Servern vor Ort gehalten und strenge Prüfverfahren
-eingehalten werden. In diesem Fall muss sich eine Organisation auf den Betrieb einer Edge-Infrastruktur verlassen.
+Ein weiterer Grund für die Notwendigkeit von Edge-Infrastrukturen kann mit Sicherheit und Datenschutz zusammenhängen. In
+vielen Fällen dürfen Organisationen aus regulatorischen Gründen keine Daten in der Cloud speichern oder durch einen
+Cloud-Dienst verarbeiten lassen. Zum Beispiel müssen medizinische Aufzeichnungen auf zertifizierten Servern vor Ort
+gehalten und strenge Prüfverfahren eingehalten werden. In diesem Fall muss sich eine Organisation auf den Betrieb einer
+Edge-Infrastruktur verlassen.
 
-ie Einführung zusätzlicher Schichten zwischen Endgeräten und Cloud-Infrastrukturen eröffnet im Vergleich zur relativ
-einfachen Situation der alleinigen
-Nutzung von Cloud Computing eine Reihe von Herausforderungen. Bei Letzterem kann argumentiert werden, dass der
-Cloud-Anbieter in großem Maße entscheidet, wo und wie ein Dienst tatsächlich implementiert wird. In der Praxis haben
-wir es mit einem Rechenzentrum zu tun, in dem die (Mikro-)Dienste, die den gesamten Dienst bilden, auf mehrere
-Maschinen verteilt sind.
+Die Einführung zusätzlicher Schichten zwischen Endgeräten und Cloud-Infrastrukturen bringt im Vergleich zur relativ
+einfachen Situation der alleinigen Nutzung von Cloud Computing eine Reihe von Herausforderungen. Bei Letzterem kann
+argumentiert werden, dass der Cloud-Anbieter in grossem Masse entscheidet, wo und wie ein Dienst tatsächlich
+implementiert wird. In der Praxis haben wir es mit einem Rechenzentrum zu tun, in dem die (Micro-)Services, die den
+gesamten Service bilden, auf mehrere Maschinen verteilt sind.
 
 Im Fall des Edge Computing wird die Situation komplizierter. Hier muss die
 Kundenorganisation informierte Entscheidungen darüber treffen, was wo zu tun ist. Welche Dienste müssen vor Ort auf
