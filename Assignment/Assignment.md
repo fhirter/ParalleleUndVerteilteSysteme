@@ -1,27 +1,47 @@
-# Bewertete Übung «Parallele und verteilte Systeme»
+# Aufgabenstellung bewertete Übung «Parallele und verteilte Systeme»
 
-## Aufgabenstellung
 In Zweier- oder Dreiergruppen erarbeiten die Studierenden einen Aufsatz und eine Präsentation zu einem von mehreren gegebenen Themen.
 Ziel ist es, ein verteiltes System zu analysieren, Vor- und Nachteile zu evaluieren und die im Unterricht behandelten Themen anzuwenden.
 
 ## Aufsatz
-Der Aufsatz behandelt eine Frage zu einem Thema im Bereich «Verteilte Systeme». 
-Die Studierenden können ein Thema (siehe unten), in Absprache mit den anderen Gruppen, frei wählen.
-Folgende Teile sollten vorkommen.
+Der Aufsatz behandelt eine Frage zu einem Thema im Bereich «Verteilte Systeme».
 
-### Klare und detaillierte Beschreibung der Aufgabenstellung.
-Das bloße Stellen der Frage ist oft nicht ausreichend.
-Eine Aufgabenstellung hat einen Kontext, der klar beschrieben werden soll, ebenso wie die Aufgabenstellung selbst.
-Eine gute Beschreibung zeigt, dass Sie verstanden haben, worum es bei dem Problem geht.
+Die Studierenden können ein Thema (siehe unten), in Absprache mit den anderen Gruppen, frei wählen.
+
+Im beiliegenden Dokument "Anleitung zum Schreiben von technischen Berichten" werden die einzelnen Kapitel ausführlich
+beschrieben.
+
+Folgende Kapitel sollen vorkommen:
+### Einführung
+- Ausgangslage und Problemstellung
+  - Kontext der Arbeit: Studium und Fach, Bezug zu den Inhalten des Fachs
+  - Aufgabenstellung: Bewertung, vorgegebener Zeitplan, Umfang, Gruppen
+- Zielsetzung
+  - Fragen, die Beantwortet werden sollen
+  - Ziele, die erreicht werden sollen
+  - Themen, die recherchiert werden müssen
+- Material und Methoden
+  - Arbeitsorganisation, Zusammenarbeit, Dokumentablage, Gruppen
+  - Zeitplanung und Vorgehen
+
 Die Themen an sich werden im dritten Kapitel analysiert.
 
-### Hintergrundinformationen und Recherche
-Viele Probleme wurden bereits von anderen behandelt, die Vielfalt von technischen Artikeln und Büchern ist enorm.
-Mit etwas Glück wurden Übersichtsartikel verfasst, die einen Überblick über solche Arbeiten bieten.
-Das Bereitstellen von Hintergrundinformationen, zusammengetragen aus verschiedenen, zuverlässigen Quellen ist ein wesentlicher Teil des Ratschlags.
+### Theorieteil
+Dieses Kapitel ist im beiliegenden Dokument nicht separat aufgeführt, da eine Recherche in der Einführung wie auch im
+Hauptteil gemacht werden kann.
+Anders als in Diplom- oder Semesterarbeiten ist hier der Theorieteil umfangreicher als die anderen Teile und wird 
+deshalb als separates Kapitel aufgeführt.
+
+Hier werden alle nötigen Informationen zusammengetragen, die für einen fundierten Ratschlag benötigt werden.
+
 Sämtliche Aussagen müssen mit einer Quelle belegt werden, und exakte oder sinngemässe Zitate als solche markiert werden.
 
-### Situationsanalyse und Empfehlung
+### Hauptteil und Schlussfolgerungen
+- Variantenentscheid
+- Diskussion
+- Schlussfolgerungen
+- Empfehlung und Ausblick
+
 Zuerst muss die in den Themen beschriebene Situation genau analysiert werden. 
 Anschliessend wird anhand dieser Analyse und der Recherche eine Empfehlung erarbeitet und diskutiert.
 
@@ -40,9 +60,12 @@ Abgaben jeweils bis Sonntag-Abend als PDF per E-Mail an den Dozenten.
 
 ## Bewertung
 Aufsatz und Präsentation gemäss folgendem Bewertungsraster: 
-- Beschreibung des Problems (Gruppenbewertung): 10 Punkte
-- Hintergrundinformationen und Recherche (Gruppenbewertung): 40 Punkte
-- Situationsanalyse und Empfehlung (Gruppenbewertung): 20 Punkte
+- Einführung (Gruppenbewertung)
+  - Ausgangslage und Problemstellung (4)
+  - Zielsetzung (4)
+  - Material und Methoden (2)
+- Theorieteil (Gruppenbewertung): 40 Punkte
+- Hauptteil und Schlussfolgerungen (Gruppenbewertung): 20 Punkte
 - Individuelle Fragen (Einzelbewertung): 10 Punkte
 - Individuelle Antworten (Einzelbewertung): 10 Punkte 
 
