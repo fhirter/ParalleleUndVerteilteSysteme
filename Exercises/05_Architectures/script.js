@@ -1,10 +1,10 @@
-import {AMQPWebSocketClient} from "./amqp-websocket-client.mjs";
 import {AmqpClient} from "./amqpClient.mjs";
+import {config} from "./config.mjs";
 
 const output = document.getElementById("output");
 const input = document.getElementById("message");
 
-const client = new AmqpClient(() => {
+const client = new AmqpClient(config, () => {
     // publish messages
     document.forms[0].onsubmit = async (e) => {
         e.preventDefault()

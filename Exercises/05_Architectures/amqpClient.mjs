@@ -1,13 +1,8 @@
 import {AMQPWebSocketClient} from "./amqp-websocket-client.mjs";
 
-export function AmqpClient(callback) {
-    const host = "cow-01.rmq2.cloudamqp.com/ws/amqp";
-    const vhost = "fggiprgi";
-    const username = "fggiprgi";
-    const password = "U_tDo0lsDlqKUZgXQ9ywc4K1D3g_j-jo";
-
-    const url = `wss://${host}}`;
-    const amqp = new AMQPWebSocketClient(url, `${vhost}`, username, password);
+export function AmqpClient(config, callback) {
+    const url = `wss://${config.host}}`;
+    const amqp = new AMQPWebSocketClient(url, `${config.vhost}`, config.username, config.password);
 
     let channel;
     let queue;
