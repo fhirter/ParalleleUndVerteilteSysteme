@@ -31,9 +31,10 @@ Bestimme ebenfalls das Format der ausgetauschten Nachrichten.
 
 ### Implementierung
 
-Nutze für die Implementierung dazu den Message-Broker "RabbitMQ" von [CloudAMQP](https://www.cloudamqp.com/).
+Nutze für die Implementierung dazu den Message-Broker "RabbitMQ" von [CloudAMQP](https://www.cloudamqp.com/) oder setze
+auf einem [Raspberry PI einen MQTT Broker](https://www.elektronik-kompendium.de/sites/raspberry-pi/2709041.htm) auf.
 
-Erstelle auf CloudAmPQ einen neuen Cluster und verbinde den einfachen [Beispielclient](client.html).
+Verbinde den einfachen [Beispielclient](client.html) mit dem Message Broker.
 
 Erweitere die Beispielapplikation:
 - Anzeige der verfügbaren User

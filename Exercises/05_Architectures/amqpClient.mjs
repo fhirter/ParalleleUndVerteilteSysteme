@@ -7,8 +7,13 @@ export function AmqpClient(config, callback) {
     let channel;
     let queue;
 
+    const publicClient = Object.freeze({
+        publish,
+        subscribe
+    })
+
     start().then(() => {
-        callback();
+        callback(publicClient);
     });
 
     async function start() {
@@ -39,9 +44,4 @@ export function AmqpClient(config, callback) {
             msg.ack();
         })
     }
-
-    return Object.freeze({
-        publish,
-        subscribe
-    })
 }
