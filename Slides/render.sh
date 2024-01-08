@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# plantuml Images/plantuml/*.puml
-# mv Images/plantuml/*.png Images/
-marp --pdf Slides.md --allow-local-files
+marp --pdf Slides.md --allow-local-files --pdf-outlines=true --pdf-outlines.pages=false
 
 
