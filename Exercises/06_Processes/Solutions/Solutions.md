@@ -25,7 +25,11 @@ ufw status
 
 ## Lösungen
 
-Threads pro Prozess:
+
+### Threads pro Prozess
 `htop` so konfigurieren, dass Thread pro Prozess angezeigt werden. Spalte `NLWP`.
 Thread pro Prozess anzeigen:
 `ps -T -p [PID]`
+
+#### Cron Prozess
+`top -b | grep restic`
