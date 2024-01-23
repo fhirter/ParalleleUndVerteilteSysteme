@@ -56,6 +56,8 @@ Python [kein Multithreading unterstützt]().
 Nutze für die Übertragung des Resultats
 ein [Shared Memory Objekt](https://docs.python.org/3/library/multiprocessing.html).
 
+Alternativ kannst du [Go](https://go.dev/) verwenden, dieses bietet sehr einfaches Multiprocessing.
+
 1. Entwickle für die drei Berechnungen Funktionen und führe diese in einem Prozess aus. Miss die Zeit, die die
    Berechnung benötigt.
 2. Führe die drei Funktionen in separaten Prozessen aus. Miss die Zeit, die die Berechnung benötigt.
