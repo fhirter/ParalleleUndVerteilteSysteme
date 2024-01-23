@@ -42,6 +42,27 @@ Lösungsprozess.
 
 https://docs.python.org/3/glossary.html#term-global-interpreter-lock
 
+Entwickle ein Programm, das verschiedene statistische Werte für eine Liste von Zahlen berechnet.
+Das Programm soll eine Liste von zufälligen Zahlen generieren und davon den Durchschnitt, den maximalen und den
+minimalen Wert berechnen.
+
+Zum Beispiel, nehmen wir an, das Programm generiert die Zahlenreihe `90 81 78 95 79 72 85`.
+Das Programm berechnet daraus:
+
+- Der Durchschnittswert ist 82
+- Der Minimalwert ist 72
+- Der Maximalwert ist 95
+
+Nutze dazu die [Multiprocessing Bibliothek](https://docs.python.org/3/library/multiprocessing.html) von Python.
+Nutze für die Übertragung des Resultats
+ein [Shared Memory Objekt](https://docs.python.org/3/library/multiprocessing.html).
+
+1. Entwickle für die drei Berechnungen Funktionen und führe diese in einem Prozess aus. Miss die Zeit, die die
+   Berechnung benötigt.
+2. Führe die drei Funktionen in separaten Prozessen aus. Miss die Zeit, die die Berechnung benötigt.
+3. Erstelle eine Statistik, die aufzeigt, wann in diesem Beispiel die Multiprocessing Lösung schneller ist.
+4. Ändere das Programm so, dass der Rückgabewert mit einer Queue übertragen wird. Was ist der Vorteil davon?
+
 ### Scheduling
 
 The folgenden Prozesse werden von einem präemptiven, round-robin Scheduling-Algorithmus verwaltet:
