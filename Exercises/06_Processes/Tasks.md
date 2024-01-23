@@ -40,8 +40,6 @@ Lösungsprozess.
 
 ### Multiprocessing
 
-https://docs.python.org/3/glossary.html#term-global-interpreter-lock
-
 Entwickle ein Programm, das verschiedene statistische Werte für eine Liste von Zahlen berechnet.
 Das Programm soll eine Liste von zufälligen Zahlen generieren und davon den Durchschnitt, den maximalen und den
 minimalen Wert berechnen.
@@ -53,7 +51,8 @@ Das Programm berechnet daraus:
 - Der Minimalwert ist 72
 - Der Maximalwert ist 95
 
-Nutze dazu die [Multiprocessing Bibliothek](https://docs.python.org/3/library/multiprocessing.html) von Python.
+Nutze dazu die [Multiprocessing Bibliothek](https://docs.python.org/3/library/multiprocessing.html), weil
+Python [kein Multithreading unterstützt]().
 Nutze für die Übertragung des Resultats
 ein [Shared Memory Objekt](https://docs.python.org/3/library/multiprocessing.html).
 
