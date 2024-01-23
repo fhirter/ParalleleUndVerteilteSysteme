@@ -27,7 +27,7 @@ Untersuche anhand der laufenden Prozesse, wozu das System dient.
 Identifiziere die wichtigsten Prozesse.
 
 Untersuche diese identifizierten Prozesse mit `ps` und `htop` indem du folgende Fragen beantwortest.
-Beschränke dich dabei nicht nur auf die reine beantwortung der Frage, sondern erkläre die Frage an sich sowie deinen 
+Beschränke dich dabei nicht nur auf die reine beantwortung der Frage, sondern erkläre die Frage an sich sowie deinen
 Lösungsprozess.
 
 - Welche Prozesse nutzen wie viel Speicher?
@@ -38,27 +38,38 @@ Lösungsprozess.
 - Wie viele Prozesse starten die einzelnen Applikationen?
 - Welche Prozesse nutzen mehrere Threads?
 
-## Concurrency
+### Multiprocessing
 
-Ein System "A" veröffentlicht bei jedem Datenbankzugriff die geänderten Daten in ein Publisher Subscriber System (
-Message Broker).
-Es werden bis zu 100 Nachrichten pro Sekunde veröffentlicht.
-Die Nachrichten beziehen sich jeweils auf eine Entität, welche mit einer GUID identifiziert wird.
+https://docs.python.org/3/glossary.html#term-global-interpreter-lock
 
-Das System "B" erhält von diesem Message Broker die Nachrichten und schreib diese in eine Datenbank.
-In der Datenbank ist die GUID als primary Key definiert.
-Beim Schreiben muss die Datenbank zuerst abgefragt werden, ob der Eintrag schon existiert und anschliessend der Eintrag
-aktualisiert oder erstellt werden.
+### Scheduling
 
-![](SentMessages.png)
+The folgenden Prozesse werden von einem präemptiven, round-robin Scheduling-Algorithmus verwaltet:
 
-Der Message Broker wartet mit der Zustellung nicht, bis die vorherige Nachricht bestätigt wurde.
-Das Empfangssystem verarbeitet die Nachrichten in mehreren Prozessen.
+| Bezeichner | Priorität | CPU Zeit | Ready Zeit |
+|------------|-----------|----------|------------|
+| P1         | 40        | 20       | 0          |
+| P2         | 30        | 25       | 25         |
+| P3         | 30        | 25       | 30         |
+| P4         | 35        | 15       | 60         |
+| P5         | 5         | 10       | 100        |
+| P6         | 10        | 10       | 105        |
 
-## Problemstellung
+Jeder Prozess hat eine Priorität, wobei eine höhere Zahl eine höhere Priorität bedeutet.
+Zusätzlich zu den aufgeführten Prozessen existiert ein Idle-Task, der ausgeführt wird, wenn keine anderen Prozesse
+verfügbar sind.
+Er besitzt Priorität 0.
 
-Es tauchen selten aber regelmässig «Duplicate Entry» Fehler auf.
+Der Scheduler wird alle 10 Zeiteinheiten ausgeführt.
 
-- Was könnte die Ursache für diese Fehler sein? Skizziere mit einem Aktivitätsdiagramm.
-  Verwende dazu PlantUML oder Mermaid.
-- Wie könnte das Problem vermieden werden?
+Wenn ein Task von einem anderen mit höherer Priorität unterbrochen wird, wird der unterbrochene Task ans Ende der
+Warteschlange gestellt.
+
+1. Zeichne ein Gantt Diagramm für die Prozessabfolge.
+2. Wie hoch ist die CPU-Auslastung?
+3. Wie gross ist die Wartezeit für jeden Prozess?
+
+a. Show the scheduling order of the processes using a Gantt chart.
+b. What is the turnaround time for each process?
+c. What is the waiting time for each process?
+d. What is the CPU utilization rate?
