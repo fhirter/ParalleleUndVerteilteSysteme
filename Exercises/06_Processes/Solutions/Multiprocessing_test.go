@@ -38,15 +38,25 @@ func TestMax(t *testing.T) {
 
 func TestNumberGenerator(t *testing.T) {
 	N := 100
-	numbers := numberGenerator(N)
+	limit := 1000
+	numbers := numberGenerator(N, limit)
 
 	if len(numbers) != N {
 		t.Error("given slice has wrong length")
 	}
 
 	biggestNumber := maximal(numbers)
+	smallestNumber := minimal(numbers)
 
 	if biggestNumber == 0 {
 		t.Errorf(`expected biggest number to not be 0. %v given.`, biggestNumber)
+	}
+
+	if biggestNumber >= limit {
+		t.Errorf(`expected biggest number to be less than %v. %v given.`, limit, biggestNumber)
+	}
+
+	if smallestNumber < 0 {
+		t.Errorf(`expected smallest number to not be negative. %v given.`, smallestNumber)
 	}
 }
