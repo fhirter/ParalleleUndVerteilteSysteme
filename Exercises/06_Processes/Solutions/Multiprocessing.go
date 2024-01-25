@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	var N = 1000000000
+	var N = 10000000
 	const limit int = 1000
 	numbers := numberGenerator(N, limit)
 
@@ -26,6 +26,10 @@ func main() {
 	mean(numbers, meanChannel)
 	minimal(numbers, minChannel)
 	maximal(numbers, maxChannel)
+
+	meanNumber = <-meanChannel
+	minimalNumber = <-minChannel
+	maximalNumber = <-maxChannel
 
 	sequentialTime := time.Since(start)
 
