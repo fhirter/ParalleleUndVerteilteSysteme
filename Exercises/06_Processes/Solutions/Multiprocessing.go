@@ -7,43 +7,51 @@ import (
 )
 
 func main() {
-	var N = 1000000000
-	const limit int = 1000
-	numbers := numberGenerator(N, limit)
-
-	meanChannel := make(chan int, 1)
-	minChannel := make(chan int, 1)
-	maxChannel := make(chan int, 1)
-
-	log.Printf("N,sequential,concurrent")
-
 	var meanNumber int
 	var minimalNumber int
 	var maximalNumber int
 
-	start := time.Now()
+	log.SetFlags(0)
+	log.Printf("N,sequential,concurrent")
 
-	mean(numbers, meanChannel)
-	minimal(numbers, minChannel)
-	maximal(numbers, maxChannel)
+	var N = 10
+	const limit int = 1000
+	for i := 0; i < 10; i++ {
+		numbers := numberGenerator(N, limit)
 
-	sequentialTime := time.Since(start)
+		meanChannel := make(chan int, 1)
+		minChannel := make(chan int, 1)
+		maxChannel := make(chan int, 1)
 
-	start = time.Now()
-	go mean(numbers, meanChannel)
-	go minimal(numbers, minChannel)
-	go maximal(numbers, maxChannel)
+		start := time.Now()
 
-	meanNumber = <-meanChannel
-	minimalNumber = <-minChannel
-	maximalNumber = <-maxChannel
+		mean(numbers, meanChannel)
+		minimal(numbers, minChannel)
+		maximal(numbers, maxChannel)
 
-	concurrentTime := time.Since(start)
+		meanNumber = <-meanChannel
+		minimalNumber = <-minChannel
+		maximalNumber = <-maxChannel
 
-	log.Printf("%v, %s, %s", N, sequentialTime, concurrentTime)
+		sequentialTime := time.Since(start)
 
-	time.Sleep(100 * time.Millisecond)
+		start = time.Now()
+		go mean(numbers, meanChannel)
+		go minimal(numbers, minChannel)
+		go maximal(numbers, maxChannel)
 
+		meanNumber = <-meanChannel
+		minimalNumber = <-minChannel
+		maximalNumber = <-maxChannel
+
+		concurrentTime := time.Since(start)
+
+		log.Printf("%v, %s, %s", N, sequentialTime.Truncate(time.Microsecond).String(), concurrentTime.Truncate(time.Microsecond).String())
+
+		time.Sleep(100 * time.Millisecond)
+
+		N = N * 10
+	}
 	log.Println(meanNumber, minimalNumber, maximalNumber)
 
 }
