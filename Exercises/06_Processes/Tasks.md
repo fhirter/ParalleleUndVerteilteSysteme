@@ -1,11 +1,5 @@
 # Übung Prozesse
 
-Halte dein Vorgehen, Überlegungen und Erkenntnisse in einem Dokument fest.
-Schicke dieses am Ende der Unterrichtseinheit dem Dozenten.
-
-Organisiert euch selbstständig in der Klasse, wie ihr die Aufgabe Lösen wollt.
-Stellt sicher, dass alle verstehen, was gemacht wurde.
-
 ## Lernziele
 
 - Die Studierenden wissen, wie Betriebssysteme die Ausführung von mehreren Prozessen ermöglichen.
@@ -27,7 +21,7 @@ Untersuche anhand der laufenden Prozesse, wozu das System dient.
 Identifiziere die wichtigsten Prozesse.
 
 Untersuche diese identifizierten Prozesse mit `ps` und `htop` indem du folgende Fragen beantwortest.
-Beschränke dich dabei nicht nur auf die reine beantwortung der Frage, sondern erkläre die Frage an sich sowie deinen
+Beschränke dich dabei nicht nur auf die reine Beantwortung der Frage, sondern erkläre die Frage an sich sowie deinen
 Lösungsprozess.
 
 - Welche Prozesse nutzen wie viel Speicher?
@@ -60,10 +54,15 @@ Nutze die beliegende Vorlage aus Ausgangslage.
    nicht funktionieren. Erkläre wieso!
 3. Führe die drei Funktionen in Goroutines aus. Miss die Zeit, die die Berechnung benötigt.
 4. Erstelle eine Statistik, die aufzeigt, wann in diesem Beispiel die Multiprocessing Lösung schneller ist.
+5. Entwickle eine Lösung, die die einzelnen Berechnungen in sich ebenfalls nebenläufig ausführt.
 
 ### Scheduling
 
-The folgenden Prozesse werden von einem präemptiven, round-robin Scheduling-Algorithmus verwaltet:
+Löse folgende Aufgabe für verschiedene Scheduling Algorithmen:
+
+- [Priority based, preemptive, round robin](https://en.wikipedia.org/wiki/Fixed-priority_pre-emptive_scheduling)
+- [Completely Fair Scheduler](https://en.wikipedia.org/wiki/Completely_Fair_Scheduler)
+- [Multilevel Feedback Queue](https://de.wikipedia.org/wiki/Multilevel_Feedback_Queue)
 
 | Bezeichner | Priorität | CPU Zeit | Ready Zeit |
 |------------|-----------|----------|------------|
@@ -87,8 +86,3 @@ Warteschlange gestellt.
 1. Zeichne ein Gantt Diagramm für die Prozessabfolge.
 2. Wie hoch ist die CPU-Auslastung?
 3. Wie gross ist die Wartezeit für jeden Prozess?
-
-a. Show the scheduling order of the processes using a Gantt chart.
-b. What is the turnaround time for each process?
-c. What is the waiting time for each process?
-d. What is the CPU utilization rate?
