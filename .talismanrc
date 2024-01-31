@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: Exercises/06_Processes/Solutions/backup.sh
+  checksum: ae31530cdc9cbfcba12b8642a8649eed23f2afd24497bd632111e706e896f02c
+version: ""
