@@ -50,11 +50,11 @@ Verwende für die Lösung [Go](https://go.dev/), dieses bietet sehr einfaches Mu
 Nutze die beliegende Vorlage aus Ausgangslage.
 
 1. Führe die drei Berechnungen in einem Prozess aus. Miss die Zeit, die die Berechnung benötigt.
-2. Die Rückgabewerte werden mittels Channels übergeben, da normale Funktionsrückgabewerte mit asynchroner Ausführung
+2. Führe die drei Funktionen in Goroutines aus. Miss die Zeit, die die Berechnung benötigt.
+3. Erstelle eine Statistik, die die gemessenen Zeiten in Abhängigkeit der Länge der Zahlenreihe darstellt.
+4. Entwickle eine Lösung, die die einzelnen Berechnungen in sich ebenfalls nebenläufig ausführt.
+5. Die Rückgabewerte werden mittels Channels übergeben, da normale Funktionsrückgabewerte mit asynchroner Ausführung
    nicht funktionieren. Erkläre wieso!
-3. Führe die drei Funktionen in Goroutines aus. Miss die Zeit, die die Berechnung benötigt.
-4. Erstelle eine Statistik, die aufzeigt, wann in diesem Beispiel die Multiprocessing Lösung schneller ist.
-5. Entwickle eine Lösung, die die einzelnen Berechnungen in sich ebenfalls nebenläufig ausführt.
 
 ### Scheduling
 
