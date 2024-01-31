@@ -7,11 +7,46 @@ import (
 )
 
 func main() {
+
+	//optimizeConcurrent()
+	concurrentVsSequential()
+}
+
+func optimizeConcurrent() {
+	numberOfSlices := 2
+
+	log.SetFlags(0)
+	var meanNumber int
+	const limit int = 1000
+	var N = 10
+	//numbers := numberGenerator(N, limit)
+	var channels []chan int
+	for i := 0; i < numberOfSlices; i++ {
+		channels = append(channels, make(chan int, 1))
+	}
+
+	start := time.Now()
+	for i := 0; i < numberOfSlices; i++ {
+		//	go mean(numbers[], channels[i])
+	}
+	for i := 0; i < numberOfSlices; i++ {
+		_ = <-channels[i]
+	}
+
+	concurrentTime := time.Since(start)
+
+	log.Printf("%v, %s", N, concurrentTime.Truncate(time.Millisecond).String())
+	log.Println(meanNumber)
+
+}
+
+func concurrentVsSequential() {
+	log.SetFlags(0)
+
 	var meanNumber int
 	var minimalNumber int
 	var maximalNumber int
 
-	log.SetFlags(0)
 	log.Printf("N,sequential,concurrent")
 
 	var N = 10
@@ -53,7 +88,6 @@ func main() {
 		N = N * 10
 	}
 	log.Println(meanNumber, minimalNumber, maximalNumber)
-
 }
 
 func mean(numbers []int, out chan<- int) {
