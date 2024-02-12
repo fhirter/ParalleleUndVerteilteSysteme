@@ -80,9 +80,6 @@ Er besitzt Priorität 0.
 
 Der Scheduler wird alle 10 Zeiteinheiten ausgeführt.
 
-Wenn ein Task von einem anderen mit höherer Priorität unterbrochen wird, wird der unterbrochene Task ans Ende der
-Warteschlange gestellt.
-
 1. Zeichne ein Gantt Diagramm für die Prozessabfolge.
 2. Wie hoch ist die CPU-Auslastung?
 3. Wie gross ist die Wartezeit für jeden Prozess?
