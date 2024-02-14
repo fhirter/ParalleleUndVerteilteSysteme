@@ -22,6 +22,7 @@ Thread pro Prozess anzeigen:
 
 ## Scheduling
 
+### Priority-based, preemtive, round-robin
 ```mermaid
 ---
 displayMode: compact
