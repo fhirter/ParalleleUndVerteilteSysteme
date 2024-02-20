@@ -5,13 +5,24 @@
 - Die Studierenden wissen, wie Betriebssysteme die Ausführung von mehreren Prozessen ermöglichen.
 - Die Studierenden kennen Kommunikations- und Koordinationstechniken zwischen Prozessen und Systemen
 
-## Aufgabenstellung
+## Vorgehen
+
+Halte dich an das folgende, wissenschaftliche Vorgehen:
+
+1. Fragestellung formulieren
+2. Recherche
+3. Vorgehen festlegen
+4. Untersuchungen durchführen
+5. Frage beantworten
+6. Ausblick
+
+Stelle sicher, dass du alle Fragen mit belastbaren Daten beantworten kannst.
 
 Halte die Erkenntnisse in einem [Markdown-Dokument](https://www.markdownguide.org/) fest.
 
-Stelle sicher, dass deine Untersuchungen vollständig nachvollziehbar sind!
-
 **Schicke das Dokument nach dem Unterricht an den Dozenten.**
+
+## Aufgaben
 
 ### Systemanalyse
 
@@ -52,9 +63,23 @@ Nutze die beliegende Vorlage aus Ausgangslage.
 1. Führe die drei Berechnungen in einem Prozess aus. Miss die Zeit, die die Berechnung benötigt.
 2. Führe die drei Funktionen in Goroutines aus. Miss die Zeit, die die Berechnung benötigt.
 3. Erstelle eine Statistik, die die gemessenen Zeiten in Abhängigkeit der Länge der Zahlenreihe darstellt.
-4. Entwickle eine Lösung, die die einzelnen Berechnungen in sich ebenfalls nebenläufig ausführt.
-5. Die Rückgabewerte werden mittels Channels übergeben, da normale Funktionsrückgabewerte mit asynchroner Ausführung
-   nicht funktionieren. Erkläre wieso!
+
+### Kommunikation
+
+Optimiere die Berechnung für den Durchschnittswert aus der vorherigen Übung.
+
+Nutze für die Kommunikation zwischen den Goroutines und dem Hauptprogramm Channels; Einen Channel für die Daten, einen
+für die Resultate.
+
+Führe für jeden Optimierungsschritt Messungen durch, damit du die Optimierung mit Zahlen belegen kannst.
+
+1. Recherchiere, wie Go Channels funktionieren und vergleiche mit der Beschreibung im Kapitel 3.6 (Silberschatz, 2019).
+2. Schreibe das ganze Array in den Daten-Channel. Starte eine Goroutine, die die Daten aus dem Channel liest, den
+   Mittelwert
+   berechnet und das Resultat in den Resultat-Channel schreibt.
+3. Unterteile die Daten in mehrere kleinere Arrays, die du in den Daten-Channel schreibst. Ändere die Goroutine so, dass
+   sie läuft, bis keine Daten mehr im Daten-Channel vorhanden sind.
+4. Starte nun mehrere Goroutines, die die Daten verarbeiten.
 
 ### Scheduling
 
