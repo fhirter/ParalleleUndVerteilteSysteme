@@ -68,15 +68,17 @@ Nutze die beliegende Vorlage aus Ausgangslage.
 
 Optimiere die Berechnung für den Durchschnittswert aus der vorherigen Übung.
 
-Nutze für die Kommunikation zwischen den Goroutines und dem Hauptprogramm Channels; Einen Channel für die Daten, einen
-für die Resultate.
+Nutze für die Kommunikation zwischen den Goroutines und dem Hauptprogramm buffered channels; Einen Channel für die
+Daten, einen für die Resultate.
+
+Buffered channels erstellst du mit `messages := make(chan string, 2)`. Der zweite Parameter von make ist die Grösse des
+Buffers, d.h. die Anzahl Elemente, die im Channel gespeichert werden können.
 
 Führe für jeden Optimierungsschritt Messungen durch, damit du die Optimierung mit Zahlen belegen kannst.
 
 1. Recherchiere, wie Go Channels funktionieren und vergleiche mit der Beschreibung im Kapitel 3.6 (Silberschatz, 2019).
 2. Schreibe das ganze Array in den Daten-Channel. Starte eine Goroutine, die die Daten aus dem Channel liest, den
-   Mittelwert
-   berechnet und das Resultat in den Resultat-Channel schreibt.
+   Mittelwert berechnet und das Resultat in den Resultat-Channel schreibt.
 3. Unterteile die Daten in mehrere kleinere Arrays, die du in den Daten-Channel schreibst. Ändere die Goroutine so, dass
    sie läuft, bis keine Daten mehr im Daten-Channel vorhanden sind.
 4. Starte nun mehrere Goroutines, die die Daten verarbeiten.
