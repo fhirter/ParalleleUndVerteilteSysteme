@@ -24,8 +24,8 @@ sequential_times = data['sequential']  # Assuming times are in milliseconds
 concurrent_times = data['concurrent']  # Assuming times are in milliseconds
 
 # Convert times to seconds for plotting
-sequential_times_s = [parse_time(t) / 1000 for t in sequential_times]
-concurrent_times_s = [parse_time(t) / 1000 for t in concurrent_times]
+sequential_times_s = [parse_time(t) for t in sequential_times]
+concurrent_times_s = [parse_time(t) for t in concurrent_times]
 
 # Plotting
 plt.figure(figsize=(10, 6))
