@@ -11,9 +11,17 @@ func main() {
 	concurrency := 1
 	sampleSize := 10
 	log.Printf("Number of slices: %v", concurrency)
-	for i := 0; i < 8; i++ {
-		calculationTime := concurrentMean(sampleSize, concurrency)
-		log.Printf("%v, %s", sampleSize, calculationTime.Truncate(time.Microsecond).String())
+	for i := 0; i < 10; i++ {
+		calculationTime1 := concurrentMean(sampleSize, 1)
+		calculationTime2 := concurrentMean(sampleSize, 2)
+		calculationTime5 := concurrentMean(sampleSize, 5)
+		log.Printf(
+			"%v, %s, %s, %s",
+			sampleSize,
+			calculationTime1.Truncate(time.Microsecond).String(),
+			calculationTime2.Truncate(time.Microsecond).String(),
+			calculationTime5.Truncate(time.Microsecond).String(),
+		)
 		sampleSize = sampleSize * 10
 	}
 }
