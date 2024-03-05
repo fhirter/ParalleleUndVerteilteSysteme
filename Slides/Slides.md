@@ -36,7 +36,7 @@ img {
 - Eine zentrale Aufgabe von Betriebsystemen ist es, die Prozesse auf die CPUs zu verteilen.
 - Dies wird «Scheduling» genannt.
 
-### Verteilte Systeme
+## Verteilte Systeme
 
 > «A distributed system is a collection of independent computers that appears to its users as a single coherent system.»
 
@@ -45,13 +45,13 @@ VanSteen, 2017, S. 26
 
 P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethernet basiert
 
-## Resource Sharing
+# Resource Sharing
 
 - Ressourcen verfügbar machen: Drucker, Computing, Storage, Daten, Netzwerk
 - Teure Ressourcen können besser ausgelastet werden und müssen nicht mehrfach angeschafft werden
 - Zusammenarbeit
 
-### Domain Name System
+## Domain Name System
 
 ![img.png](Images/DomainNameSystem)
 
@@ -59,7 +59,7 @@ P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethe
 
 ![w:1000px](Images/when-the-cloud-leaves-the-datacenter-530836-1.jpg)
 
-### Anforderungen an moderne Software
+## Anforderungen an moderne Software
 
 - Hohe Verfügbarkeit
 - Skalierbarkeit
@@ -69,7 +69,7 @@ P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethe
 - Einfach
 - Updates müssen einfach eingespielt werden können
 
-### Lösungsansätze
+## Lösungsansätze
 
 - Verfügbarkeit, Skalierbarkeit: Mehre identische Systeme müssen verfügbar sein und bei Bedarf sollen weitere schnell
   gestartet werden können
@@ -77,7 +77,7 @@ P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethe
 
 ![img.png](Images/LoadBalancing.png)
 
-## Decentralized vs Distributed
+# Decentralized vs Distributed
 
 **Decentralized**
 
@@ -92,6 +92,8 @@ P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethe
 - [Neon](https://neon.tech/)
 - [Ably](https://ably.com/)
 - ...
+
+# Architekturen
 
 ## Schichtenarchitekturen
 
@@ -151,3 +153,50 @@ P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethe
 ## Edge Computing
 
 ![02-28.png](Images/distributedSystems/02/02-28.png)
+
+# Koordination
+
+- Tasks können gleichzeitig ausgeführt werden
+- Gleichzeitiger Zugriff auf gemeinsame Daten kann in inkonsistenten Daten resultieren
+
+## Mutex
+
+- MUTual EXclusion: wechselseitiger Ausschluss
+- Einfachste Möglichkeit, Ressourcen für alle anderen zu blockieren
+- Critical Section wird mit acquire() und release() umschlossen
+- acquire() und release() müssen atomare Operationen sein (Hardwareunterstützung)
+
+### Mutex
+
+```C
+acquire() { 
+  while (!available)
+    /* busy wait */
+  available = false;;
+}
+
+release() {
+  available = true;
+}
+```
+
+```C
+do {
+    acquire lock
+       critical section
+    release lock
+      remainder section
+ } while (true);
+```
+
+## Semaphore
+
+- Mehr Möglichkeiten als Mutex
+- Schützt gemeinsame Ressourcen
+- Counting semaphore: Mehrere Ressourcen
+- Binary semaphore: Nur eine Ressource
+- Ein Zugriff auf eine gemeinsame Ressource wird mit dem Nehmen und Geben umschlossen
+
+### Beispiel
+
+![w:100%](Images/semaphore.png)
