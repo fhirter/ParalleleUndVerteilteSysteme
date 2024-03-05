@@ -3,33 +3,67 @@ package main
 import (
 	"log"
 	"math/rand"
+	"time"
 )
 
 func main() {
-	var N = 10
-	const limit int = 1000
-	numbers := numberGenerator(N, limit)
-
-	meanChannel := make(chan int, 1)
-	minChannel := make(chan int, 1)
-	maxChannel := make(chan int, 1)
-
-	var meanNumber int
-	var minimalNumber int
-	var maximalNumber int
-
-	mean(numbers, meanChannel)
-	minimal(numbers, minChannel)
-	maximal(numbers, maxChannel)
-
-	meanNumber = <-meanChannel
-	minimalNumber = <-minChannel
-	maximalNumber = <-maxChannel
-
-	log.Println(meanNumber, minimalNumber, maximalNumber)
+	log.SetFlags(0)
+	concurrency := 1
+	sampleSize := 10
+	log.Printf("Number of slices: %v", concurrency)
+	for i := 0; i < 10; i++ {
+		calculationTime1 := concurrentMean(sampleSize, 1)
+		calculationTime2 := concurrentMean(sampleSize, 2)
+		calculationTime5 := concurrentMean(sampleSize, 5)
+		log.Printf(
+			"%v, %s, %s, %s",
+			sampleSize,
+			calculationTime1.Truncate(time.Microsecond).String(),
+			calculationTime2.Truncate(time.Microsecond).String(),
+			calculationTime5.Truncate(time.Microsecond).String(),
+		)
+		sampleSize = sampleSize * 10
+	}
 }
 
-func mean(numbers []int, out chan<- int) {
+func concurrentMean(sampleSize int, concurrency int) time.Duration {
+	numberOfSlices := concurrency
+
+	if sampleSize%numberOfSlices > 0 {
+		panic("sampleSize divided by number of slices should not leave a remainder!")
+	}
+
+	const maxNumber int = 1000
+	numbers := numberGenerator(sampleSize, maxNumber)
+
+	resultChannel := make(chan int, numberOfSlices)
+	dataChannel := make(chan []int, numberOfSlices)
+
+	start := time.Now()
+	// fill data channel
+	for i := 0; i < numberOfSlices; i++ {
+		sliceSize := sampleSize / numberOfSlices
+		dataChannel <- numbers[sliceSize*i : sliceSize*(i+1)]
+	}
+	// run calculations
+	for i := 0; i < numberOfSlices; i++ {
+		go mean(dataChannel, resultChannel)
+	}
+
+	//get results and calculate mean of means
+	var meanNumber = 0
+	for i := 0; i < numberOfSlices; i++ {
+		intermediateMean := <-resultChannel
+		meanNumber += intermediateMean / numberOfSlices
+	}
+	//log.Println(meanNumber)
+	duration := time.Since(start)
+
+	return duration
+}
+
+func mean(in chan []int, out chan<- int) {
+	numbers := <-in
 	if len(numbers) == 0 {
 		out <- 0
 	}
@@ -38,26 +72,6 @@ func mean(numbers []int, out chan<- int) {
 		sum += d
 	}
 	out <- sum / len(numbers)
-}
-
-func minimal(numbers []int, out chan<- int) {
-	m := 0
-	for i, number := range numbers {
-		if i == 0 || number < m {
-			m = number
-		}
-	}
-	out <- m
-}
-
-func maximal(numbers []int, out chan<- int) {
-	m := 0
-	for i, number := range numbers {
-		if i == 0 || number > m {
-			m = number
-		}
-	}
-	out <- m
 }
 
 func numberGenerator(N int, limit int) []int {

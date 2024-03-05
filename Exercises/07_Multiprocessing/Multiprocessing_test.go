@@ -1,35 +1,22 @@
 package main
 
 import (
+	"slices"
 	"testing"
 )
 
 func TestMean(t *testing.T) {
 	numbers := []int{90, 81, 78, 95, 79, 72, 85}
 	expected := 82
-	given := mean(numbers)
 
-	if expected != given {
-		t.Errorf(`mean(): wrong result. Expected %v, given %v`, expected, given)
-	}
-}
+	resultChannel := make(chan int, 1)
+	dataChannel := make(chan []int, 1)
 
-func TestMin(t *testing.T) {
-	numbers := []int{90, 81, 78, 95, 79, 72, 85}
-	expected := 72
+	dataChannel <- numbers
 
-	given := minimal(numbers)
+	mean(dataChannel, resultChannel)
 
-	if expected != given {
-		t.Errorf(`mean(): wrong result. Expected %v, given %v`, expected, given)
-	}
-}
-
-func TestMax(t *testing.T) {
-	numbers := []int{90, 81, 78, 95, 79, 72, 85}
-	expected := 95
-
-	given := maximal(numbers)
+	given := <-resultChannel
 
 	if expected != given {
 		t.Errorf(`mean(): wrong result. Expected %v, given %v`, expected, given)
@@ -45,8 +32,8 @@ func TestNumberGenerator(t *testing.T) {
 		t.Error("given slice has wrong length")
 	}
 
-	biggestNumber := maximal(numbers)
-	smallestNumber := minimal(numbers)
+	biggestNumber := slices.Max(numbers)
+	smallestNumber := slices.Min(numbers)
 
 	if biggestNumber == 0 {
 		t.Errorf(`expected biggest number to not be 0. %v given.`, biggestNumber)
