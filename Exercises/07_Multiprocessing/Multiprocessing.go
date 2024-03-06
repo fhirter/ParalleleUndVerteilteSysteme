@@ -47,7 +47,11 @@ func concurrentMean(sampleSize int, concurrency int) time.Duration {
 	}
 	// run calculations
 	for i := 0; i < numberOfSlices; i++ {
-		go mean(dataChannel, resultChannel)
+		if numberOfSlices == 1 {
+			mean(dataChannel, resultChannel)
+		} else {
+			go mean(dataChannel, resultChannel)
+		}
 	}
 
 	//get results and calculate mean of means
