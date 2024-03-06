@@ -14,7 +14,7 @@ func main() {
 	for i := 0; i < 9; i++ {
 		calculationTime1 := concurrentMean(sampleSize, 1)
 		calculationTime2 := concurrentMean(sampleSize, 2)
-		calculationTime5 := concurrentMean(sampleSize, 5)
+		calculationTime5 := concurrentMean(sampleSize, 10)
 		log.Printf(
 			"%v, %s, %s, %s",
 			sampleSize,
