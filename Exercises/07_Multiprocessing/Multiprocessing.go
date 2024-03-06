@@ -18,9 +18,9 @@ func main() {
 		log.Printf(
 			"%v, %s, %s, %s",
 			sampleSize,
-			calculationTime1.Truncate(time.Microsecond).String(),
-			calculationTime2.Truncate(time.Microsecond).String(),
-			calculationTime5.Truncate(time.Microsecond).String(),
+			calculationTime1.Truncate(time.Nanosecond).String(),
+			calculationTime2.Truncate(time.Nanosecond).String(),
+			calculationTime5.Truncate(time.Nanosecond).String(),
 		)
 		sampleSize = sampleSize * 10
 	}
