@@ -19,7 +19,7 @@ Stelle sicher, dass alle ausgeführten Befehle vollständig nachvollziehbar sind
 
 ### Applikation
 
-Bearbeite folgende Kapitel des[ Go Docker Tutorials](https://docs.docker.com/language/golang/).
+Bearbeite folgende Kapitel des [Go Docker Tutorials](https://docs.docker.com/language/golang/).
 
 1. Overview
 2. Build Images
