@@ -90,7 +90,7 @@ Aufsatz und Präsentation gemäss folgendem Bewertungsraster:
 - Individuelle Fragen (Einzelbewertung) (10)
 - Individuelle Antworten (Einzelbewertung) (10)
 
-Umfang: ca 2500 Wörter.
+Umfang: ca 5000 Wörter.
 
 Note: Gesamtpunkte/90*5+1, gerundet auf 0.1.
 
