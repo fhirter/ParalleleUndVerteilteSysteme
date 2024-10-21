@@ -1,9 +1,8 @@
 # Aufgabenstellung bewertete Übung «Parallele und verteilte Systeme»
 
 In Zweier- oder Dreiergruppen erarbeiten die Studierenden einen Aufsatz und eine Präsentation zu einem von mehreren
-gegebenen Themen.
-Ziel ist es, ein verteiltes System zu analysieren, Vor- und Nachteile zu evaluieren und die im Unterricht behandelten
-Themen anzuwenden.
+gegebenen Themen. Ziel ist es, ein verteiltes System zu analysieren, Vor- und Nachteile zu evaluieren und die im
+Unterricht behandelten Themen anzuwenden.
 
 ## Aufsatz
 
@@ -16,59 +15,78 @@ beschrieben.
 
 Folgende Kapitel sollen vorkommen:
 
-### Einführung
+- Einleitung
+- Theoretische Grundlagen
+- Material und Methoden
+- Ergebnisse
+- Diskussion
+- Empfehlung und Ausblick
+
+### Einleitung
 
 - Ausgangslage und Problemstellung
-    - Kontext der Arbeit: Studium und Fach, Bezug zu den Inhalten des Fachs
-    - Aufgabenstellung: Bewertung, vorgegebener Zeitplan, Umfang, Gruppen
+    - Kontext: Analyse des in der Aufgabenstellung beschriebenen Umfelds (z.B der lokale IT-Dienstleister mit seinem
+      Angebot). Da die Aufgabenstellung relativ kurz ist können hier Annahmen getroffen werden oder beim Dozenten weiter
+      Informationen angefragt werden.
+    - Analyse der Aufgabenstellung
 - Zielsetzung
-    - Fragen, die Beantwortet werden sollen
+    - Fragen, die beantwortet werden sollen
     - Ziele, die erreicht werden sollen
     - Themen, die recherchiert werden müssen
-- Material und Methoden
-    - Arbeitsorganisation, Zusammenarbeit, Dokumentablage, Gruppen
-    - Zeitplanung und Vorgehen
 
-Die Themen an sich werden im dritten Kapitel analysiert.
-
-### Theorieteil
+### Theoretische Grundlagen
 
 Dieses Kapitel ist im beiliegenden Dokument nicht separat aufgeführt, da eine Recherche in der Einführung wie auch im
-Hauptteil gemacht werden kann.
-Anders als in Diplom- oder Semesterarbeiten ist hier der Theorieteil umfangreicher als die anderen Teile und wird
-deshalb als separates Kapitel aufgeführt.
+Hauptteil gemacht werden kann. Anders als in Diplom- oder Semesterarbeiten ist hier der Theorieteil umfangreicher als
+die anderen Teile und wird deshalb als separates Kapitel aufgeführt.
 
-Hier werden alle nötigen Informationen zusammengetragen, die für einen fundierten Ratschlag benötigt werden.
+Hier werden alle nötigen Informationen zusammengetragen, die für die Aufgabenstellung benötigt werden.
 
 Sämtliche Aussagen müssen mit einer Quelle belegt werden, und exakte oder sinngemässe Zitate als solche markiert werden.
 
-### Hauptteil und Schlussfolgerungen
+Passagen die mit generativer KI erstellt wurden müssen als solche gekennzeichnet werden.
 
-- Variantenentscheid
-- Diskussion
-- Schlussfolgerungen
-- Empfehlung und Ausblick
+### Material und Methoden
 
-Zuerst muss die in den Themen beschriebene Situation genau analysiert werden.
-Die durchgeführten Untersuchungen und Experimente werden beschrieben und diskutiert.
+Die durchgeführten Untersuchungen und Experimente werden nachvollziehbar beschrieben.
 
-Anhand der erarbeiteten Theorie, der Analyse des Themas und den Untersuchungen werden die eingangs gestellten Fragen 
-beantwortet (_Schlussfolgerungen_) und eine Empfehlung erarbeitet und diskutiert (_Empfehlung und Ausblick_).
+Weiter können Angaben über Arbeitsorganisation, Zeitplanung und Vorgehen gemacht werden.
+
+### Ergebnisse
+
+Die in den Untersuchungen erarbeiteten Ergebnisse werden hier vorgestellt.
+
+### Diskussion
+
+Anhand der erarbeiteten Theorie, der Analyse des Themas und den Untersuchungen werden die eingangs gestellten Fragen
+beantwortet und diskutiert.
+
+### Empfehlung und Ausblick
+
+Eine Empfehlung wird erarbeitet und diskutiert.
 
 Allenfalls können verschiedene Varianten aufgeführt und verglichen werden.
 
-## Fragestellungen und Präsentationen
+Offene Fragen werden aufgeführt und erläutert.
 
-Das erarbeitete Thema wird der Klasse präsentiert.
-Nach der Präsentation stellt sich die präsentierende Gruppe Fragen vom Dozenten und von den anderen Studierenden.
-Die Fragen müssen vorbereitet sein und sowohl Fragen als auch Antworten werden bewertet.
+## Präsentationen und Fragerunde
+
+Das erarbeitete Thema wird der Klasse präsentiert. Nach der Präsentation stellt sich die präsentierende Gruppe Fragen
+vom Dozenten und von den anderen Studierenden. Die Fragen müssen vorbereitet sein und sowohl Fragen als auch Antworten
+werden bewertet.
 
 ## Zeitplan
 
-- Semesterwoche 4: Abgabe Analyse und Beschreibung des Problems
-- Semesterwoche 12: Abgabe Hintergrundinformationen und Recherche
-- Semesterwoche 17: Abgabe Situationsanalyse und Empfehlung
-- Semesterwoche 19: Präsentationen und Fragen der anderen Gruppe beantworten
+Die einzelnen Kapitel werden im Verlauf des Semesters eingereicht.
+So wird vermieden, dass am Ende des Semesters ein grosser Arbeitsaufwand entsteht.
+
+| Semesterwoche | Aufgabe                                                          |
+|---------------|------------------------------------------------------------------|
+| 4             | Abgabe **Einleitung**                                            |
+| 9             | Abgabe **Theoretische Grundlagen**                               |
+| 15            | Abgabe **Material und Methoden**, **Ergebnisse**, **Diskussion** |
+| 17            | Abgabe **Diskussion**                                            |
+| 19            | Präsentationen und Fragen der anderen Gruppe beantworten         |
 
 Abgaben jeweils bis Sonntag-Abend als PDF per E-Mail an den Dozenten.
 
@@ -76,23 +94,22 @@ Abgaben jeweils bis Sonntag-Abend als PDF per E-Mail an den Dozenten.
 
 Aufsatz und Präsentation gemäss folgendem Bewertungsraster:
 
-- Einführung (Gruppenbewertung) (10)
-    - Ausgangslage und Problemstellung (4)
-    - Zielsetzung (4)
-    - Material und Methoden (2)
-- Theorieteil (Gruppenbewertung) (40)
-  - Inhaltliche Vollständigkeit (20)
-  - Verständlichkeit (10)
-  - Quellenangaben (10)
-- Hauptteil und Schlussfolgerungen (Gruppenbewertung) (20)
-  - Hauptteil: Untersuchungen, Variantenentscheid, Diskussion (10)
-  - Schlussfolgerungen: Beantwortung der gestellten Fragen, Empfehlung (10)
-- Individuelle Fragen (Einzelbewertung) (10)
-- Individuelle Antworten (Einzelbewertung) (10)
+| Kapitel                 | Punkte | Bewertung |
+|-------------------------|--------|-----------|
+| Einleitung              | 10     | Gruppe    |
+| Theorieteil             | 10     | Gruppe    |
+| Material und Methoden   | 10     | Gruppe    |
+| Ergebnisse              | 10     | Gruppe    |
+| Diskussion              | 10     | Gruppe    |
+| Empfehlung und Ausblick | 10     | Gruppe    |
+| Individuelle Fragen     | 10     | Einzeln   |
+| Individuelle Antworten  | 10     | Einzeln   |
 
 Umfang: ca 5000 Wörter.
 
-Note: Gesamtpunkte/90*5+1, gerundet auf 0.1.
+Notenberechnung: $\frac{Gesamtpunkte}{80}*5+1$, gerundet auf 0.1.
+
+## Aufgabenstellungen
 
 ## Themen
 
