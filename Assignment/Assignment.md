@@ -23,18 +23,6 @@ Folgende Kapitel sollen vorkommen:
 - Diskussion
 - Empfehlung und Ausblick
 
-### Einleitung
-
-- Ausgangslage und Problemstellung
-    - Kontext: Analyse des in der Aufgabenstellung beschriebenen Umfelds (z.B der lokale IT-Dienstleister mit seinem
-      Angebot). Da die Aufgabenstellung relativ kurz ist können hier Annahmen getroffen werden oder beim Dozenten weiter
-      Informationen angefragt werden.
-    - Analyse der Aufgabenstellung
-- Zielsetzung
-    - Fragen, die beantwortet werden sollen
-    - Ziele, die erreicht werden sollen
-    - Themen, die recherchiert werden müssen
-
 ### Theoretische Grundlagen
 
 Dieses Kapitel ist im beiliegenden Dokument nicht separat aufgeführt, da eine Recherche in der Einführung wie auch im
@@ -46,29 +34,6 @@ Hier werden alle nötigen Informationen zusammengetragen, die für die Aufgabens
 Sämtliche Aussagen müssen mit einer Quelle belegt werden, und exakte oder sinngemässe Zitate als solche markiert werden.
 
 Passagen die mit generativer KI erstellt wurden müssen als solche gekennzeichnet werden.
-
-### Material und Methoden
-
-Die durchgeführten Untersuchungen und Experimente werden nachvollziehbar beschrieben.
-
-Weiter können Angaben über Arbeitsorganisation, Zeitplanung und Vorgehen gemacht werden.
-
-### Ergebnisse
-
-Die in den Untersuchungen erarbeiteten Ergebnisse werden hier vorgestellt.
-
-### Diskussion
-
-Anhand der erarbeiteten Theorie, der Analyse des Themas und den Untersuchungen werden die eingangs gestellten Fragen
-beantwortet und diskutiert.
-
-### Empfehlung und Ausblick
-
-Eine Empfehlung wird erarbeitet und diskutiert.
-
-Allenfalls können verschiedene Varianten aufgeführt und verglichen werden.
-
-Offene Fragen werden aufgeführt und erläutert.
 
 ## Präsentationen und Fragerunde
 
