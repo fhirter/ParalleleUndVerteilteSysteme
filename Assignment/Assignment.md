@@ -1,12 +1,13 @@
 # Aufgabenstellung bewertete Übung «Parallele und verteilte Systeme»
 
-In Zweier- oder Dreiergruppen erarbeiten die Studierenden einen Aufsatz und eine Präsentation zu einem von mehreren
-gegebenen Themen. Ziel ist es, ein verteiltes System zu analysieren, Vor- und Nachteile zu evaluieren und die im
-Unterricht behandelten Themen anzuwenden.
+In Zweier- oder Dreiergruppen erarbeiten die Studierenden eine Dokumentation und eine Präsentation zu einem von mehreren
+gegebenen Themen. Ziel ist es, ein verteiltes System zu analysieren, Vor- und Nachteile zu evaluieren und die Theorie
+anhand von Prototypen zu untersuchen.
 
-## Aufsatz
+## Bericht
 
-Der Aufsatz behandelt eine Frage zu einem Thema im Bereich «Verteilte Systeme».
+Der Bericht behandelt die theoretischen Grundlagen, dokumentiert die erstellten Prototypen und legt die daraus
+gewonnenen Erkenntnisse dar.
 
 Die Studierenden können ein Thema (siehe unten), in Absprache mit den anderen Gruppen, frei wählen.
 
@@ -111,96 +112,56 @@ Notenberechnung: $\frac{Gesamtpunkte}{80}*5+1$, gerundet auf 0.1.
 
 ## Aufgabenstellungen
 
-## Themen
+### Peer-to-peer Social Network
 
-### Öffentliche peer-to-peer Systeme
+Sie werden gebeten ein Start-up bei der Entwicklung eines vollständig dezentralen sozialen Netzwerks zu beraten. Das
+System soll öffentliche Profile sowie den Austausch von Nachrichten ohne zentrale Server ermöglichen. Erarbeitet dazu
+eine Übersicht über Peer-To-Peer Technologien und dezentrale Messaging und Social Media Applikationen. Untersuche auch,
+wie Peer-To-Peer-Netzwerke vor Angriffen geschützt werden können.
 
-Die erste Welle von öffentlichen Peer-to-Peer-Systemen ist vorbei, und inzwischen arbeiten die meisten innerhalb der
-Grenzen einer einzigen Organisation.
-Diese Entwicklung spiegelt die Schwierigkeiten wider, öffentliche Peer-to-Peer-Systeme zu sichern, insbesondere gegen
-Eclipse- und Sybil-Angriffe.
-Dennoch gibt es immer noch eine Reihe von Systemen, die offen arbeiten, wie z. B. das DHT-basierte System für sogenannte
-Magnetlinks (z. B. Bittorrent) sowie das Kademlia-System.
-
-Sie kennen die Besonderheiten der verschiedenen Arten von Peer-to-Peer-Systemen und werden gebeten ein neues
-Start-up-Unternehmen bei der Entwicklung eines vollständig dezentralen Dateifreigabesystems zu beraten.
-Das Start-up möchte wissen, ob sie dieses System auf ein bestehendes Produkt aufbauen sollten oder eine neue Lösung
-entwickeln sollen.
-Ein besonderes Anliegen des Unternehmens ist die Robustheit gegenüber "churn", wofür ein "Gossip" basierter Ansatz in
-Betracht gezogen wird, die dafür bekannt sind, dass sie schnell zu bestimmten Overlays konvergieren, aber anfällig für
-Angriffe sind.
+Entwickle einen oder mehrere Prototypen eines vollständig dezentralen Peer-to-Peer sozialen Netzwerks um Erfahrungen in
+den verschiedenen Architekturen zu gewinnen und interpretiere die Erkenntnisse.
 
 ### Edge-Computing
 
-Einer Ihrer Kommilitonen erwägt die Gründung eines Start-ups für die Entwicklung einer Edge-Computing-Plattform, die
-leicht mit einer Reihe von Cloud-Service-Anbietern verbunden werden kann.
-Das Ziel Ihres Kollegen ist nicht nur die Bereitstellung der grundlegenden Infrastruktur, sondern auch die ein
-komplettes Set von Tools, die automatisch die Ressourcenzuweisung für die Anwendungen, die dem Edge zugewiesen werden
-sollen.
-Viele dieser Anwendungen laufen derzeit entweder auf Edge-Geräten oder in der Cloud.
+Einer Ihrer Kommilitonen erwägt die Gründung eines Start-ups für die Entwicklung einer Edge-Computing-Sensor-Plattform.
+Die Plattform soll zahlreiche IoT-Sensoren zur Überwachung von Maschinen einsetzen. Die dadurch gewonnenen Daten 
+sollen lokal bereinigt und mit Machine-Learning-Tools auf entsprechend leistungsfähiger Hardware analysiert 
+werden. Die Resultate von dieser Analyse sollen in der Cloud persistiert werden für weitere Auswertungen.
 
-Ihr Expertenteam kennt den Hype um Edge-Computing-Systeme und vor allem die Diskussionen über die offensichtlichen
-Vorteile in Bezug auf Sicherheit, Leistung usw.
-Sie haben auch bemerkt, dass Ihr Studienkollege möglicherweise nicht über die Einzelheiten Bescheid weiß, und Sie
-beschließen einen fundierten Rat zu geben, ob die Ideen weiterverfolgt werden sollten, und wenn ja, was die wichtigsten
-Punkte sind, die sie beachten sollte, um das Start-up aus Sicht der Endnutzer attraktiv zu machen.
+Erarbeite die Grundlagen von Edge-Computing-Systemen und versuche Hype von wirklichen Vorteilen zu trennen. Zeige,
+welche Vorteile Edge-Computing bezüglich Sicherheit und Leistung bietet.
 
-### Virtuelle Maschinen versus Containertechnologie
-
-Ein kleines Rechenzentrum, das hauptsächlich für eine regional begrenzte, aber funktional breite Gruppe von Unternehmen
-arbeitet, erwägt den vollständigen Übergang zur Container-Technologie anstelle ihrer aktuellen Nutzung von virtuellen
-Maschinen.
-Ihr Hauptgrund ist der vermutete Gewinn an Leistung und Skalierbarkeit (sagen sie).
-Ihre Kunden setzen auf eine vielfältige Auswahl von Anwendungen und benötigen daher bürobasierte Betriebssysteme wie
-Windows, aber auch eine Reihe von verschiedenen Unix-Maschinen.
-Bisher hat das Rechenzentrum Debian-Distributionen als ihr Basisbetriebssystem verwendet.
-
-Ihr Expertenteam ist mehr als nur sachkundig im Bereich der Virtualisierung und kennt die Stärken und Grenzen der
-Containerisierung sehr gut.
-Anstatt zu beraten, was zu tun ist, bieten Sie an, das Bewusstsein für Containerisierung und Virtualisierung zu erhöhen,
-damit die Betreiber des Rechenzentrums eine fundierte Entscheidung darüber treffen können, ob, wo und wie sie Container
-einsetzen möchten.
-Sie vermuten, dass sie am Ende möglicherweise sowohl Container als auch virtuelle Maschinen nebeneinander nutzen müssen.
-Sie werden die richtigen Spezifikationen, für welche Lösung sie sich auch entscheiden, bereitstellen.
+Erstelle einen Prototyp von einem System, welches Daten von mehreren IoT Sensoren lokal verarbeitet und aufbereitet und
+zur Analyse und Persistierung in die Cloud weiterschickt.
 
 ### Skalierbarkeit von Publish-Subscribe-Systemen
 
-Wie bei so vielen Hypes haben viele Leute begonnen, Publish-Subscribe-Systeme zu nutzen, ohne den Nutzen wirklich zu
-verstehen.
 Sie wurden von einem Unternehmen (namens REPS) eingestellt, das eine Plattform für Verkauf und Vermietung verschiedener
-Immobilien aufbauen möchte.
-Ihr Alleinstellungsmerkmal ist, dass ein Kunde eine neue Immobilie abonnieren kann, die seinen Wünschen entspricht, so
-dass er innerhalb weniger Sekunden eine Benachrichtigung erhält, wenn diese Immobilie verfügbar ist.
+Immobilien aufbauen möchte. Ihr Alleinstellungsmerkmal ist, dass ein Kunde eine neue Immobilie abonnieren kann, die
+seinen Wünschen entspricht, so, dass er innerhalb weniger Sekunden eine Benachrichtigung erhält, wenn diese Immobilie
+verfügbar ist.
 
-Man versteht sofort, dass es sich um ein inhaltsbasiertes Publish-Subscribe System handelt.
-Aber angesichts der derzeitigen Fluktuation auf dem Wohnungsmarkt ist Ihnen auch klar, dass Skalierung ein Problem sein
-kann.
-Außerdem kann das Verpassen einer Benachrichtigung zu Reklamationen von Kunden führen.
+Analysiere das Umfeld der Applikation und erarbeite daraus Anforderungen an das System.
 
-Daher beschließen Sie, die Angelegenheit zu vertiefen und die Kompromisse zu identifizieren, die REPS berücksichtigen
-muss.
-Sie fragen sich, ob ein einfacheres themenbasiertes oder kanalbasiertes Pub-Sub System ausreicht, oder vielleicht eine
-Kombination aus beidem.
-In jedem Fall müssen Sie REPS klarmachen, worauf sie sich einlassen.
-Um die Sache noch schlimmer zu machen, hat REPS beschlossen, dass es vorziehen würde, die Anonymität der Treffer zu
-gewährleisten, damit sie die bestehenden Cloud-basierte Dienste zu nutzen, ohne diesen Diensten vollständig vertrauen zu
-müssen.
-Wenn es die Zeit erlaubt, werden Sie auch zu dieser zusätzlichen Anforderung eine Empfehlung abgeben.
+Vergleiche verschiedene Publish-Subscribe Systeme anhand ihrer Spezifikationen und erstelle einen Prototyp des 
+Systems mit verschiedenen verbreiteten Publish-Subscribe-Systemen.
 
 ### Skalierbarkeit von Blockchain-Systemen
 
-Die Blockchain-Technologie ist zu einem viel diskutierten Thema geworden, oft aus sehr unterschiedlichen Gründen.
-Ein Teil der Popularität rührt von der Überzeugung her, dass Blockchains ohne die Notwendigkeit einer vertrauenswürdigen
-dritten Partei (wie einer Bank) funktionieren und gleichzeitig skalierbar sind.
-Wenn man tiefer in die technischen Aspekte schaut, gibt es ernsthafte Probleme.
-Ein spezielles Problem, das sich möglicherweise als zu schwierig erweisen könnte, ist, dass die Kombination aus
-vollständiger Dezentralisierung (d.h. keine vertrauenswürdige dritten Partei), hohen
-Transaktionsverarbeitungsfähigkeiten, Skalierbarkeit in der Anzahl der Teilnehmer, und das Erreichen eines globalen
-Konsenses über die Durchführung von Transaktionen praktisch unmöglich zu realisieren ist.
-Man könnte argumentieren, dass diese Unmöglichkeit die Blockchains praktisch nutzlos macht.
+Seit generative AI in aller Munde ist, ist es etwas still um die Blockchains geworden. Davor wurde die
+Blockchain-Technologie jedoch breit diskutiert. Ein Grund dafür war der Glaube, dass Blockchains ohne die Notwendigkeit
+einer vertrauenswürdigen dritten Partei funktionieren und dabei dennoch skalierbar sind. Betrachtet man jedoch die
+technischen Details genauer, treten ernsthafte Probleme zutage. Ein besonders herausforderndes Problem ist, die
+vollständige Dezentralisierung bei hohen Transaktionsverarbeitungskapazitäten zu realisieren.
 
-Stellen Sie sich die Situation vor, dass der Geschäftsführer eines Softwareunternehmens erwägt, die Entwicklung einer
+Ein Geschäftsführer eines Softwareunternehmens erwägt, die Entwicklung einer
 Allzweck-Blockchain-Plattform zu beginnen, die als Middleware-Lösung für eine Reihe potenzieller Anwendungen fungieren
-kann.
-Im Wissen um die Kontroversen um Blockchains bittet er Ihr Expertenteam um einen fundierten Rat, ob sie die Entwicklung
-einer solchen Plattform empfehlen oder nicht.
+kann. Im Wissen um die Kontroversen um Blockchains bittet er Ihr Expertenteam um einen fundierten Rat, ob sie die
+Entwicklung einer solchen Plattform empfehlen oder nicht.
+
+Beschreibe die Funktionsweise und Herausforderungen einer Blockchain und untersuche, für welche Anwendungen eine 
+Blockchain genutzt werden könnte.
+
+Erarbeite einen Prototyp einer vollständig dezentralen Blockchain, welcher Transaktionen mit einem Konsens über alle
+Teilnehmer auf der Blockchain ermöglicht. Zeige anhand des Prototyps die Grenzen der Technologie.
