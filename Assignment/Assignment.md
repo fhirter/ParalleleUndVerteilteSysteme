@@ -14,7 +14,7 @@ Die Studierenden können ein Thema (siehe unten), in Absprache mit den anderen G
 Im beiliegenden Dokument "Anleitung zum Schreiben von technischen Berichten" werden die einzelnen Kapitel ausführlich
 beschrieben.
 
-Folgende Kapitel sollen vorkommen:
+Folgende Kapitel müssen vorkommen:
 
 - Einleitung
 - Theoretische Grundlagen
