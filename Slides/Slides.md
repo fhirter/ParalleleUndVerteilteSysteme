@@ -77,17 +77,11 @@ P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethe
 
 ![img.png](Images/LoadBalancing.png)
 
-# Decentralized vs Distributed
-
-**Decentralized**
+# Populäre verteilte Systeme
 
 - [Matrix](https://element.io/features/decentralised-matrix-network)
 - [Mastodon](https://joinmastodon.org/)
 - [Nextcloud](https://nextcloud.com/de/)
-- ...
-
-**Distributed**
-
 - [CockroachDB](https://www.cockroachlabs.com/product/)
 - [Neon](https://neon.tech/)
 - [Ably](https://ably.com/)
