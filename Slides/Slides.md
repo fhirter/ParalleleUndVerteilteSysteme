@@ -71,9 +71,8 @@ P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethe
 
 ## Lösungsansätze
 
-- Verfügbarkeit, Skalierbarkeit: Mehre identische Systeme müssen verfügbar sein und bei Bedarf sollen weitere schnell
-  gestartet werden können
-- Tradeoff: Kostengünstig, Einfach
+- Replication: Masking Failures
+- Tradeoff: Teuer und Komplex
 
 ![img.png](Images/LoadBalancing.png)
 
