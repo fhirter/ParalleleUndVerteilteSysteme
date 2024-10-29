@@ -1,24 +1,28 @@
 # Übung Prozesse
 
-## Lernziele
+## Lernziele und Kompetenzen
 
 - Die Studierenden wissen, wie Betriebssysteme die Ausführung von mehreren Prozessen ermöglichen.
-- Die Studierenden kennen Kommunikations- und Koordinationstechniken zwischen Prozessen und Systemen
+- Die Studierenden kennen Kommunikations- und Koordinationstechniken zwischen Prozessen und Systemen.
+- Die Studierenden können einfache parallele Applikationen implementieren.
+- Die Studierenden können evaluieren, ob für gegebene Anforderungen ein paralleles System notwendig ist.
 
 ## Vorgehen
 
-Halte dich an das folgende, wissenschaftliche Vorgehen:
+Halte dich an das folgende, [wissenschaftliche Vorgehen](https://en.wikipedia.org/wiki/Scientific_method):
 
-1. Fragestellung formulieren
-2. Recherche
-3. Vorgehen festlegen
-4. Untersuchungen durchführen
-5. Frage beantworten
-6. Ausblick
+1. **Beobachtung** festhalten und **Fragestellung** formulieren
+2. **Recherche**
+3. **Hypothese** formulieren
+4. **Testen** der Hypothese mit **Experimenten**
+5. **Experimente auswerten**
+6. **Schlussfolgerungen** und Ausblick formulieren
 
-Stelle sicher, dass du alle Fragen mit belastbaren Daten beantworten kannst.
+Stelle sicher, dass du alle Fragen mit **belastbaren Daten** beantworten kannst.
 
 Halte die Erkenntnisse in einem [Markdown-Dokument](https://www.markdownguide.org/) fest.
+Schreibe zu jedem der oben genannten Punkte einen Abschnitt. Der Ablauf kann beliebig oft wiederholt werden. 
+Entsprechend klein kann der Fokus der Fragestellung sein.
 
 **Schicke das Dokument nach dem Unterricht an den Dozenten.**
 
@@ -53,11 +57,14 @@ Verwende für die Lösung [Go](https://go.dev/), dieses bietet sehr einfaches Mu
 
 Nutze die [beiliegende Vorlage](Multiprocessing.go) für die Berechnungen.
 
-1. Erstelle eine Statistik, die die gemessenen Zeiten in Abhängigkeit der Länge der Zahlenreihe und der gewählten
-concurrency darstellt.
-2. Bestimme für verschiedene Längen der Zahlenreihe die optimale concurrency.
-3. Recherchiere, wie Go Channels funktionieren und vergleiche mit der Beschreibung im Kapitel 3.6 (Silberschatz, 2019).
-4. Erläutere den Code der Vorlage.
+Beantworte gemäss oben beschriebenem Vorgehen folgende Fragen:
+
+- Welcher Zusammenhang besteht zwischen der Berechnungszeit und der Länge der Zahlenreihe sowie der gewählten 
+  Nebenläufigkeit (Anzahl nebenläufige Berechnungen)?
+- Welche Nebenläufigkeit ist für welche Länge der Zahlenreihe optimal?
+
+Recherchiere zuerst, wie Go Channels funktionieren und vergleiche mit der Beschreibung im Kapitel 3.6 (Silberschatz, 
+2019). Erläutere den Code der Vorlage.
 
 ### Scheduling
 
