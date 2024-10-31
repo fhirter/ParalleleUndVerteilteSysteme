@@ -43,17 +43,17 @@ werden bewertet.
 
 ## Zeitplan
 
-Die einzelnen Kapitel werden im Verlauf des Semesters eingereicht. So wird vermieden, dass am Ende des Semesters ein
-grosser Arbeitsaufwand entsteht. Bis zur jeweils nächsten Abgabe kann die vorherige Abgabe noch überarbeitet werden
-(z.B.: "Einleitung" kann bei der Abgabe von "Theoretische Grundlagen" überarbeitet werden)
+Die einzelnen Kapitel werden im Verlauf des Semesters eingereicht und vorläufig bewertet. So wird vermieden, dass am
+Ende des Semesters ein grosser Arbeitsaufwand entsteht. Bei der Abgabe in Semesterwoche 17 können alle vorgängigen
+Kapitel noch überarbeitet werden.
 
-| Semesterwoche | Aufgabe                                                  |
-|---------------|----------------------------------------------------------|
-| 4             | Abgabe **Einleitung**                                    |
-| 9             | Abgabe **Theoretische Grundlagen**                       |
-| 15            | Abgabe **Material und Methoden**, **Ergebnisse**         |
-| 17            | Abgabe **Diskussion**, **Empfehlung und Ausblick**       |
-| 19            | Präsentationen und Fragen der anderen Gruppe beantworten |
+| Semesterwoche | Aufgabe                                                             |
+|---------------|---------------------------------------------------------------------|
+| 4             | Abgabe **Einleitung**                                               |
+| 9             | Abgabe **Theoretische Grundlagen**                                  |
+| 15            | Abgabe **Material und Methoden**, **Ergebnisse**                    |
+| 17            | Definitive Abgabe inkl. **Diskussion**, **Empfehlung und Ausblick** |
+| 19            | Präsentationen und Fragen der anderen Gruppe beantworten            |
 
 Abgaben jeweils bis **Sonntag-Abend** als **PDF per E-Mail** an den Dozenten.
 
