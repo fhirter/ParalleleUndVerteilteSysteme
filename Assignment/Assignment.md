@@ -80,38 +80,38 @@ Notenberechnung: $\frac{Gesamtpunkte}{80}*5+1$, gerundet auf 0.1.
 
 ### Peer-to-peer Social Network
 
-Sie werden gebeten ein Start-up bei der Entwicklung eines vollständig dezentralen sozialen Netzwerks zu beraten. Das
-System soll öffentliche Profile sowie den Austausch von Nachrichten ohne zentrale Server ermöglichen. Erarbeitet dazu
-eine Übersicht über Peer-To-Peer Technologien und dezentrale Messaging und Social Media Applikationen. Untersuche auch,
-wie Peer-To-Peer-Netzwerke vor Angriffen geschützt werden können.
+Untersuche, wie ein vollständig dezentrales soziales Netz realisiert werden könnte. Das System soll öffentliche Profile
+sowie den Austausch von Nachrichten ohne zentrale Server ermöglichen. Erarbeitet dazu eine Übersicht über Peer-To-Peer
+Technologien und dezentrale Messaging und Social Media Applikationen. Untersuche auch, wie Peer-To-Peer-Netzwerke vor
+Angriffen geschützt werden können.
 
 Entwickle einen oder mehrere Prototypen eines vollständig dezentralen Peer-to-Peer sozialen Netzwerks um Erfahrungen in
 den verschiedenen Architekturen zu gewinnen und interpretiere die Erkenntnisse.
 
 ### Edge-Computing
 
-Einer Ihrer Kommilitonen erwägt die Gründung eines Start-ups für die Entwicklung einer Edge-Computing-Sensor-Plattform.
-Die Plattform soll zahlreiche IoT-Sensoren zur Überwachung von Maschinen einsetzen. Die dadurch gewonnenen Daten 
-sollen lokal bereinigt und mit Machine-Learning-Tools auf entsprechend leistungsfähiger Hardware analysiert 
-werden. Die Resultate von dieser Analyse sollen in der Cloud persistiert werden für weitere Auswertungen.
+Untersuche, wie eine Edge-Computing-Sensor-Plattform realisiert werden könnte. Die Plattform soll zahlreiche
+IoT-Sensoren zur Überwachung von Maschinen einsetzen. Die dadurch gewonnenen Daten sollen lokal bereinigt und mit
+Machine-Learning-Tools auf entsprechend leistungsfähiger Hardware analysiert werden. Die Resultate von dieser Analyse
+sollen für weitere Auswertungen in der Cloud persistiert werden.
 
-Erarbeite die Grundlagen von Edge-Computing-Systemen und versuche Hype von wirklichen Vorteilen zu trennen. Zeige,
-welche Vorteile Edge-Computing bezüglich Sicherheit und Leistung bietet.
+Erarbeite die Grundlagen von Edge-Computing-Systemen und versuche Hype von echten Vorteilen zu trennen. Zeige, welche
+Vorteile Edge-Computing bezüglich Sicherheit und Leistung bietet.
 
 Erstelle einen Prototyp von einem System, welches Daten von mehreren IoT Sensoren lokal verarbeitet und aufbereitet und
 zur Analyse und Persistierung in die Cloud weiterschickt.
 
 ### Skalierbarkeit von Publish-Subscribe-Systemen
 
-Sie wurden von einem Unternehmen (namens REPS) eingestellt, das eine Plattform für Verkauf und Vermietung verschiedener
-Immobilien aufbauen möchte. Ihr Alleinstellungsmerkmal ist, dass ein Kunde eine neue Immobilie abonnieren kann, die
-seinen Wünschen entspricht, so, dass er innerhalb weniger Sekunden eine Benachrichtigung erhält, wenn diese Immobilie
-verfügbar ist.
+Untersuche, wie eine Plattform für Verkauf und Vermietung verschiedener Immobilien und Wohnungen aufgebaut werden
+könnte. Die Plattform soll den Usern ermöglichen, eine Suche nach einer Immobilie oder Wohnung zu speichern, so, dass
+sie innerhalb weniger Sekunden eine Benachrichtigung erhalten, wenn neue, passende Immobilien oder Wohnungen verfügbar
+sind.
 
 Analysiere das Umfeld der Applikation und erarbeite daraus Anforderungen an das System.
 
-Vergleiche verschiedene Publish-Subscribe Systeme anhand ihrer Spezifikationen und erstelle einen Prototyp des 
-Systems mit verschiedenen verbreiteten Publish-Subscribe-Systemen.
+Vergleiche verschiedene Publish-Subscribe Systeme anhand ihrer Spezifikationen und erstelle einen Prototyp des Systems
+mit verschiedenen verbreiteten Publish-Subscribe-Systemen.
 
 ### Skalierbarkeit von Blockchain-Systemen
 
@@ -121,13 +121,11 @@ einer vertrauenswürdigen dritten Partei funktionieren und dabei dennoch skalier
 technischen Details genauer, treten ernsthafte Probleme zutage. Ein besonders herausforderndes Problem ist, die
 vollständige Dezentralisierung bei hohen Transaktionsverarbeitungskapazitäten zu realisieren.
 
-Ein Geschäftsführer eines Softwareunternehmens erwägt, die Entwicklung einer
-Allzweck-Blockchain-Plattform zu beginnen, die als Middleware-Lösung für eine Reihe potenzieller Anwendungen fungieren
-kann. Im Wissen um die Kontroversen um Blockchains bittet er Ihr Expertenteam um einen fundierten Rat, ob sie die
-Entwicklung einer solchen Plattform empfehlen oder nicht.
+Untersuche, wie eine Allzweck-Blockchain-Plattform entwickelt werden könnte, welche als Middleware-Lösung für eine
+Reihe potenzieller Anwendungen fungieren kann.
 
-Beschreibe die Funktionsweise und Herausforderungen einer Blockchain und untersuche, für welche Anwendungen eine 
+Beschreibe die Funktionsweise und Herausforderungen einer Blockchain und untersuche, für welche Anwendungen eine
 Blockchain genutzt werden könnte.
 
 Erarbeite einen Prototyp einer vollständig dezentralen Blockchain, welcher Transaktionen mit einem Konsens über alle
-Teilnehmer auf der Blockchain ermöglicht. Zeige anhand des Prototyps die Grenzen der Technologie.
+Teilnehmer auf der Blockchain ermöglicht. Zeige anhand des Prototyps die Grenzen der Technologie auf.
