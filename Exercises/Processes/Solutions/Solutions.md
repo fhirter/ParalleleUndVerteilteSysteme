@@ -19,3 +19,11 @@ Thread pro Prozess anzeigen:
 
 #### Cron Prozess
 `top -b | grep restic`
+
+## Multiprocessing
+
+![plot.png](plot.png)
+
+## Scheduling
+
+![IMG_0147.JPG](IMG_0147.JPG)
