@@ -94,5 +94,5 @@ Der Scheduler wird alle 10 Zeiteinheiten ausgeführt.
 2. Wie hoch ist die CPU-Auslastung?
 3. Wie gross ist die Wartezeit für jeden Prozess?
 
-Hinweis: Die Gantt-Chart Implementierung von Mermaid.js ist sehr fehlerhaft. Es wird deshalb davon abgeraten, 
-Mermaid für diese Aufgabe zu verwenden.
+Hinweis: Die Gantt-Chart Implementierung von Mermaid.js funktioniert kaum für diese Aufgabe. Eine Verwendung wird 
+nicht empfohlen.
