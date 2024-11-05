@@ -3,8 +3,7 @@
 Entwickle eine Empfehlung, wie die sieben von L Peter Deutsch bereits 1994
 formulierten "[Fallacies](https://de.wikipedia.org/wiki/Fallacies_of_Distributed_Computing)"[^1] bereits während der Entwicklung vermieden werden können.
 
-Halte die Empfehlung in einem [Markdown](https://www.markdownguide.org/) Dokument fest und reiche dies am Schluss per
-E-Mail an den Dozenten ein.
+Halte die Empfehlung in einem kurzen [Bericht](https://www.markdownguide.org/) fest und präsentiere sie der Klasse.
 
 ## Variante 1
 
