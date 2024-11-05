@@ -76,7 +76,7 @@ P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethe
 
 ![img.png](Images/LoadBalancing.png)
 
-# Populäre verteilte Systeme
+## Populäre verteilte Systeme
 
 - [Matrix](https://element.io/features/decentralised-matrix-network)
 - [Mastodon](https://joinmastodon.org/)
@@ -86,66 +86,6 @@ P: Prozessor, Interconnect: Netzwerkverbindung, meistens HTTP, UDP/TCP, IP, Ethe
 - [Ably](https://ably.com/)
 - ...
 
-# Architekturen
-
-## Schichtenarchitekturen
-
-![w:200px](Images/distributedSystems/02/02-01a.png)
-
-## Ports and Adaptors architecture
-
-![w:600px](Images/ports-and-adapters-architecture.svg)
-
-## Publish-subscribe Architekturen
-
-![w:600px](Images/distributedSystems/02/02-09.png)
-
----
-
-![w:600px](Images/distributedSystems/02/02-10a.png)
-
----
-
-![w:600px](Images/distributedSystems/02/02-10b.png)
-
----
-
-![w:600px](Images/distributedSystems/02/02-12.png)
-
----
-
-![w:800px](Images/distributedSystems/02/02-14b.png)
-
----
-
-![w:1000px](Images/distributedSystems/02/02-17.png)
-
-## Cloud Computing
-
-> The entire history of software engineering is that of the rise in levels of abstraction.
-
--- Grady Booch
-
----
-
-![w:1000px](Images/PizzaAsAService.png)
-
-### Abstractions
-
-![w:1000px](Images/Abstractions.png)
-(VanSteen, 2017, S. 30)
-
-### XaaS
-
-![w:1000px](Images/XaaS.png)
-
-### Fallstudie
-
-![w:1000px](Images/CaseStudyDashboard.png)
-
-## Edge Computing
-
-![02-28.png](Images/distributedSystems/02/02-28.png)
 
 # Koordination
 
@@ -193,3 +133,65 @@ do {
 ### Beispiel
 
 ![w:100%](Images/semaphore.png)
+
+
+# Architekturen
+
+## Schichtenarchitekturen
+
+![w:200px](Images/distributedSystems/02/02-01a.png)
+
+## Ports and Adaptors architecture
+
+![w:600px](Images/ports-and-adapters-architecture.svg)
+
+# Publish-subscribe Architekturen
+
+![w:600px](Images/distributedSystems/02/02-09.png)
+
+---
+
+![w:600px](Images/distributedSystems/02/02-10a.png)
+
+---
+
+![w:600px](Images/distributedSystems/02/02-10b.png)
+
+---
+
+![w:600px](Images/distributedSystems/02/02-12.png)
+
+---
+
+![w:800px](Images/distributedSystems/02/02-14b.png)
+
+---
+
+![w:1000px](Images/distributedSystems/02/02-17.png)
+
+# Cloud und Edge Computing
+
+> The entire history of software engineering is that of the rise in levels of abstraction.
+
+-- Grady Booch
+
+---
+
+![w:1000px](Images/PizzaAsAService.png)
+
+## Abstractions
+
+![w:1000px](Images/Abstractions.png)
+(VanSteen, 2017, S. 30)
+
+## XaaS
+
+![w:1000px](Images/XaaS.png)
+
+## Fallstudie
+
+![w:1000px](Images/CaseStudyDashboard.png)
+
+## Edge Computing
+
+![02-28.png](Images/distributedSystems/02/02-28.png)
