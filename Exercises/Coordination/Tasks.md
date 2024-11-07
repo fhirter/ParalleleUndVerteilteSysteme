@@ -19,5 +19,5 @@ verarbeitet die Nachrichten in mehreren Prozessen.
 Es tauchen selten aber regelmässig «Duplicate Entry» Fehler auf.
 
 - Was könnte die Ursache für diese Fehler sein? Skizziere den Ablauf, der den Fehler verursacht, mit einem
-  Aktivitätsdiagramm. Verwende dazu PlantUML oder Mermaid.
+  Sequenzdiagramm. Verwende dazu PlantUML oder Mermaid.
 - Wie könnte das Problem vermieden werden?
