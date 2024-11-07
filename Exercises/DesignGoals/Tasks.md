@@ -23,6 +23,8 @@ Der Bericht ist per E-Mail an den Dozenten einzureichen. Er wird nicht bewertet,
 - Dateiformat: [Markdown](https://www.markdownguide.org/) oder daraus [generiertes PDF](https://pandoc.org/).
 - Diagramme: [PlantUML](https://plantuml.com/de/), [Mermaid](https://mermaid.js.org/) o.ä.
 
+Für die Präsentation wird empfohlen, ebenfalls Markdown Dokumente zu verwenden und z.B. mit [Marp](https://marp.app/) zu rendern.
+
 ### Design-Ziele
 
 Untersuche die Features der gewählten Technologie und vergleiche diese mit den Design-Zielen von verteilten Systemen (siehe Van Steen Kapitel 1.2).
