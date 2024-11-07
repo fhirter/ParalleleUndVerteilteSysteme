@@ -5,7 +5,7 @@
 Wähle eine der folgenden Technologien:
 
 - [CockroachDB](https://www.cockroachlabs.com/): Datenbank
-- [Ably](https://ably.com/): Pub-Sub Messaging
+- [RabbitMQ](https://www.rabbitmq.com/): Pub-Sub Messaging
 - [Zitadel](https://zitadel.com/): Identity Provider
 
 ## Fragen
