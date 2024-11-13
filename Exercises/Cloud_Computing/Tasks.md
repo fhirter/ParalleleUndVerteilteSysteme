@@ -5,7 +5,7 @@ Die Studierenden können die technischen Vor- und Nachteile von verteilten Compu
 ## Prime Video
 Lies folgenden Artikel aufmerksam durch:
  [Scaling up the Prime Video audio/video monitoring service and reducing costs by 90%
-](https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90)
+](https://web.archive.org/web/20240124220906/https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90)
 
 ### Fragen und Aufgaben
 - Auf welche Herausforderungen und Einschränkungen sind die Techniker:innen bei der Microservices-Architektur gestossen?
