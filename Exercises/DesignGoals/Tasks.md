@@ -29,15 +29,14 @@ Für die Präsentation wird empfohlen, ebenfalls Markdown Dokumente zu verwenden
 
 Untersuche die Features der gewählten Technologie und vergleiche diese mit den Design-Zielen von verteilten Systemen (siehe Van Steen Kapitel 1.2).
 
-- Welches sind die wichtigsten Features?
+- Welches sind die wichtigsten Features des untersuchten Systems?
 - Für welche von diesen Features werden verteilte Systeme eingesetzt?
-- Wie wird dies umgesetzt?
-- Welche der folgenden Eigenschaften sind **Transparent**, welche nicht?
-  (Zugriff, Standort, Replikation, Änderung des Standorts, gleichzeitiger Zugriff von verschiedenen Usern, Fehler)
-- Ist das System **offen**?
-- Wie **zuverlässig** ist das System?
-- Wie wird die **Sicherheit** gewährleistet?
-- In welchem Rahmen kann das System **skalieren**? Wie wird dies umgesetzt?
+- Wie wird dies im untersuchten System umgesetzt?
+- Welche der folgenden Eigenschaften sind **Transparent**, welche nicht (vgl. Van Steen Figure 1.3)?
+  (Zugriff, Standort, Replikation, Änderung des Standorts, gleichzeitig er Zugriff von verschiedenen Usern, Fehler)
+- Ist das System **offen** (vgl. Van Steen Kapitel 1.2.3)?
+- Wie **zuverlässig** ist das System (vgl. Van Steen Kapitel 1.2.4)?
+- In welchem Rahmen kann das System **skalieren**? Wie wird dies umgesetzt (vgl. Van Steen Kapitel 1.2.6)?
 
 ## Quellen
 
