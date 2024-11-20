@@ -6,7 +6,9 @@ Wähle eine der folgenden Technologien:
 
 - [CockroachDB](https://www.cockroachlabs.com/): Datenbank
 - [RabbitMQ](https://www.rabbitmq.com/): Pub-Sub Messaging
-- [Zitadel](https://zitadel.com/): Identity Provider
+- [Neon](https://neon.tech/): Datenbank
+- [YugabyteDB](https://www.yugabyte.com/): Datenbank
+- [NATS](https://nats.io/): Messaging Plattform
 
 ## Fragen
 
