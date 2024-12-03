@@ -5,8 +5,8 @@
 Die Studierenden
 
 - kennen die Beweggründe und Herausforderungen von parallelen und verteilten Systemen
-- Kennen verschiedene dezentrale Architekturstile und deren Anwendung
-- eine einfaches verteiltes System entwerfen
+- kennen verschiedene dezentrale Architekturstile und deren Anwendung
+- können ein einfaches verteiltes System entwerfen
 
 ## Dokumentation
 
