@@ -23,7 +23,7 @@ WORKDIR /app
 COPY --from=builder /app/server .
 
 # Set the environment variables. You can override these when running the container.
-ENV REQUEST_DELAY_MS=1000
+ENV REQUEST_DELAY_MS=100
 ENV PORT=8080
 
 # Expose the application port
