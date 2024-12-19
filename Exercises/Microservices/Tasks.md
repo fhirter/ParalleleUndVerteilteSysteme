@@ -7,17 +7,17 @@ jeweiligen Software.
 
 ## Services
 
-### Order Service:
+### Order Service
 
 - Go Backend
 - Postgres Datenbank
 
-### Users Service:
+### Users Service
 
 - Node.js Server
 - YugabyteDB Datenbank
 
-### Landing Page:
+### Landing Page
 
 - nginx Server für statische Files
 
