@@ -10,7 +10,7 @@ jeweiligen Software.
 ### Order Service:
 
 - Go Backend
-- Apache Cassandra Datenbank
+- Postgres Datenbank
 
 ### Users Service:
 
