@@ -1,12 +1,17 @@
-const express = require('express')
-const app = express()
-const port = 3000
+import Fastify from 'fastify'
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+const fastify = Fastify({
+  logger: true
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+fastify.get('/', function (request, reply) {
+  reply.send({ hello: 'world' })
 })
 
+// Run the server!
+fastify.listen({ port: 8080 }, function (err, address) {
+  if (err) {
+    fastify.log.error(err)
+    process.exit(1)
+  }
+})
