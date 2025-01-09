@@ -6,7 +6,8 @@
 4. [Fallstricke von verteilten Systemen](Pitfalls/Tasks.md)
 5. [Cloud Computing](Cloud_Computing)
 6. [Edge Computing](EdgeComputing/Tasks.md)
-6. [Publish Subscribe](PublishSubscribe)
-7. [Diagramme](Diagrams)
-8. [Virtualisierung](Virtualization)
+7. [Microservice](Microservices/Tasks.md)
+8. [Publish Subscribe](PublishSubscribe)
+9. [Diagramme](Diagrams)
+10. [Virtualisierung](Virtualization)
 
