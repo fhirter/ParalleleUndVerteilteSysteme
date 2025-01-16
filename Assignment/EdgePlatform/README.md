@@ -1,0 +1,4 @@
+- `brew install mosquitto`
+- run broker: `mosquitto`
+- run subscriber: `python3 mqtt_subscriber.py`
+- run publisher: `python3 mqtt_publisher.py`
