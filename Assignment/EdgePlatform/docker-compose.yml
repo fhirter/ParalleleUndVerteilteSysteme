@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  broker:
+    image: mqtt-demo
+    container_name: broker_container
+    command: ./broker.sh
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    networks:
+      - local
+    ports:
+      - "1883:1883" # Exposing MQTT default port
+
+  publisher:
+    image: mqtt-demo
+    container_name: publisher_container
+    command: ./publisher.sh
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    networks:
+       - local
+
+  subscriber:
+    image: mqtt-demo
+    container_name: subscriber_container
+    command: ./subscriber.sh
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    networks:
+       - local
+
+networks:
+  local:
+    driver: bridge
