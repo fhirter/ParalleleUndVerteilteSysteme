@@ -7,6 +7,7 @@ Books and articles that I heavily recommend.
 - Abraham Silberschatz, Peter Baer Galvin, Greg Gagne (2019): Silberschatz's Operating System Concepts, Global Edition, Wiley
 - Robert C. Martin (2018): Clean Architecture: A Craftmans Guide to Software Structure and Design, Prentice Hall
 - Gregor Hohpe, Bobby Wolf (2004): Enterprise Integration Patterns, Pearson Education
+- Kleppmann Martin (2017):  Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems, O'Reilly
 
 ## Articles
 
