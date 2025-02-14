@@ -8,6 +8,11 @@ img {
 
 # Einführung
 
+> There are only two hard problems in distributed systems: 2. Exactly-once delivery 1. Guaranteed order of messages 2. Exactly-once delivery
+-- Mathias Verraes
+
+
+
 [This work is published under a Creative Commons BY-SA license.](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ## «Parallele Systeme»
