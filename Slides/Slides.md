@@ -316,8 +316,11 @@ Downsides:
 
 ## Local-first software
 
-End-user device is a full replica; servers are just for backup. “Local-first”: a term introduced by me (Martin
-Kleppmann) and my colleagues https://www.inkandswitch.com/local-first/
+End-user device is a full replica; servers are just for backup.
+
+“Local-first”: a term introduced by Martin Kleppmann and his colleagues https://www.inkandswitch.com/local-first/
+
+---
 
 Calendar app with cross-device sync as an example:
 
