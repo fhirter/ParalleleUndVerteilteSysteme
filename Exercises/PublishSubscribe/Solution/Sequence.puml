@@ -1,0 +1,22 @@
+@startuml
+
+Alice -> Broker: subscribe to "alice"
+Alice -> Broker: hello to "bob"
+
+Bob -> Broker: subscribe to "bob"
+Bob -> Broker: hello to "alice"
+Broker -> Alice: hello from "alice"
+
+Alice -> Broker: hello to "bob"
+Broker -> Bob: hello from "bob"
+
+Alice -> Broker: Create chat to "bob": <id>
+Broker -> Bob: create chat from "bob": <id>
+
+Alice -> Broker: subscribe to "<id>"
+Bob -> Broker: subscribe to "<id>"
+
+Alice -> Broker: Send message to "<id>"
+Broker -> Bob: Send message from "<id>"
+
+@enduml
